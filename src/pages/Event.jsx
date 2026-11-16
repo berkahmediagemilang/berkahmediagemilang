@@ -2,10 +2,10 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'motion/react'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
-import { ButtonLink, Eyebrow, PageHero, Wrap } from '../components/ui.jsx'
-import { categoryLabels, events, formatEventDate } from '../data/events.js'
-import { localized } from '../data/localized.js'
-import { useLanguage } from '../i18n/language.js'
+import { ButtonLink, Eyebrow, PageHero, SectionHead, Wrap } from '@/components/ui.jsx'
+import { categoryLabels, events, formatEventDate, sortEventsByDateDesc } from '@/data/events.js'
+import { localized } from '@/data/localized.js'
+import { useLanguage } from '@/i18n/language.js'
 
 const heroPhoto = 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1600&q=85'
 
@@ -38,7 +38,21 @@ export default function Event() {
     return visibleItems.slice(start, start + pageSize)
   }, [visibleItems, currentPage])
 
-  const learnMore = isIndonesian ? 'Lihat detail event' : isChinese ? '查看活动详情' : 'View event details'
+  const learnMore = isIndonesian ? 'Detail event' : isChinese ? '活动详情' : 'Event details'
+  const archiveEvents = useMemo(() => sortEventsByDateDesc(events), [])
+  const archiveEyebrow = isIndonesian ? 'Arsip Event' : isChinese ? '活动回顾' : 'Event Archive'
+  const archiveTitle = isIndonesian ? (
+    <>Event yang sudah <span className="text-accent-400">kami selenggarakan</span></>
+  ) : isChinese ? (
+    <>我们<span className="text-accent-400">承办过的活动</span></>
+  ) : (
+    <>Events <span className="text-accent-400">we have organized</span></>
+  )
+  const archiveLead = isIndonesian
+    ? `${events.length} event lintas publik, korporat, olahraga, dan digital — semuanya bisa Anda jelajahi.`
+    : isChinese
+      ? `${events.length} 场活动，涵盖公众、企业、体育与线上形式——全部开放浏览。`
+      : `${events.length} events across public, corporate, sport and digital formats — all browsable.`
 
   const formatDate = (date) => formatEventDate(date, language)
 
@@ -145,15 +159,15 @@ export default function Event() {
                     <span className="chip absolute left-4 top-4 z-[3] bg-accent-500 text-white">
                       {localized(categoryLabels[item.category], language)}
                     </span>
+                    <span className="absolute right-4 top-4 z-[3] inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/12 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.08em] text-white backdrop-blur-md transition-colors duration-300 group-hover:border-accent-500 group-hover:bg-accent-500">
+                      {learnMore}
+                      <ArrowRight size={13} aria-hidden="true" />
+                    </span>
                     <div className="relative z-[2] p-6">
-                      <p className="text-[12px] font-medium text-white/70">
+                      <p className="text-[13px] font-semibold text-white/90">
                         {item.place} · {formatDate(item.date)}
                       </p>
                       <h3 className="h3 mt-2 text-white">{itemTitle}</h3>
-                      <span className="mt-3 inline-flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.08em] text-white/70 transition-colors group-hover:text-white">
-                        {learnMore}
-                        <ArrowRight size={14} aria-hidden="true" />
-                      </span>
                     </div>
                   </MotionLink>
                 )
@@ -197,6 +211,41 @@ export default function Event() {
               </button>
             </nav>
           ) : null}
+        </Wrap>
+      </section>
+
+      {/* Archive ---------------------------------------------------------- */}
+      <section className="section section--dark">
+        <Wrap>
+          <SectionHead dark eyebrow={archiveEyebrow} title={archiveTitle} lead={archiveLead} className="mb-8" />
+          <ul>
+            {archiveEvents.map((item) => (
+              <li key={item.slug}>
+                <Link
+                  to={`/event/${item.slug}`}
+                  className="group grid gap-y-1 border-t border-white/10 px-2 py-5 transition-colors hover:bg-white/[0.04] sm:grid-cols-[180px_1fr_auto] sm:items-center sm:gap-x-8 sm:px-4"
+                >
+                  <span className="text-[12px] font-semibold uppercase tracking-[0.08em] text-accent-400">
+                    {formatEventDate(item.date, language)}
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-[16px] font-bold leading-snug text-white">
+                      {localized(item.title, language)}
+                    </span>
+                    <span className="mt-1 block text-[13px] text-white/55">
+                      {item.place} · {localized(categoryLabels[item.category], language)}
+                    </span>
+                  </span>
+                  <ArrowRight
+                    size={18}
+                    aria-hidden="true"
+                    className="hidden shrink-0 text-white/35 transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent-400 sm:block"
+                  />
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="border-t border-white/10" aria-hidden="true" />
         </Wrap>
       </section>
 

@@ -1,7 +1,10 @@
 /**
- * Shared event catalogue for the /event page and the event detail pages
- * (/event/:slug). Localized fields use { id, en, zh } objects — pick with
- * `localized()` from ./localized.js.
+ * Shared event catalogue for the /event page, the event detail pages
+ * (/event/:slug) and the archive section on /event.
+ * Localized fields use { id, en, zh } objects — pick with `localized()`.
+ *
+ * NOTE: `guestStars` and `support` are placeholder entries — swap them for
+ * the real names, roles and photos per event.
  */
 
 export const categoryLabels = {
@@ -32,6 +35,27 @@ export function formatEventDate(date, language) {
   return `${monthName} ${date.year}`
 }
 
+export function sortEventsByDateDesc(list) {
+  return [...list].sort((a, b) => (b.date.year - a.date.year) || (b.date.month - a.date.month) || ((b.date.from ?? 0) - (a.date.from ?? 0)))
+}
+
+/**
+ * Deterministically pick `count` related events for the detail page:
+ * the current event is always excluded, and each detail page gets a
+ * different combination (consecutive window shifted by one position).
+ */
+export function getRelatedEvents(slug, count = 3) {
+  const sorted = sortEventsByDateDesc(events)
+  const index = sorted.findIndex((event) => event.slug === slug)
+  if (index === -1) return sorted.slice(0, count)
+  const picked = []
+  for (let step = 1; picked.length < Math.min(count, sorted.length - 1); step += 1) {
+    const candidate = sorted[(index + step + 1) % sorted.length]
+    if (candidate.slug !== slug && !picked.includes(candidate)) picked.push(candidate)
+  }
+  return picked
+}
+
 export const events = [
   {
     slug: 'bandung-festival-2026',
@@ -56,6 +80,17 @@ export const events = [
       en: ['Main & side stage production across 6 days', 'Tenant, booth & bazaar management', 'Artist booking & daily program curation', 'On-site operations: crew, security & permits'],
       zh: ['六天主舞台与副舞台制作', '商户、展位与市集管理', '艺人预订与每日节目策划', '现场运营：团队、安保与审批'],
     },
+    guestStars: [
+      { name: 'Rangga Wibowo', role: { id: 'Band · Pop Alternatif', en: 'Band · Alt Pop', zh: '乐队 · 另类流行' }, photo: 'https://images.unsplash.com/photo-1550246140-29f40b909e5a?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Nadira Putri', role: { id: 'Penyanyi Solo', en: 'Solo Singer', zh: '独唱歌手' }, photo: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Kolektif Kanvas Bandung', role: { id: 'Kolektif Seni', en: 'Arts Collective', zh: '艺术团体' }, photo: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=400&q=80' },
+    ],
+    support: [
+      { name: 'Kopi Kala', category: { id: 'Kedai Kopi · UMKM', en: 'Coffee Shop · SME', zh: '咖啡店 · 中小企业' }, photo: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Batik Laras', category: { id: 'Fashion · UMKM', en: 'Fashion · SME', zh: '服饰 · 中小企业' }, photo: 'https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Bank Arunika', category: { id: 'Perbankan', en: 'Banking', zh: '银行业' }, photo: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Galora FM', category: { id: 'Media Partner', en: 'Media Partner', zh: '媒体合作伙伴' }, photo: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80' },
+    ],
   },
   {
     slug: 'talkshow-meet-up-guest-speaker',
@@ -80,6 +115,16 @@ export const events = [
       en: ['Guest booking & coordination (fee, contract, rider)', 'Rundown for talkshow, Q&A & meet-up session', 'Stage, audio & documentation production', 'Queue and audience interaction management'],
       zh: ['嘉宾预订与协调（费用、合同、rider）', '脱口秀、问答与见面会流程安排', '舞台、音响与影像制作', '签名合影队列与互动管理'],
     },
+    guestStars: [
+      { name: 'Bimo Aditama', role: { id: 'Penulis & Pembicara', en: 'Author & Speaker', zh: '作家 · 演讲者' }, photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Sari Wijaya', role: { id: 'Moderator', en: 'Moderator', zh: '主持人' }, photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Dimas Probo', role: { id: 'Komika', en: 'Stand-up Comedian', zh: '单口喜剧演员' }, photo: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=400&q=80' },
+    ],
+    support: [
+      { name: 'Toko Buku Aksara', category: { id: 'Retail Buku · UMKM', en: 'Bookstore · SME', zh: '书店 · 中小企业' }, photo: 'https://images.unsplash.com/photo-1524578271613-d550eacf6090?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Literasi Bandung', category: { id: 'Komunitas', en: 'Community', zh: '社群' }, photo: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Sprint Teknologi', category: { id: 'IT & Software', en: 'IT & Software', zh: 'IT 与软件' }, photo: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=400&q=80' },
+    ],
   },
   {
     slug: 'coway-brand-activation',
@@ -104,6 +149,16 @@ export const events = [
       en: ['Activation concept & booth design', 'Booth, display & property production', 'Product demos & promoter management', 'Lead capture & activation report'],
       zh: ['激活创意与展位设计', '展位、陈列与物料制作', '产品演示与促销员管理', '线索收集与激活效果报告'],
     },
+    guestStars: [
+      { name: 'Alya Maharani', role: { id: 'MC & Brand Ambassador', en: 'MC & Brand Ambassador', zh: '主持人 · 品牌大使' }, photo: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Gagah Pradana', role: { id: 'Stand-up Comedian', en: 'Stand-up Comedian', zh: '单口喜剧演员' }, photo: 'https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Karina Dewi', role: { id: 'Dance Crew Kupu', en: 'Dance Crew Kupu', zh: '舞团 Kupu' }, photo: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=400&q=80' },
+    ],
+    support: [
+      { name: 'Sentosa Jaya', category: { id: 'Distribusi & Logistik', en: 'Distribution & Logistics', zh: '分销与物流' }, photo: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Mama Lina Catering', category: { id: 'Katering · UMKM', en: 'Catering · SME', zh: '餐饮 · 中小企业' }, photo: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Riang Medika', category: { id: 'Layanan Kesehatan', en: 'Healthcare', zh: '医疗服务' }, photo: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80' },
+    ],
   },
   {
     slug: 'tenant-event-local-brand-day',
@@ -128,6 +183,16 @@ export const events = [
       en: ['Local tenant curation & coordination', 'Area layout, booths & decoration', 'Visitor promotions & marketing', 'Event operations: setup, crew, teardown'],
       zh: ['本土商户甄选与协调', '区域布局、展位与装饰', '访客推广与营销', '活动执行：搭建、人员、撤展'],
     },
+    guestStars: [
+      { name: 'Rara Kusuma', role: { id: 'Content Creator', en: 'Content Creator', zh: '内容创作者' }, photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Bima Arya', role: { id: 'Aksi Akustik', en: 'Acoustic Act', zh: '原声音乐' }, photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Sanggar Tari Ligar', role: { id: 'Tari Tradisional', en: 'Traditional Dance', zh: '传统舞蹈' }, photo: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=400&q=80' },
+    ],
+    support: [
+      { name: 'Kriya Alam', category: { id: 'Kerajinan · UMKM', en: 'Crafts · SME', zh: '手工艺 · 中小企业' }, photo: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Rumah Roti Naya', category: { id: 'Bakery · UMKM', en: 'Bakery · SME', zh: '面包店 · 中小企业' }, photo: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Kanvas Distro', category: { id: 'Distro · UMKM', en: 'Streetwear · SME', zh: '潮牌 · 中小企业' }, photo: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=400&q=80' },
+    ],
   },
   {
     slug: 'sera-sa-bakehouse-grand-opening',
@@ -152,6 +217,16 @@ export const events = [
       en: ['Day-of concept & decoration', 'Opening ceremony & program', 'Entertainment, MC & documentation', 'Guest management & event flow'],
       zh: ['开业当天概念与装饰', '开业仪式与活动流程', '演出、主持与影像记录', '来宾接待与活动动线'],
     },
+    guestStars: [
+      { name: 'Salsa Indah', role: { id: 'Pastry Chef', en: 'Pastry Chef', zh: '糕点主厨' }, photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Nino Saputra', role: { id: 'MC', en: 'MC', zh: '主持人' }, photo: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Senja Pagi', role: { id: 'Band Indie Lokal', en: 'Local Indie Band', zh: '本地独立乐队' }, photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80' },
+    ],
+    support: [
+      { name: 'Tepung Sejahtera', category: { id: 'Supplier Bahan Baku', en: 'Ingredient Supplier', zh: '原料供应商' }, photo: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Kopi Kala', category: { id: 'Kedai Kopi · UMKM', en: 'Coffee Shop · SME', zh: '咖啡店 · 中小企业' }, photo: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Komunitas UKM Bandung', category: { id: 'Komunitas UMKM', en: 'SME Community', zh: '中小企业社群' }, photo: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80' },
+    ],
   },
   {
     slug: 'lumi-fun-run-5k',
@@ -176,6 +251,16 @@ export const events = [
       en: ['Race concept & 5K route permits', 'Participant registration & race kit', 'Marshals, medical & route safety', 'Start/finish area & post-race entertainment'],
       zh: ['赛事概念与 5 公里赛道审批', '选手报名与参赛物资', '引导员、医疗与赛道安保', '起终点区域与赛后娱乐'],
     },
+    guestStars: [
+      { name: 'Kevin Halim', role: { id: 'Atlet & Pelari Nasional', en: 'National Runner', zh: '国家级跑者' }, photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Rena Sari', role: { id: 'MC Sport', en: 'Sports MC', zh: '体育主持人' }, photo: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80' },
+      { name: 'DJ Anggara', role: { id: 'DJ', en: 'DJ', zh: 'DJ' }, photo: 'https://images.unsplash.com/photo-1550246140-29f40b909e5a?auto=format&fit=crop&w=400&q=80' },
+    ],
+    support: [
+      { name: 'Lumi Sports', category: { id: 'Sportswear · UMKM', en: 'Sportswear · SME', zh: '运动服饰 · 中小企业' }, photo: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Hydra+', category: { id: 'Minuman Elektrolit', en: 'Electrolyte Drink', zh: '电解质饮品' }, photo: 'https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Klinik Sehat Utama', category: { id: 'Kesehatan', en: 'Healthcare', zh: '医疗健康' }, photo: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80' },
+    ],
   },
   {
     slug: 'corporate-gathering-awarding-night',
@@ -200,6 +285,16 @@ export const events = [
       en: ['Gala concept & awarding theme', 'Stage, lighting & LED screen production', 'Awarding ceremony rundown & presenters', 'Entertainment, documentation & aftermovie'],
       zh: ['晚宴创意与颁奖主题', '舞台、灯光与 LED 屏制作', '颁奖流程与颁奖嘉宾', '演出、影像记录与 aftermovie'],
     },
+    guestStars: [
+      { name: 'Andra Ramadhan', role: { id: 'Penyanyi', en: 'Singer', zh: '歌手' }, photo: 'https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Gita Prameswari', role: { id: 'MC Gala', en: 'Gala MC', zh: '晚宴主持人' }, photo: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Yoga Pratama', role: { id: 'Comedian', en: 'Comedian', zh: '喜剧演员' }, photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80' },
+    ],
+    support: [
+      { name: 'Hotel Purnama', category: { id: 'Hospitality', en: 'Hospitality', zh: '酒店接待' }, photo: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Anggun Catering', category: { id: 'Katering · UMKM', en: 'Catering · SME', zh: '餐饮 · 中小企业' }, photo: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Konveksi Tunas', category: { id: 'Konveksi · UMKM', en: 'Apparel Production · SME', zh: '服装加工 · 中小企业' }, photo: 'https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=400&q=80' },
+    ],
   },
   {
     slug: 'live-streaming-concert',
@@ -224,6 +319,15 @@ export const events = [
       en: ['Stage production & show management', 'Multi-camera, audio & live switching', 'Encoding, platform & stream moderation', 'Highlight content & post-event distribution'],
       zh: ['舞台制作与 show 执行', '多机位、音响与直播切换', '推流编码、平台与聊天室管理', '精彩剪辑与赛后分发'],
     },
+    guestStars: [
+      { name: 'Arka Wijaya', role: { id: 'Band “Gelombang”', en: 'Band “Gelombang”', zh: '乐队 Gelombang' }, photo: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Sita Naila', role: { id: 'Penyanyi', en: 'Singer', zh: '歌手' }, photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Anggara', role: { id: 'DJ Live', en: 'Live DJ', zh: '现场 DJ' }, photo: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=400&q=80' },
+    ],
+    support: [
+      { name: 'StreamNow', category: { id: 'Media Partner', en: 'Media Partner', zh: '媒体合作伙伴' }, photo: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Studio Gema', category: { id: 'Production House', en: 'Production House', zh: '制作公司' }, photo: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=400&q=80' },
+    ],
   },
 ]
 
