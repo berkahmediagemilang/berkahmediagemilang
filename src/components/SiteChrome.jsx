@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
-import LanguageSwitcher from '../i18n/LanguageSwitcher.jsx'
-import { useLanguage } from '../i18n/language.js'
-import { ButtonLink, Logo } from './ui.jsx'
+import LanguageSwitcher from '@/i18n/LanguageSwitcher.jsx'
+import { useLanguage } from '@/i18n/language.js'
+import { ButtonLink, Logo } from '@/components/ui.jsx'
 
 const routes = [
   { label: 'Home', href: '/' },

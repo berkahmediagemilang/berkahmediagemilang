@@ -18,9 +18,9 @@ import {
   Volume2,
   Wrench,
 } from 'lucide-react'
-import AnimatedCounter from '../components/AnimatedCounter.jsx'
-import { ButtonLink, Eyebrow, SectionHead, Wrap } from '../components/ui.jsx'
-import { useLanguage } from '../i18n/language.js'
+import AnimatedCounter from '@/components/AnimatedCounter.jsx'
+import { ButtonLink, Eyebrow, SectionHead, Wrap } from '@/components/ui.jsx'
+import { useLanguage } from '@/i18n/language.js'
 import * as MarqueeLib from 'react-fast-marquee'
 import { Phone } from 'lucide-react'
 const Marquee = MarqueeLib.default?.default || MarqueeLib.default || MarqueeLib

@@ -1,9 +1,9 @@
 import { Link, useParams } from 'react-router-dom'
 import { ArrowLeft, Check } from 'lucide-react'
-import { ButtonLink, Eyebrow, PageHero, Wrap } from '../components/ui.jsx'
-import NotFound from './NotFound.jsx'
-import { getServiceBySlug, localized } from '../data/services.js'
-import { useLanguage } from '../i18n/language.js'
+import { ButtonLink, Eyebrow, PageHero, Wrap } from '@/components/ui.jsx'
+import NotFound from '@/pages/NotFound.jsx'
+import { getServiceBySlug, localized } from '@/data/services.js'
+import { useLanguage } from '@/i18n/language.js'
 
 const ctaPhoto = 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1600&q=88'
 

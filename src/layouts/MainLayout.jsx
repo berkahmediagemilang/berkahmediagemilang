@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
-import { SiteHeader } from '../components/SiteChrome.jsx'
-import Footer from '../components/Footer.jsx'
-import { useLanguage } from '../i18n/language.js'
+import { SiteHeader } from '@/components/SiteChrome.jsx'
+import Footer from '@/components/Footer.jsx'
+import { useLanguage } from '@/i18n/language.js'
 
 export default function MainLayout() {
   const location = useLocation()

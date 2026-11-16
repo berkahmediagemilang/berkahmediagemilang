@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useLanguage } from '../i18n/language.js'
+import { useLanguage } from '@/i18n/language.js'
 
 const pages = [
   { key: 'home', label: 'Beranda', labelEn: 'Home', labelZh: '首页' },

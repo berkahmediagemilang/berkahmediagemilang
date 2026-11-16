@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import { ArrowUp, Mail, MapPin, Phone } from 'lucide-react'
 import { siInstagram, siWhatsapp } from 'simple-icons'
-import { useLanguage } from '../i18n/language.js'
-import { localized, services } from '../data/services.js'
-import { Logo, Wrap } from './ui.jsx'
+import { useLanguage } from '@/i18n/language.js'
+import { localized, services } from '@/data/services.js'
+import { Logo, Wrap } from '@/components/ui.jsx'
 
 export default function Footer() {
   const { language } = useLanguage()

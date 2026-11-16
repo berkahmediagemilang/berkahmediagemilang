@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { ButtonLink, PageHero, Wrap } from '../components/ui.jsx'
-import { useLanguage } from '../i18n/language.js'
+import { ButtonLink, PageHero, Wrap } from '@/components/ui.jsx'
+import { useLanguage } from '@/i18n/language.js'
 
 const contactEmail = 'hello@bmg.co.id'
 

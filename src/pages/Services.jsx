@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Lightbulb, Play, Search, Settings, Target, TrendingUp } from 'lucide-react'
-import { ButtonLink, Eyebrow, PageHero, SectionHead, Wrap } from '../components/ui.jsx'
-import { localized, services } from '../data/services.js'
-import { useLanguage } from '../i18n/language.js'
+import { ButtonLink, Eyebrow, PageHero, SectionHead, Wrap } from '@/components/ui.jsx'
+import { localized, services } from '@/data/services.js'
+import { useLanguage } from '@/i18n/language.js'
 
 const heroPhoto = 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1600&q=85'
 const ctaPhoto = 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1600&q=88'

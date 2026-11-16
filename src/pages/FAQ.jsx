@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { PageHero, Wrap } from '../components/ui.jsx'
-import { useLanguage } from '../i18n/language.js'
+import { PageHero, Wrap } from '@/components/ui.jsx'
+import { useLanguage } from '@/i18n/language.js'
 
 export default function FAQ() {
   const { language } = useLanguage()

@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Link } from 'react-router-dom'
 import { X } from 'lucide-react'
-import { ButtonLink, Eyebrow, PageHero, Wrap } from '../components/ui.jsx'
-import { useLanguage } from '../i18n/language.js'
+import { ButtonLink, Eyebrow, PageHero, Wrap } from '@/components/ui.jsx'
+import { useLanguage } from '@/i18n/language.js'
 
 const heroPhoto =
   'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1600&q=85'

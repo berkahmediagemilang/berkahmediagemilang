@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { Award, Calendar, Handshake, Layers, Lightbulb, Megaphone, ShieldCheck, Sparkles, Star, Target, Users } from 'lucide-react'
-import AnimatedCounter from '../components/AnimatedCounter.jsx'
-import { ButtonLink, Eyebrow, PageHero, SectionHead, Wrap } from '../components/ui.jsx'
-import { useLanguage } from '../i18n/language.js'
+import AnimatedCounter from '@/components/AnimatedCounter.jsx'
+import { ButtonLink, Eyebrow, PageHero, SectionHead, Wrap } from '@/components/ui.jsx'
+import { useLanguage } from '@/i18n/language.js'
 
 const activityPhoto = 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1200&q=88'
 const heroPhoto = 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1600&q=85'

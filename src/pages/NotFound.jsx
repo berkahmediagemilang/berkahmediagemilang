@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { ButtonLink, Eyebrow, Wrap } from '../components/ui.jsx'
-import { useLanguage } from '../i18n/language.js'
+import { ButtonLink, Eyebrow, Wrap } from '@/components/ui.jsx'
+import { useLanguage } from '@/i18n/language.js'
 
 const links = [
   { key: 'home', to: '/', label: { id: 'Beranda', en: 'Home', zh: '首页' } },
