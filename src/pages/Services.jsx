@@ -163,7 +163,7 @@ export default function Services() {
       </section>
 
       {/* CTA ------------------------------------------------------------ */}
-      <section className="relative isolate py-12 md:py-16" style={{ '--hero-image': `url(${ctaPhoto})` }}>
+      <section className="relative isolate text-white py-12 md:py-16" style={{ '--hero-image': `url(${ctaPhoto})` }}>
         <div className="absolute inset-0 z-0 bg-[linear-gradient(90deg,rgba(7,14,28,.88),rgba(7,14,28,.76)),var(--hero-image)] bg-cover bg-center" aria-hidden="true" />
         <Wrap className="relative z-[1]">
           <div className="max-w-3xl" data-enter>

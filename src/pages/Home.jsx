@@ -678,7 +678,7 @@ export default function HomePage() {
                   : 'Meet the professional team behind BMG — from planning and production to promotion and on-site execution.'}
             </p>
             <div className="hero__actions">
-              <ButtonLink to="/about-us/our-team" variant="accent">
+              <ButtonLink to="/about-us" variant="accent">
                 {isIndonesian ? 'Kenali tim kami' : isChinese ? '认识我们的团队' : 'Meet the team'}
                 <span className="btn__icon" aria-hidden="true">→</span>
               </ButtonLink>
