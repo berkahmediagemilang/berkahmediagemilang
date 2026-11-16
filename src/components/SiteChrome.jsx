@@ -104,7 +104,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="mobile-menu__footer">
-          <ButtonLink to="/contact" variant="accent" block className="mobile-menu__cta" onClick={() => setOpen(false)}>
+          <ButtonLink to="/contact" variant="accent" block onClick={() => setOpen(false)}>
             {labels.contact}
           </ButtonLink>
         </div>

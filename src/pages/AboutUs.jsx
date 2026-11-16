@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Calendar, Handshake, Star, Users } from 'lucide-react'
+import { Award, Calendar, Handshake, Layers, Lightbulb, Megaphone, ShieldCheck, Sparkles, Star, Target, Users } from 'lucide-react'
 import AnimatedCounter from '../components/AnimatedCounter.jsx'
 import { ButtonLink, Eyebrow, PageHero, SectionHead, Wrap } from '../components/ui.jsx'
 import { useLanguage } from '../i18n/language.js'
@@ -27,16 +27,46 @@ export default function AboutUs() {
       : 'To become a trusted and influential event organizer, creating memorable experiences and greater value for clients and audiences.'
 
   const missionItems = isIndonesian
-    ? ['Memberikan solusi event yang inovatif', 'Terintegrasi dari perencanaan hingga eksekusi', 'Berdampak melalui komunikasi yang efektif']
+    ? [
+        { Icon: Lightbulb, title: 'Solusi Inovatif', text: 'Ide dan format event yang segar, relevan dengan tujuan komunikasi klien.' },
+        { Icon: Layers, title: 'Terintegrasi', text: 'Perencanaan, produksi, promosi, hingga hari-H berjalan dalam satu alur.' },
+        { Icon: Megaphone, title: 'Komunikasi Efektif', text: 'Pesan yang tepat, sampai ke audiens yang tepat, dengan hasil terukur.' },
+      ]
     : isChinese
-      ? ['提供创新的活动解决方案', '从策划到执行全程整合', '通过有效沟通创造实际影响']
-      : ['Deliver innovative event solutions', 'Integrate planning through execution', 'Create impact through effective communication']
+      ? [
+          { Icon: Lightbulb, title: '创新方案', text: '以新鲜的创意与活动形式，贴合客户的传播目标。' },
+          { Icon: Layers, title: '全流程整合', text: '策划、制作、宣传到现场执行，始终一个流程。' },
+          { Icon: Megaphone, title: '有效沟通', text: '把对的信息，在对的时间传递给对的受众，并留下可衡量的结果。' },
+        ]
+      : [
+          { Icon: Lightbulb, title: 'Innovative solutions', text: 'Fresh ideas and formats built around your communication goals.' },
+          { Icon: Layers, title: 'Integrated delivery', text: 'Planning, production, promotion, and show day in one single flow.' },
+          { Icon: Megaphone, title: 'Effective communication', text: 'The right message, delivered to the right audience, with measurable results.' },
+        ]
 
-  const valuesText = isIndonesian
-    ? 'Kreativitas\nIntegritas\nKolaborasi\nKeunggulan\nBerorientasi Hasil'
+  const values = isIndonesian
+    ? [
+        { Icon: Sparkles, title: 'Kreativitas', text: 'Ide segar yang membuat setiap event terasa berbeda.' },
+        { Icon: ShieldCheck, title: 'Integritas', text: 'Jujur, transparan, dan konsisten pada setiap janji.' },
+        { Icon: Handshake, title: 'Kolaborasi', text: 'Bertumbuh bersama klien, mitra, dan tim.' },
+        { Icon: Award, title: 'Keunggulan', text: 'Detail terkecil kami kerjakan dengan standar tinggi.' },
+        { Icon: Target, title: 'Berorientasi Hasil', text: 'Setiap keputusan diukur dari dampaknya bagi klien.' },
+      ]
     : isChinese
-      ? '创意\n诚信\n协作\n卓越\n成果导向'
-      : 'Creativity\nIntegrity\nCollaboration\nExcellence\nResult Driven'
+      ? [
+          { Icon: Sparkles, title: '创意', text: '用新鲜的创意，让每一场活动都与众不同。' },
+          { Icon: ShieldCheck, title: '诚信', text: '坦诚、透明，始终兑现每一个承诺。' },
+          { Icon: Handshake, title: '协作', text: '与客户、伙伴和团队一起成长。' },
+          { Icon: Award, title: '卓越', text: '再小的细节，也按高标准完成。' },
+          { Icon: Target, title: '成果导向', text: '每个决策，都以它为客户带来的实际收获来衡量。' },
+        ]
+      : [
+          { Icon: Sparkles, title: 'Creativity', text: 'Fresh ideas that make every event feel different.' },
+          { Icon: ShieldCheck, title: 'Integrity', text: 'Honest, transparent, and consistent with every promise.' },
+          { Icon: Handshake, title: 'Collaboration', text: 'Growing together with clients, partners, and the team.' },
+          { Icon: Award, title: 'Excellence', text: 'Small details handled to a high standard, every time.' },
+          { Icon: Target, title: 'Result driven', text: 'Every decision measured by the impact it creates for clients.' },
+        ]
 
   return (
     <>
@@ -76,7 +106,7 @@ export default function AboutUs() {
 
       {/* Who we are --------------------------------------------------- */}
       <section className="section section--white">
-        <Wrap className="grid items-start gap-6 lg:grid-cols-2 lg:gap-20">
+        <Wrap className="grid items-start gap-6 lg:grid-cols-2 lg:gap-8">
           <div>
             <SectionHead
               eyebrow={isIndonesian ? 'Siapa Kami' : isChinese ? '我们是谁' : 'Who We Are'}
@@ -131,7 +161,7 @@ export default function AboutUs() {
 
       {/* Team ---------------------------------------------------------- */}
       <section className="section pt-6">
-        <Wrap className="grid items-start gap-6 lg:grid-cols-2 lg:gap-20">
+        <Wrap className="grid items-start gap-6 lg:grid-cols-2 lg:gap-8">
           <div className="media-frame aspect-[4/3] lg:order-1">
             <img
               src={teamPhoto}
@@ -174,56 +204,122 @@ export default function AboutUs() {
         </Wrap>
       </section>
 
-      {/* Vision, Mission & Values ------------------------------------ */}
+      {/* Vision & Mission --------------------------------------------- */}
       <section className="section section--white">
         <Wrap>
           <SectionHead
-            eyebrow={isIndonesian ? 'Visi, Misi & Nilai' : isChinese ? '愿景、使命与价值观' : 'Vision, Mission & Values'}
+            eyebrow={isIndonesian ? 'Visi & Misi' : isChinese ? '愿景与使命' : 'Vision & Mission'}
             title={
               isIndonesian ? (
                 <>
-                  Prinsip yang kami <span className="text-accent-600">pegang</span>
+                  Visi dan misi yang <span className="text-accent-600">menggerakkan kami</span>
                 </>
               ) : isChinese ? (
                 <>
-                  我们坚持的<span className="text-accent-600">原则</span>
+                  驱动我们的<span className="text-accent-600">愿景与使命</span>
                 </>
               ) : (
                 <>
-                  What we <span className="text-accent-600">stand for</span>
+                  The vision & mission that <span className="text-accent-600">drive us</span>
                 </>
               )
             }
           />
-          <div className="grid gap-6 md:gap-10">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-600">
-                {isIndonesian ? 'Visi Kami' : isChinese ? '我们的愿景' : 'Our Vision'}
-              </p>
-              <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-muted">{visionText}</p>
+
+          <figure className="card p-6 md:p-10">
+            <div className="flex items-start gap-3 md:gap-6">
+              <span
+                aria-hidden="true"
+                className="select-none font-display text-[48px] leading-none text-accent-300 md:text-[76px]"
+              >
+                &ldquo;
+              </span>
+              <div className="min-w-0">
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-600">
+                  {isIndonesian ? 'Visi Kami' : isChinese ? '我们的愿景' : 'Our Vision'}
+                </p>
+                <blockquote className="mt-3 max-w-4xl font-display text-[18px] font-semibold leading-snug tracking-[-0.02em] text-ink-900 md:mt-4 md:text-[24px] md:leading-[1.4]">
+                  {visionText}
+                </blockquote>
+                <figcaption className="mt-6 flex items-center gap-3 text-[13px] font-semibold text-muted">
+                  <span aria-hidden="true" className="h-px w-8 shrink-0 bg-accent-500" />
+                  Berkah Media Gemilang
+                </figcaption>
+              </div>
             </div>
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-600">
-                {isIndonesian ? 'Misi Kami' : isChinese ? '我们的使命' : 'Our Mission'}
-              </p>
-              <ul className="mt-3 list-disc space-y-2 pl-6 text-[15px] leading-relaxed text-muted">
-                {missionItems.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="card p-5 md:p-8">
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-600">
-                {isIndonesian ? 'Nilai Kami' : isChinese ? '我们的价值观' : 'Our Values'}
-              </p>
-              <p className="mt-3 whitespace-pre-line text-[15px] leading-relaxed text-muted">{valuesText}</p>
-            </div>
+          </figure>
+
+          <p className="mt-8 text-xs font-bold uppercase tracking-[0.14em] text-brand-600 md:mt-10">
+            {isIndonesian ? 'Misi Kami' : isChinese ? '我们的使命' : 'Our Mission'}
+          </p>
+          <div className="mt-4 grid gap-4 md:grid-cols-3">
+            {missionItems.map((item, index) => (
+              <article className="card card--hover h-full p-5" key={item.title}>
+                <div className="flex items-start justify-between">
+                  <div className="icon-badge icon-badge--accent icon-badge--sm">
+                    <item.Icon size={20} />
+                  </div>
+                  <span className="font-display text-xs font-bold text-muted-2">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                </div>
+                <h3 className="mt-4 text-[16px] font-bold leading-snug text-ink-900">{item.title}</h3>
+                <p className="mt-2 text-[13px] leading-relaxed text-muted">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </Wrap>
+      </section>
+
+      {/* Values -------------------------------------------------------- */}
+      <section className="section">
+        <Wrap>
+          <SectionHead
+            eyebrow={isIndonesian ? 'Nilai Kami' : isChinese ? '我们的价值观' : 'Our Values'}
+            title={
+              isIndonesian ? (
+                <>
+                  Lima nilai yang <span className="text-accent-600">kami pegang</span>
+                </>
+              ) : isChinese ? (
+                <>
+                  我们坚持的<span className="text-accent-600">五项价值观</span>
+                </>
+              ) : (
+                <>
+                  Five values we <span className="text-accent-600">stand for</span>
+                </>
+              )
+            }
+            lead={
+              isIndonesian
+                ? 'Cara kami bekerja setiap hari, dari rapat pertama sampai event selesai.'
+                : isChinese
+                  ? '从第一次会议到活动收尾，我们每天的工作方式。'
+                  : 'How we work every day, from the first meeting to the final load-out.'
+            }
+            className="max-w-2xl"
+          />
+
+          <div className="grid gap-4 md:grid-cols-6">
+            {values.map((value, index) => (
+              <article
+                className={`card card--hover p-5 ${index < 3 ? 'md:col-span-2' : 'md:col-span-3'}`}
+                key={value.title}
+              >
+                <div className="icon-badge icon-badge--sm">
+                  <value.Icon size={20} />
+                </div>
+                <h3 className="mt-4 text-[16px] font-bold leading-snug text-ink-900">{value.title}</h3>
+                <p className="mt-2 text-[13px] leading-relaxed text-muted">{value.text}</p>
+              </article>
+            ))}
           </div>
         </Wrap>
       </section>
 
        {/* CTA ---------------------------------------------------------- */}
-       <section className="relative isolate text-white py-[62px] max-[680px]:py-[42px]" style={{ '--hero-image': `url(${activityPhoto})` }}>
+       <section className="relative isolate text-white py-12 md:py-16" style={{ '--hero-image': `url(${activityPhoto})` }}>
          <div className="absolute inset-0 z-0 bg-[linear-gradient(90deg,rgba(7,14,28,.83),rgba(7,14,28,.72)),var(--hero-image)] bg-center bg-cover" />
          <Wrap className="relative z-[1]">
            <div className="max-w-3xl" data-enter>
@@ -233,15 +329,15 @@ export default function AboutUs() {
              <h2 className="h2 mt-5">
                {isIndonesian ? (
                  <>
-                   Butuh solusi event? <span className="text-accent-400">Kami siap membantu.</span>
+                   Temukan layanan <span className="text-accent-400">yang Anda butuhkan</span>
                  </>
                ) : isChinese ? (
                  <>
-                   需要活动解决方案？<span className="text-accent-400">我们随时为您服务。</span>
+                   找到您需要的<span className="text-accent-400">活动服务</span>
                  </>
                ) : (
                  <>
-                   Need an event solution? <span className="text-accent-400">We're ready to help.</span>
+                   Find the <span className="text-accent-400">services</span> you need
                  </>
                )}
              </h2>

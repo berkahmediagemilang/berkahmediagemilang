@@ -262,7 +262,7 @@ export default function HomePage() {
 
       {/* About -------------------------------------------------------- */}
       <section className="section">
-        <Wrap className="grid items-start gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+        <Wrap className="grid items-start gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
           <div>
             <SectionHead
               eyebrow={isIndonesian ? 'Tentang BMG' : isChinese ? '关于 BMG' : 'About BMG'}
@@ -388,7 +388,7 @@ export default function HomePage() {
             </ButtonLink>
           </div>
 
-          <div className="relative mt-6 md:mt-10">
+          <div className="relative mt-6 md:mt-8">
             <div
               className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
               ref={workCarouselRef}
@@ -455,12 +455,12 @@ export default function HomePage() {
           </h2>
         </Wrap>
         <div
-          className="relative mx-auto mt-6 md:mt-10 w-[90%] overflow-hidden py-8 md:py-10 md:w-[80%]"
+          className="relative mx-auto mt-6 md:mt-8 w-[90%] overflow-hidden py-8 md:py-10 md:w-[80%]"
           role="region"
           aria-label={isIndonesian ? 'Daftar klien' : isChinese ? '客户列表' : 'Client list'}
         >
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[var(--color-ink-900)] to-transparent md:w-24" aria-hidden="true" />
-          <div className="flex flex-col gap-10 md:gap-14">
+          <div className="flex flex-col gap-8 md:gap-10">
             <Marquee speed={42} gradient={false} pauseOnHover>
               {[...clients, ...clients].map((client, index) => (
                 <span
@@ -648,38 +648,38 @@ export default function HomePage() {
       </section>
 
       {/* CTA ---------------------------------------------------------- */}
-      <section className="relative isolate text-white py-[62px] max-[680px]:py-[42px]" style={{ '--hero-image': `url(${images.hero})` }}>
+      <section className="relative isolate text-white py-12 md:py-16" style={{ '--hero-image': `url(${images.hero})` }}>
         <div className="absolute inset-0 z-0 bg-[linear-gradient(90deg,rgba(7,14,28,.83),rgba(7,14,28,.72)),var(--hero-image)] bg-center bg-cover" />
         <Wrap className="relative z-[1]">
           <div className="max-w-3xl" data-enter>
             <Eyebrow dark accent>
-              {isIndonesian ? 'Mulai dari sebuah ide' : isChinese ? '从一个想法开始' : 'Start with an idea'}
+              {isIndonesian ? 'Tentang BMG' : isChinese ? '关于 BMG' : 'About BMG'}
             </Eyebrow>
             <h2 className="h2 mt-5">
               {isIndonesian ? (
                 <>
-                  Punya ide event? <span className="text-accent-400">Kita wujudkan.</span>
+                  Orang-orang di balik <span className="text-accent-400">event yang hebat</span>
                 </>
               ) : isChinese ? (
                 <>
-                  有活动想法？<span className="text-accent-400">我们来实现。</span>
+                  精彩活动<span className="text-accent-400">背后的团队</span>
                 </>
               ) : (
                 <>
-                  Have an event in mind? <span className="text-accent-400">Let's make it real.</span>
+                  The people behind <span className="text-accent-400">great events</span>
                 </>
               )}
             </h2>
             <p className="lead lead--onDark mt-5 max-w-[560px]">
               {isIndonesian
-                ? 'Konsultasikan kebutuhan Anda bersama tim profesional kami.'
+                ? 'Kenali tim profesional BMG — dari perencanaan, produksi, promosi, hingga eksekusi di lapangan.'
                 : isChinese
-                  ? '与我们的专业团队一起探讨您的需求。'
-                  : 'Talk to our professional team about what you need.'}
+                  ? '认识 BMG 的专业团队——从活动策划、制作、宣传到现场执行。'
+                  : 'Meet the professional team behind BMG — from planning and production to promotion and on-site execution.'}
             </p>
             <div className="hero__actions">
-              <ButtonLink to="/about-us" variant="accent">
-                {isIndonesian ? 'Kenali Kami lebih jauh' : isChinese ? '了解更多关于我们' : 'Get to know us better'}
+              <ButtonLink to="/about-us/our-team" variant="accent">
+                {isIndonesian ? 'Kenali tim kami' : isChinese ? '认识我们的团队' : 'Meet the team'}
                 <span className="btn__icon" aria-hidden="true">→</span>
               </ButtonLink>
             </div>

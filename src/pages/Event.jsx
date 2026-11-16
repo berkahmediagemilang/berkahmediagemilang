@@ -163,7 +163,7 @@ export default function Event() {
 
           {/* Pagination ------------------------------------------------ */}
           {totalPages > 1 ? (
-            <nav className="mt-12 flex items-center justify-center gap-2" aria-label={isIndonesian ? 'Halaman event' : isChinese ? '活动页面' : 'Event pages'}>
+            <nav className="mt-8 flex items-center justify-center gap-2 md:mt-10" aria-label={isIndonesian ? 'Halaman event' : isChinese ? '活动页面' : 'Event pages'}>
               <button
                 type="button"
                 className="grid h-11 w-11 place-items-center rounded-[12px] bg-ink-900/5 text-ink-900 transition-colors hover:bg-ink-900/10 disabled:cursor-default disabled:opacity-40"
@@ -201,7 +201,7 @@ export default function Event() {
       </section>
 
       {/* CTA ---------------------------------------------------------- */}
-      <section className="relative isolate text-white py-[62px] max-[680px]:py-[42px]" style={{ '--hero-image': `url(https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=2200&q=88)` }}>
+      <section className="relative isolate text-white py-12 md:py-16" style={{ '--hero-image': `url(https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=2200&q=88)` }}>
         <div className="absolute inset-0 z-0 bg-[linear-gradient(90deg,rgba(7,14,28,.83),rgba(7,14,28,.72)),var(--hero-image)] bg-center bg-cover" />
         <Wrap className="relative z-[1]">
           <div className="max-w-3xl" data-enter>

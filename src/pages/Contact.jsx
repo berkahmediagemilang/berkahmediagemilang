@@ -111,8 +111,8 @@ export default function Contact() {
         }
       />
 
-      <section className="section">
-        <Wrap className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+      <section className="section section--tight">
+        <Wrap className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-8">
           {/* Form ------------------------------------------------------- */}
           <form className="card p-7 md:p-9" onSubmit={handleSubmit}>
             <h2 className="h3 text-[22px]">{isIndonesian ? 'Kirim pesan' : isChinese ? '留言给我们' : 'Send us a message'}</h2>
@@ -124,7 +124,7 @@ export default function Contact() {
                   : 'Tell us about your event needs. Our team is ready to help you find the right solution.'}
             </p>
 
-            <div className="mt-7">
+            <div className="mt-6">
               <label className="label" htmlFor="contact-name">
                 {t.name} <span className="font-bold text-red-600" aria-hidden="true">*</span>
               </label>
@@ -228,7 +228,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="mt-7 flex flex-wrap items-center justify-between gap-4">
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
               <p className="flex items-center gap-2 text-[13px] text-muted" role="status" aria-live="polite">
                 {sent ? (
                   <span className="text-success-600">{t.sent}</span>

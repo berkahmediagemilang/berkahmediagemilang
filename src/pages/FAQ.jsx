@@ -52,7 +52,7 @@ export default function FAQ() {
               </details>
             ))}
           </div>
-          <div className="mt-6 md:mt-10">
+          <div className="mt-6 md:mt-8">
             <Link to="/contact" className="btn btn--primary">
               {isIndonesian ? 'Masih ada pertanyaan?' : isChinese ? '还有问题？' : 'Still have questions?'}
               <span className="btn__icon" aria-hidden="true">→</span>

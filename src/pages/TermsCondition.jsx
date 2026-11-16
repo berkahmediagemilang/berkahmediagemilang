@@ -48,12 +48,12 @@ export default function TermsCondition() {
       <section className="section section--white">
         <Wrap className="max-w-3xl">
           {sections.map((section) => (
-            <section className="mt-6 md:mt-10 first:mt-0" key={section.title}>
+            <section className="mt-6 md:mt-8 first:mt-0" key={section.title}>
               <h2 className="h3">{section.title}</h2>
               <p className="mt-3 text-[15px] leading-relaxed text-muted">{section.body}</p>
             </section>
           ))}
-          <div className="mt-12 flex flex-wrap gap-4 border-t border-line pt-8">
+          <div className="mt-8 flex flex-wrap gap-4 border-t border-line pt-6 md:mt-10">
             <ButtonLink to="/contact" variant="primary">
               {isIndonesian ? 'Hubungi Kami' : isChinese ? '联系我们' : 'Contact Us'}
               <span className="btn__icon" aria-hidden="true">→</span>

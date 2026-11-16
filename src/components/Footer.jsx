@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowUp, Mail, MapPin, Phone } from 'lucide-react'
 import { siInstagram, siWhatsapp } from 'simple-icons'
 import { useLanguage } from '../i18n/language.js'
+import { localized, services } from '../data/services.js'
 import { Logo, Wrap } from './ui.jsx'
 
 export default function Footer() {
@@ -33,12 +34,11 @@ export default function Footer() {
     backToTop: isIndonesian ? 'Kembali ke atas' : isChinese ? '返回顶部' : 'Back to top',
   }
 
-  const serviceLinks = [
-    { label: isIndonesian ? 'Perencanaan Event' : isChinese ? '活动策划' : 'Event Planning', to: '/services/event-planning' },
-    { label: isIndonesian ? 'Produksi & Logistik Event' : isChinese ? '活动制作与物流' : 'Event Production & Logistics', to: '/services/event-production-logistics' },
-    { label: 'Media Buying', to: '/services/media-buying' },
-    { label: isIndonesian ? 'Digital & Media Sosial' : isChinese ? '数字与社交媒体' : 'Digital & Social Media', to: '/services/digital-social-media-amplification' },
-  ]
+  // Keep the footer in sync with the services catalogue (/services page).
+  const serviceLinks = services.map((service) => ({
+    label: localized(service.title, language),
+    to: `/services/${service.slug}`,
+  }))
 
   const pageLinks = [
     { label: t.home, to: '/' },
@@ -72,7 +72,7 @@ export default function Footer() {
                 <path d={siWhatsapp.path} />
               </svg>
             </a>
-            <a href="mailto:hello@bmg.co.id" aria-label="Email">
+            <a href="mailto:pt.berkahmediagemilang@gmail.com" aria-label="Email">
               <Mail size={18} />
             </a>
           </div>
@@ -127,7 +127,7 @@ export default function Footer() {
           </li>
           <li>
             <Mail size={16} />
-            <a href="mailto:hello@bmg.co.id">hello@bmg.co.id</a>
+            <a href="mailto:pt.berkahmediagemilang@gmail.com">pt.berkahmediagemilang@gmail.com</a>
           </li>
         </ul>
       </Wrap>
@@ -135,9 +135,6 @@ export default function Footer() {
       <Wrap className="footer-bottom">
         <p>
           © 2026 Berkah Media Gemilang. {t.rights}{' '}
-          <Link to="/privacy" className="footer-compare">
-            {t.privacy}
-          </Link>{' '}
           <Link to="/bandingkan" className="footer-compare">
             {isIndonesian ? 'Lihat perbandingan versi' : isChinese ? '查看版本对比' : 'View version comparison'}
           </Link>
