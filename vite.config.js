@@ -29,6 +29,49 @@ export default defineConfig({
       "@": path.resolve(import.meta.dirname, './src'),
     }
   },
+  build: {
+    // Rolldown (Vite 8) splits vendor code into stable, cacheable chunks and
+    // leaves the per-page chunks produced by React.lazy() alone. Group names
+    // are paths, so each vendor library lands in its own folder.
+    rolldownOptions: {
+      output: {
+        codeSplitting: {
+          groups: [
+            {
+              name: 'vendor/react',
+              test: /[\\/]node_modules[\\/](react|react-dom|react-router|react-router-dom|scheduler)[\\/]/,
+              priority: 40,
+            },
+            {
+              name: 'vendor/phone',
+              test: /[\\/]node_modules[\\/](react-phone-number-input|libphonenumber-js|input-format|classnames)/,
+              priority: 37,
+            },
+            {
+              name: 'vendor/motion',
+              test: /[\\/]node_modules[\\/](motion|motion-dom|motion-utils|framer-motion)[\\/]/,
+              priority: 30,
+            },
+            {
+              name: 'vendor/widgets',
+              test: /[\\/]node_modules[\\/](react-fast-marquee|react-countup)[\\/]/,
+              priority: 25,
+            },
+            {
+              name: 'vendor/icons',
+              test: /[\\/]node_modules[\\/](lucide-react|simple-icons)[\\/]/,
+              priority: 20,
+            },
+            {
+              name: 'vendor/shared',
+              test: /[\\/]node_modules[\\/]/,
+              priority: 10,
+            },
+          ],
+        },
+      },
+    },
+  },
   server: {
     allowedHosts,
   },

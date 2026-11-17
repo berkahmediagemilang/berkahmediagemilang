@@ -1,5 +1,6 @@
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
+import RouteFallback from '@/components/RouteFallback.jsx'
 import { SiteHeader } from '@/components/SiteChrome.jsx'
 import Footer from '@/components/Footer.jsx'
 import { useLanguage } from '@/i18n/language.js'
@@ -28,7 +29,9 @@ export default function MainLayout() {
       </a>
       <SiteHeader />
       <main id="main" className="page-enter" key={location.pathname}>
-        <Outlet />
+        <Suspense fallback={<RouteFallback />}>
+          <Outlet />
+        </Suspense>
       </main>
       <Footer />
     </div>
