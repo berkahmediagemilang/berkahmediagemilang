@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import {
   Briefcase,
@@ -20,6 +20,7 @@ import {
 } from 'lucide-react'
 import AnimatedCounter from '@/components/AnimatedCounter.jsx'
 import { ButtonLink, Eyebrow, SectionHead, Wrap } from '@/components/ui.jsx'
+import { services as serviceCatalog } from '@/data/services.js'
 import { useLanguage } from '@/i18n/language.js'
 import * as MarqueeLib from 'react-fast-marquee'
 import { Phone } from 'lucide-react'
@@ -36,6 +37,13 @@ const images = {
   field2: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=85',
   field3: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=85',
 }
+
+/* Maps a localized service title (ID/EN/ZH) to its /services/:slug detail route. */
+const serviceSlugByTitle = new Map(
+  serviceCatalog.flatMap((service) =>
+    [service.title.id, service.title.en, service.title.zh].map((title) => [title, service.slug]),
+  ),
+)
 
 const services = [
   { icon: 'calendar', title: 'Event Planning', text: 'Perencanaan strategis dan konsep kreatif yang dirancang untuk menciptakan event bermakna dan berkesan.' },
@@ -121,6 +129,7 @@ export default function HomePage() {
   const isChinese = language === 'zh'
   const workCarouselRef = useRef(null)
   const fieldCarouselRef = useRef(null)
+  const processRef = useRef(null)
   const scrollWork = (direction) => {
     const el = workCarouselRef.current
     if (!el) return
@@ -131,6 +140,30 @@ export default function HomePage() {
     if (!el) return
     el.scrollBy({ left: direction * Math.max(280, el.clientWidth * 0.72), behavior: 'smooth' })
   }
+
+  // Reveal the process path (line + steps) once it scrolls into view.
+  useEffect(() => {
+    const el = processRef.current
+    if (!el) return
+
+    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    if (reduceMotion || !('IntersectionObserver' in window)) return
+
+    el.classList.add('timeline--reveal')
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+          entry.target.classList.add('is-visible')
+          observer.disconnect()
+        })
+      },
+      { threshold: 0.25 },
+    )
+    observer.observe(el)
+
+    return () => observer.disconnect()
+  }, [])
 
   const localizedServices = isIndonesian
     ? services
@@ -314,47 +347,61 @@ export default function HomePage() {
       {/* Services ----------------------------------------------------- */}
       <section className="section section--dark">
         <Wrap>
-          <SectionHead
-            dark
-            eyebrow={isIndonesian ? 'Layanan Kami' : isChinese ? '我们的服务' : 'Our Services'}
-            title={
-              isIndonesian ? (
-                <>
-                  Solusi untuk <span className="text-accent-400">setiap kebutuhan event</span>
-                </>
-              ) : isChinese ? (
-                <>
-                  为每一场活动<span className="text-accent-400">提供专业解决方案</span>
-                </>
-              ) : (
-                <>
-                  Solutions for <span className="text-accent-400">every event need</span>
-                </>
-              )
-            }
-            lead={
-              isIndonesian
-                ? 'Layanan terintegrasi dari hulu ke hilir untuk memastikan setiap event berjalan sukses.'
-                : isChinese
-                  ? '从前期策划到落地执行的全流程服务，确保每场活动都顺利、有影响力。'
-                  : 'End-to-end integrated services to make sure every event is successful and impactful.'
-            }
-            className="mb-0 max-w-2xl"
-          />
+          <div className="flex flex-wrap items-center justify-between gap-4 md:gap-8">
+            <SectionHead
+              dark
+              eyebrow={isIndonesian ? 'Layanan Kami' : isChinese ? '我们的服务' : 'Our Services'}
+              title={
+                isIndonesian ? (
+                  <>
+                    Solusi untuk <span className="text-accent-400">setiap kebutuhan event</span>
+                  </>
+                ) : isChinese ? (
+                  <>
+                    为每一场活动<span className="text-accent-400">提供专业解决方案</span>
+                  </>
+                ) : (
+                  <>
+                    Solutions for <span className="text-accent-400">every event need</span>
+                  </>
+                )
+              }
+              lead={
+                isIndonesian
+                  ? 'Layanan terintegrasi dari hulu ke hilir untuk memastikan setiap event berjalan sukses.'
+                  : isChinese
+                    ? '从前期策划到落地执行的全流程服务，确保每场活动都顺利、有影响力。'
+                    : 'End-to-end integrated services to make sure every event is successful and impactful.'
+              }
+              className="mb-0 max-w-2xl"
+            />
+            <ButtonLink to="/services" variant="outlineLight">
+              {isIndonesian ? 'Lihat semua layanan' : isChinese ? '查看全部服务' : 'View all services'}
+              <span className="btn__icon" aria-hidden="true">→</span>
+            </ButtonLink>
+          </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {localizedServices.map((service, index) => (
-              <article className="card card--dark card--hover p-5" key={service.title}>
-                <div className="flex items-start justify-between">
-                  <div className="icon-badge icon-badge--dark icon-badge--sm">
-                    <Icon name={service.icon} size={20} />
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 md:mt-10">
+            {localizedServices.map((service, index) => {
+              const slug = serviceSlugByTitle.get(service.title)
+              if (!slug) return null
+              return (
+                <Link
+                  to={`/services/${slug}`}
+                  className="card card--dark card--hover group block p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400"
+                  key={service.title}
+                >
+                  <div className="flex items-start justify-between">
+                    <div className="icon-badge icon-badge--dark icon-badge--sm">
+                      <Icon name={service.icon} size={20} />
+                    </div>
+                    <span className="font-display text-xs font-bold text-white/55">{String(index + 1).padStart(2, '0')}</span>
                   </div>
-                  <span className="font-display text-xs font-bold text-white/55">{String(index + 1).padStart(2, '0')}</span>
-                </div>
-                <h3 className="mt-4 text-[16px] leading-snug font-bold text-white">{service.title}</h3>
-                <p className="mt-2 text-[13px] leading-relaxed text-white/62">{service.text}</p>
-              </article>
-            ))}
+                  <h3 className="mt-4 text-[16px] leading-snug font-bold text-white">{service.title}</h3>
+                  <p className="mt-2 text-[13px] leading-relaxed text-white/62">{service.text}</p>
+                </Link>
+              )
+            })}
           </div>
         </Wrap>
       </section>
@@ -558,18 +605,19 @@ export default function HomePage() {
             }
           />
 
-          <div className="timeline">
-            {localizedProcess.map(([ProcessIcon, number, title, text], index) => {
+          <div className="timeline timeline--snake" ref={processRef}>
+            {localizedProcess.map(([ProcessIcon, number, title], index) => {
               const side = index % 2 === 0 ? 'left' : 'right'
               return (
                 <div className="timeline__row" key={number}>
                   <div className="timeline__icon">
                     <ProcessIcon size={18} />
                   </div>
-                  <div className={`timeline__card card card--dark p-6 sm:max-w-[430px] ${side === 'left' ? 'timeline__card--left' : 'timeline__card--right'}`}>
-                    <span className="text-xs font-bold tracking-[0.14em] text-brand-300">{number}</span>
-                    <h3 className="h3 mt-2 text-white">{title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-white/62">{text}</p>
+                  <div className={`timeline__card card card--dark p-4 md:max-w-sm md:p-5 ${side === 'left' ? 'timeline__card--left' : 'timeline__card--right'}`}>
+                    <div className="flex items-center gap-2">
+                      <span className="font-display text-[11px] font-bold tracking-[0.14em] text-brand-300 md:text-xs">{number}</span>
+                      <h3 className="text-[14px] font-bold leading-snug text-white md:text-[15px]">{title}</h3>
+                    </div>
                   </div>
                 </div>
               )
