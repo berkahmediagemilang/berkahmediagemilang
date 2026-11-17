@@ -3,11 +3,14 @@ import { Outlet, useLocation } from 'react-router-dom'
 import RouteFallback from '@/components/RouteFallback.jsx'
 import { SiteHeader } from '@/components/SiteChrome.jsx'
 import Footer from '@/components/Footer.jsx'
-import { useLanguage } from '@/i18n/language.js'
+import { useStrings } from '@/i18n/useStrings.js'
+import id from '@/i18n/locale/id/common.js'
+import en from '@/i18n/locale/en/common.js'
+import zh from '@/i18n/locale/zh/common.js'
 
 export default function MainLayout() {
   const location = useLocation()
-  const { language } = useLanguage()
+  const t = useStrings({ id, en, zh })
 
   useEffect(() => {
     if (location.hash) {
@@ -20,12 +23,10 @@ export default function MainLayout() {
     window.scrollTo({ top: 0, behavior: 'instant' })
   }, [location.pathname, location.hash])
 
-  const skipLabel = language === 'id' ? 'Lewati ke konten' : language === 'zh' ? '跳到内容' : 'Skip to content'
-
   return (
     <div className="app-shell">
       <a href="#main" className="skip-link">
-        {skipLabel}
+        {t.skipLink}
       </a>
       <SiteHeader />
       <main id="main" className="page-enter" key={location.pathname}>

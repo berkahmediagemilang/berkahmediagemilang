@@ -1,50 +1,51 @@
 import { Link } from 'react-router-dom'
 import { ButtonLink, PageHero, Wrap } from '@/components/ui.jsx'
-import { useLanguage } from '@/i18n/language.js'
+import { useStrings } from '@/i18n/useStrings.js'
+import id from '@/i18n/locale/id/help.js'
+import en from '@/i18n/locale/en/help.js'
+import zh from '@/i18n/locale/zh/help.js'
 
 export default function Help() {
-  const { language } = useLanguage()
-  const isIndonesian = language === 'id'
-  const isChinese = language === 'zh'
+  const t = useStrings({ id, en, zh })
 
   return (
     <>
       <PageHero
         breadcrumb={
           <>
-            <Link to="/">{isIndonesian ? 'Beranda' : isChinese ? '首页' : 'Home'}</Link>
+            <Link to="/">{t.breadcrumb.home}</Link>
             <span aria-hidden="true">›</span>
-            {isIndonesian ? 'Pusat Bantuan' : isChinese ? '帮助中心' : 'Help Center'}
+            {t.breadcrumb.help}
           </>
         }
-        eyebrow={isIndonesian ? 'Bantuan' : isChinese ? '帮助' : 'Help'}
-        title={isIndonesian ? <>Pusat <span className="text-accent-400">Bantuan</span></> : isChinese ? <>帮助<span className="text-accent-400">中心</span></> : <>Help <span className="text-accent-400">Center</span></>}
-        lead={isIndonesian ? 'Butuh bantuan? Hubungi tim BMG atau lihat tautan di bawah ini.' : isChinese ? '需要帮助？请联系 BMG 团队或查看以下链接。' : 'Need help? Contact the BMG team or see the links below.'}
+        eyebrow={t.eyebrow}
+        title={<>{t.title.replace(t.titleAccent, '')}<span className="text-accent-400">{t.titleAccent}</span></>}
+        lead={t.lead}
       />
       <section className="section section--white">
         <Wrap className="max-w-3xl">
           <ul className="grid gap-4">
             <li className="card p-6">
-              <h2 className="h3">{isIndonesian ? 'Hubungi Kami' : isChinese ? '联系我们' : 'Contact Us'}</h2>
-              <p className="mt-2 text-[15px] leading-relaxed text-muted">{isIndonesian ? 'Kirim pesan lewat formulir kontak kami.' : isChinese ? '通过联系表单给我们留言。' : 'Send us a message through our contact form.'}</p>
+              <h2 className="h3">{t.contact.title}</h2>
+              <p className="mt-2 text-[15px] leading-relaxed text-muted">{t.contact.desc}</p>
               <ButtonLink to="/contact" variant="primary" className="mt-4">
-                {isIndonesian ? 'Ke halaman kontak' : isChinese ? '前往联系页面' : 'Go to contact page'}
+                {t.contact.cta}
                 <span className="btn__icon" aria-hidden="true">→</span>
               </ButtonLink>
             </li>
             <li className="card p-6">
-              <h2 className="h3">{isIndonesian ? 'Kebijakan Privasi' : isChinese ? '隐私政策' : 'Privacy Policy'}</h2>
-              <p className="mt-2 text-[15px] leading-relaxed text-muted">{isIndonesian ? 'Pelajari bagaimana kami melindungi data Anda.' : isChinese ? '了解我们如何保护您的数据。' : 'Learn how we protect your data.'}</p>
+              <h2 className="h3">{t.privacy.title}</h2>
+              <p className="mt-2 text-[15px] leading-relaxed text-muted">{t.privacy.desc}</p>
               <Link to="/privacy" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-600">
-                {isIndonesian ? 'Baca kebijakan privasi' : isChinese ? '阅读隐私政策' : 'Read privacy policy'}
+                {t.privacy.cta}
                 <span aria-hidden="true">→</span>
               </Link>
             </li>
             <li className="card p-6">
-              <h2 className="h3">{isIndonesian ? 'FAQ' : isChinese ? '常见问题' : 'FAQ'}</h2>
-              <p className="mt-2 text-[15px] leading-relaxed text-muted">{isIndonesian ? 'Lihat pertanyaan yang sering diajukan.' : isChinese ? '查看常见问题。' : 'See frequently asked questions.'}</p>
+              <h2 className="h3">{t.faq.title}</h2>
+              <p className="mt-2 text-[15px] leading-relaxed text-muted">{t.faq.desc}</p>
               <Link to="/faq" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-600">
-                {isIndonesian ? 'Buka FAQ' : isChinese ? '打开常见问题' : 'Open FAQ'}
+                {t.faq.cta}
                 <span aria-hidden="true">→</span>
               </Link>
             </li>

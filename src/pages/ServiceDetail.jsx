@@ -4,29 +4,24 @@ import { ButtonLink, Eyebrow, PageHero, Wrap } from '@/components/ui.jsx'
 import NotFound from '@/pages/NotFound.jsx'
 import { getServiceBySlug, localized } from '@/data/services.js'
 import { useLanguage } from '@/i18n/language.js'
+import { useStrings } from '@/i18n/useStrings.js'
+import id from '@/i18n/locale/id/service-detail.js'
+import en from '@/i18n/locale/en/service-detail.js'
+import zh from '@/i18n/locale/zh/service-detail.js'
 
 const ctaPhoto = 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1600&q=88'
 
 export default function ServiceDetail() {
   const { slug } = useParams()
   const { language } = useLanguage()
-  const isIndonesian = language === 'id'
-  const isChinese = language === 'zh'
+  const t = useStrings({ id, en, zh })
   const service = getServiceBySlug(slug)
 
   if (!service) return <NotFound />
 
-  const t = (field) => localized(field, language)
-  const title = t(service.title)
-  const serviceWord = isIndonesian ? 'Layanan' : isChinese ? '服务' : 'Service'
-  const labels = {
-    home: isIndonesian ? 'Beranda' : isChinese ? '首页' : 'Home',
-    services: isIndonesian ? 'Layanan' : isChinese ? '服务' : 'Services',
-    overview: isIndonesian ? 'Gambaran layanan' : isChinese ? '服务概览' : 'Service overview',
-    included: isIndonesian ? 'Termasuk dalam layanan' : isChinese ? '包含的服务内容' : "What's included",
-    allServices: isIndonesian ? 'Semua layanan' : isChinese ? '全部服务' : 'All services',
-    eyebrow: `${serviceWord} ${service.number}`,
-  }
+  const local = (field) => localized(field, language)
+  const title = local(service.title)
+  const eyebrow = `${t.serviceWord} ${service.number}`
 
   return (
     <>
@@ -34,16 +29,16 @@ export default function ServiceDetail() {
         image={service.image}
         breadcrumb={
           <>
-            <Link to="/">{labels.home}</Link>
+            <Link to="/">{t.breadcrumb.home}</Link>
             <span aria-hidden="true">›</span>
-            <Link to="/services">{labels.services}</Link>
+            <Link to="/services">{t.breadcrumb.services}</Link>
             <span aria-hidden="true">›</span>
             {title}
           </>
         }
-        eyebrow={labels.eyebrow}
+        eyebrow={eyebrow}
         title={title}
-        lead={t(service.text)}
+        lead={local(service.text)}
       />
 
       {/* Overview + deliverables -------------------------------------- */}
@@ -58,17 +53,17 @@ export default function ServiceDetail() {
                   alt={title}
                 />
                 <span className="chip absolute left-4 top-4 bg-white/92 text-ink-900">
-                  {t(service.category)}
+                  {local(service.category)}
                 </span>
               </div>
             </div>
             <div className="lg:col-span-7">
-              <Eyebrow>{labels.overview}</Eyebrow>
+              <Eyebrow>{t.overview}</Eyebrow>
               <h2 className="h2 mt-4">{title}</h2>
-              <p className="lead mt-5">{t(service.overview)}</p>
-              <h3 className="h3 mt-4 md:mt-8">{labels.included}</h3>
+              <p className="lead mt-5">{local(service.overview)}</p>
+              <h3 className="h3 mt-4 md:mt-8">{t.included}</h3>
               <ul className="mt-4 space-y-3">
-                {t(service.deliverables).map((item) => (
+                {local(service.deliverables).map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <span className="icon-badge icon-badge--sm mt-0.5 shrink-0">
                       <Check size={14} strokeWidth={3} aria-hidden="true" />
@@ -82,7 +77,7 @@ export default function ServiceDetail() {
                 className="mt-4 md:mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-600 transition-colors hover:text-brand-700"
               >
                 <ArrowLeft size={16} aria-hidden="true" />
-                {labels.allServices}
+                {t.allServices}
               </Link>
             </div>
           </div>
@@ -95,33 +90,17 @@ export default function ServiceDetail() {
         <Wrap className="relative z-[1]">
           <div className="max-w-3xl" data-enter>
             <Eyebrow dark accent>
-              {isIndonesian ? 'Siap mulai?' : isChinese ? '准备好了吗？' : 'Ready to start?'}
+              {t.cta.eyebrow}
             </Eyebrow>
             <h2 className="h2 mt-5">
-              {isIndonesian ? (
-                <>
-                  Ceritakan kebutuhan event <span className="text-accent-400">Anda.</span>
-                </>
-              ) : isChinese ? (
-                <>
-                  告诉我们您的<span className="text-accent-400">活动需求。</span>
-                </>
-              ) : (
-                <>
-                  Tell us about your <span className="text-accent-400">event.</span>
-                </>
-              )}
+              {t.cta.title.replace(t.cta.titleAccent, '')}<span className="text-accent-400">{t.cta.titleAccent}</span>
             </h2>
             <p className="lead lead--onDark mt-5 max-w-[560px]">
-              {isIndonesian
-                ? 'Tim kami siap membantu menemukan solusi yang tepat untuk event Anda.'
-                : isChinese
-                  ? '我们的团队将协助您找到最适合的活动解决方案。'
-                  : 'Our team is ready to help you find the right solution for your event.'}
+              {t.cta.lead}
             </p>
             <div className="hero__actions">
               <ButtonLink to="/contact" variant="accent">
-                {isIndonesian ? 'Hubungi Kami' : isChinese ? '联系我们' : 'Contact Us'}
+                {t.cta.button}
                 <span className="btn__icon" aria-hidden="true">→</span>
               </ButtonLink>
             </div>

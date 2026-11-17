@@ -2,32 +2,27 @@ import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import LanguageSwitcher from '@/i18n/LanguageSwitcher.jsx'
-import { useLanguage } from '@/i18n/language.js'
+import { useStrings } from '@/i18n/useStrings.js'
+import id from '@/i18n/locale/id/common.js'
+import en from '@/i18n/locale/en/common.js'
+import zh from '@/i18n/locale/zh/common.js'
 import { ButtonLink, Logo } from '@/components/ui.jsx'
 
 const routes = [
-  { label: 'Home', href: '/' },
-  { label: 'About Us', href: '/about-us' },
-  { label: 'Services', href: '/services' },
-  { label: 'Event', href: '/event' },
+  { label: 'home', href: '/' },
+  { label: 'about', href: '/about-us' },
+  { label: 'services', href: '/services' },
+  { label: 'event', href: '/event' },
 ]
 
 export function SiteHeader() {
-  const { language } = useLanguage()
+  const t = useStrings({ id, en, zh })
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
-  const isIndonesian = language === 'id'
-  const isChinese = language === 'zh'
-  const labels = isIndonesian
-    ? { Home: 'Beranda', 'About Us': 'Tentang Kami', Services: 'Layanan', Event: 'Event', contact: 'Hubungi Kami' }
-    : isChinese
-      ? { Home: '首页', 'About Us': '关于我们', Services: '服务', Event: '活动', contact: '联系我们' }
-      : { Home: 'Home', 'About Us': 'About Us', Services: 'Services', Event: 'Event', contact: 'Contact Us' }
-
-  const navLabel = isIndonesian ? 'Navigasi utama' : isChinese ? '主导航' : 'Main navigation'
-  const openLabel = isIndonesian ? 'Buka menu' : isChinese ? '打开菜单' : 'Open menu'
-  const closeLabel = isIndonesian ? 'Tutup menu' : isChinese ? '关闭菜单' : 'Close menu'
+  const navLabel = t.nav.mainNavigation
+  const openLabel = t.nav.openMenu
+  const closeLabel = t.nav.closeMenu
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -65,7 +60,7 @@ export function SiteHeader() {
                 end={route.href === '/'}
                 className={({ isActive }) => `nav-link${isActive ? ' is-active' : ''}`}
               >
-                {labels[route.label]}
+                {t.nav[route.label]}
               </NavLink>
             ))}
           </nav>
@@ -73,7 +68,7 @@ export function SiteHeader() {
           <div className="site-header__actions">
             <LanguageSwitcher />
             <ButtonLink to="/contact" variant="accent" size="sm" className="site-header__cta">
-              {labels.contact}
+              {t.nav.contact}
             </ButtonLink>
             <button
               type="button"
@@ -99,13 +94,13 @@ export function SiteHeader() {
               className={({ isActive }) => `mobile-menu__link${isActive ? ' is-active' : ''}`}
               onClick={() => setOpen(false)}
             >
-              {labels[route.label]}
+              {t.nav[route.label]}
             </NavLink>
           ))}
         </nav>
         <div className="mobile-menu__footer">
           <ButtonLink to="/contact" variant="accent" block onClick={() => setOpen(false)}>
-            {labels.contact}
+            {t.nav.contact}
           </ButtonLink>
         </div>
       </div>

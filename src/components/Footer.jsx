@@ -2,37 +2,16 @@ import { Link } from 'react-router-dom'
 import { ArrowUp, Mail, MapPin, Phone } from 'lucide-react'
 import { siInstagram, siWhatsapp } from 'simple-icons'
 import { useLanguage } from '@/i18n/language.js'
+import { useStrings } from '@/i18n/useStrings.js'
+import id from '@/i18n/locale/id/common.js'
+import en from '@/i18n/locale/en/common.js'
+import zh from '@/i18n/locale/zh/common.js'
 import { localized, services } from '@/data/services.js'
 import { Logo, Wrap } from '@/components/ui.jsx'
 
 export default function Footer() {
   const { language } = useLanguage()
-  const isIndonesian = language === 'id'
-  const isChinese = language === 'zh'
-
-  const t = {
-    tagline: isIndonesian
-      ? 'Event planner & creative partner di Bandung. Kami merancang, memproduksi, dan mengeksekusi event yang berkesan.'
-      : isChinese
-        ? '万隆的活动策划与创意伙伴。我们策划、制作并执行令人难忘的活动。'
-        : 'Event planner & creative partner in Bandung. We plan, produce, and run events that stay with people.',
-    links: isIndonesian ? 'Tautan' : isChinese ? '链接' : 'Quick Links',
-    services: isIndonesian ? 'Layanan' : isChinese ? '服务' : 'Services',
-    contact: isIndonesian ? 'Hubungi Kami' : isChinese ? '联系我们' : 'Contact Us',
-    home: isIndonesian ? 'Beranda' : isChinese ? '首页' : 'Home',
-    about: isIndonesian ? 'Tentang Kami' : isChinese ? '关于我们' : 'About Us',
-    servicesNav: isIndonesian ? 'Layanan' : isChinese ? '服务' : 'Services',
-    event: isIndonesian ? 'Event' : isChinese ? '活动' : 'Event',
-    contactNav: isIndonesian ? 'Kontak' : isChinese ? '联系' : 'Contact',
-    privacy: isIndonesian ? 'Kebijakan Privasi' : isChinese ? '隐私政策' : 'Privacy Policy',
-    helpGroup: isIndonesian ? 'Bantuan' : isChinese ? '帮助' : 'Help',
-    terms: isIndonesian ? 'Syarat & Ketentuan' : isChinese ? '条款与条件' : 'Terms & Conditions',
-    helpCenter: isIndonesian ? 'Pusat Bantuan' : isChinese ? '帮助中心' : 'Help Center',
-    faq: isIndonesian ? 'FAQ' : isChinese ? '常见问题' : 'FAQ',
-    address: 'Jl. Tamblong No.46, Kb. Pisang, Kec. Sumur Bandung, Bandung, Jawa Barat',
-    rights: isIndonesian ? 'Hak cipta dilindungi.' : isChinese ? '保留所有权利。' : 'All rights reserved.',
-    backToTop: isIndonesian ? 'Kembali ke atas' : isChinese ? '返回顶部' : 'Back to top',
-  }
+  const t = useStrings({ id, en, zh }).footer
 
   // Keep the footer in sync with the services catalogue (/services page).
   const serviceLinks = services.map((service) => ({
@@ -105,7 +84,7 @@ export default function Footer() {
             <h2 className="footer-heading">{t.helpGroup}</h2>
             <ul className="footer-list">
               {helpLinks.map((link) => (
-                <li key={link.to}>
+                <li key={link.label}>
                   <Link to={link.to}>{link.label}</Link>
                 </li>
               ))}
@@ -136,7 +115,7 @@ export default function Footer() {
         <p>
           © 2026 Berkah Media Gemilang. {t.rights}{' '}
           <Link to="/bandingkan" className="footer-compare">
-            {isIndonesian ? 'Lihat perbandingan versi' : isChinese ? '查看版本对比' : 'View version comparison'}
+            {t.compare}
           </Link>
         </p>
         <button

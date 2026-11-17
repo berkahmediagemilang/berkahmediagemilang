@@ -6,6 +6,10 @@ import { ButtonLink, Eyebrow, PageHero, SectionHead, Wrap } from '@/components/u
 import { categoryLabels, events, formatEventDate, sortEventsByDateDesc } from '@/data/events.js'
 import { localized } from '@/data/localized.js'
 import { useLanguage } from '@/i18n/language.js'
+import { useStrings } from '@/i18n/useStrings.js'
+import id from '@/i18n/locale/id/event.js'
+import en from '@/i18n/locale/en/event.js'
+import zh from '@/i18n/locale/zh/event.js'
 
 const heroPhoto = 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1600&q=85'
 
@@ -26,8 +30,7 @@ export default function Event() {
   const [filter, setFilter] = useState('All Events')
   const [page, setPage] = useState(1)
   const { language } = useLanguage()
-  const isIndonesian = language === 'id'
-  const isChinese = language === 'zh'
+  const t = useStrings({ id, en, zh })
 
   const visibleItems = useMemo(() => events.filter((item) => matchesFilter(item, filter)), [filter])
   const pageSize = 6
@@ -38,32 +41,10 @@ export default function Event() {
     return visibleItems.slice(start, start + pageSize)
   }, [visibleItems, currentPage])
 
-  const learnMore = isIndonesian ? 'Detail event' : isChinese ? '活动详情' : 'Event details'
   const archiveEvents = useMemo(() => sortEventsByDateDesc(events), [])
-  const archiveEyebrow = isIndonesian ? 'Arsip Event' : isChinese ? '活动回顾' : 'Event Archive'
-  const archiveTitle = isIndonesian ? (
-    <>Event yang sudah <span className="text-accent-400">kami selenggarakan</span></>
-  ) : isChinese ? (
-    <>我们<span className="text-accent-400">承办过的活动</span></>
-  ) : (
-    <>Events <span className="text-accent-400">we have organized</span></>
-  )
-  const archiveLead = isIndonesian
-    ? `${events.length} event lintas publik, korporat, olahraga, dan digital — semuanya bisa Anda jelajahi.`
-    : isChinese
-      ? `${events.length} 场活动，涵盖公众、企业、体育与线上形式——全部开放浏览。`
-      : `${events.length} events across public, corporate, sport and digital formats — all browsable.`
+  const archiveLead = t.archive.leadTemplate.replace('{count}', events.length)
 
   const formatDate = (date) => formatEventDate(date, language)
-
-  const filterLabels = {
-    'All Events': isIndonesian ? 'Semua Event' : isChinese ? '全部活动' : 'All Events',
-    'Mice & Professional': isIndonesian ? 'MICE & Profesional' : isChinese ? 'MICE 与专业活动' : 'Mice & Professional',
-    'Public & Community': isIndonesian ? 'Publik & Komunitas' : isChinese ? '公众与社群活动' : 'Public & Community',
-    Corporate: isIndonesian ? 'Korporat' : isChinese ? '企业活动' : 'Corporate',
-    'Gathering & Team Building': isIndonesian ? 'Gathering & Team Building' : isChinese ? '聚会与团队建设' : 'Gathering & Team Building',
-    'Sport Events': isIndonesian ? 'Event Olahraga' : isChinese ? '体育活动' : 'Sport Events',
-  }
 
   return (
     <>
@@ -71,34 +52,14 @@ export default function Event() {
         image={heroPhoto}
         breadcrumb={
           <>
-            <Link to="/">{isIndonesian ? 'Beranda' : isChinese ? '首页' : 'Home'}</Link>
+            <Link to="/">{t.breadcrumb.home}</Link>
             <span aria-hidden="true">›</span>
-            {isIndonesian ? 'Event' : isChinese ? '活动' : 'Event'}
+            {t.breadcrumb.event}
           </>
         }
-        eyebrow={isIndonesian ? 'Event Kami' : isChinese ? '我们的活动' : 'Our Events'}
-        title={
-          isIndonesian ? (
-            <>
-              Event yang <span className="text-accent-400">kami banggakan</span>
-            </>
-          ) : isChinese ? (
-            <>
-              我们引以为豪的<span className="text-accent-400">精彩活动</span>
-            </>
-          ) : (
-            <>
-              Events we're <span className="text-accent-400">proud of</span>
-            </>
-          )
-        }
-        lead={
-          isIndonesian
-            ? 'Setiap event adalah cerita. Kami menghadirkan ide, perencanaan, dan eksekusi terbaik untuk menciptakan pengalaman yang berkesan.'
-            : isChinese
-              ? '每一场活动都讲述着独特的故事。我们用创意、规划与执行打造令人难忘的活动体验。'
-              : 'Every event tells a story. We bring the best ideas, planning, and execution to create memorable experiences.'
-        }
+        eyebrow={t.eyebrow}
+        title={<>{t.title.replace(t.titleAccent, '')}<span className="text-accent-400">{t.titleAccent}</span></>}
+        lead={t.lead}
       />
 
       <section className="section">
@@ -107,7 +68,7 @@ export default function Event() {
           <div
             className="mb-4 md:mb-8 flex gap-2 overflow-x-auto border-b border-line pb-px [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             role="group"
-            aria-label={isIndonesian ? 'Filter kategori event' : isChinese ? '活动分类筛选' : 'Filter event categories'}
+            aria-label={t.filterLabel}
           >
             {filters.map((name) => (
               <button
@@ -122,7 +83,7 @@ export default function Event() {
                   setPage(1)
                 }}
               >
-                {filterLabels[name]}
+                {t.filters[name]}
                 {filter === name ? <span className="absolute inset-x-3 bottom-[-1px] h-[2px] rounded-full bg-accent-500" aria-hidden="true" /> : null}
               </button>
             ))}
@@ -160,7 +121,7 @@ export default function Event() {
                       {localized(categoryLabels[item.category], language)}
                     </span>
                     <span className="absolute right-4 top-4 z-[3] inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/12 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.08em] text-white backdrop-blur-md transition-colors duration-300 group-hover:border-accent-500 group-hover:bg-accent-500">
-                      {learnMore}
+                      {t.learnMore}
                       <ArrowRight size={13} aria-hidden="true" />
                     </span>
                     <div className="relative z-[2] p-6">
@@ -177,12 +138,12 @@ export default function Event() {
 
           {/* Pagination ------------------------------------------------ */}
           {totalPages > 1 ? (
-            <nav className="mt-8 flex items-center justify-center gap-2 md:mt-10" aria-label={isIndonesian ? 'Halaman event' : isChinese ? '活动页面' : 'Event pages'}>
+            <nav className="mt-8 flex items-center justify-center gap-2 md:mt-10" aria-label={t.pagination.label}>
               <button
                 type="button"
                 className="grid h-11 w-11 place-items-center rounded-[12px] bg-ink-900/5 text-ink-900 transition-colors hover:bg-ink-900/10 disabled:cursor-default disabled:opacity-40"
                 disabled={currentPage === 1}
-                aria-label={isIndonesian ? 'Halaman sebelumnya' : isChinese ? '上一页' : 'Previous page'}
+                aria-label={t.pagination.prev}
                 onClick={() => setPage((value) => Math.max(1, value - 1))}
               >
                 <ChevronLeft size={18} />
@@ -204,7 +165,7 @@ export default function Event() {
                 type="button"
                 className="grid h-11 w-11 place-items-center rounded-[12px] bg-ink-900/5 text-ink-900 transition-colors hover:bg-ink-900/10 disabled:cursor-default disabled:opacity-40"
                 disabled={currentPage === totalPages}
-                aria-label={isIndonesian ? 'Halaman berikutnya' : isChinese ? '下一页' : 'Next page'}
+                aria-label={t.pagination.next}
                 onClick={() => setPage((value) => Math.min(totalPages, value + 1))}
               >
                 <ChevronRight size={18} />
@@ -217,7 +178,7 @@ export default function Event() {
       {/* Archive ---------------------------------------------------------- */}
       <section className="section section--dark">
         <Wrap>
-          <SectionHead dark eyebrow={archiveEyebrow} title={archiveTitle} lead={archiveLead} className="mb-8" />
+          <SectionHead dark eyebrow={t.archive.eyebrow} title={<>{t.archive.title.replace(t.archive.titleAccent, '')}<span className="text-accent-400">{t.archive.titleAccent}</span></>} lead={archiveLead} className="mb-8" />
           <ul>
             {archiveEvents.map((item) => (
               <li key={item.slug}>
@@ -255,33 +216,17 @@ export default function Event() {
         <Wrap className="relative z-[1]">
           <div className="max-w-3xl" data-enter>
             <Eyebrow dark accent>
-              {isIndonesian ? 'Ingin hasil yang sama?' : isChinese ? '想要同样的效果？' : 'Want the same result?'}
+              {t.cta.eyebrow}
             </Eyebrow>
             <h2 className="h2 mt-5">
-              {isIndonesian ? (
-                <>
-                  Punya ide event? <span className="text-accent-400">Kita wujudkan.</span>
-                </>
-              ) : isChinese ? (
-                <>
-                  有活动想法？<span className="text-accent-400">我们来实现。</span>
-                </>
-              ) : (
-                <>
-                  Have an event in mind? <span className="text-accent-400">Let's make it real.</span>
-                </>
-              )}
+              {t.cta.title.replace(t.cta.titleAccent, '')}<span className="text-accent-400">{t.cta.titleAccent}</span>
             </h2>
             <p className="lead lead--onDark mt-5 max-w-[560px]">
-              {isIndonesian
-                ? 'Yuk, wujudkan ide event Anda bersama tim profesional kami.'
-                : isChinese
-                  ? '让我们与专业团队一起把您的活动创意变成现实。'
-                  : 'Let our professional team bring your event idea to life.'}
+              {t.cta.lead}
             </p>
             <div className="hero__actions">
               <ButtonLink to="/contact" variant="accent">
-                {isIndonesian ? 'Hubungi Kami' : isChinese ? '联系我们' : 'Contact Us'}
+                {t.cta.button}
                 <span className="btn__icon" aria-hidden="true">→</span>
               </ButtonLink>
             </div>

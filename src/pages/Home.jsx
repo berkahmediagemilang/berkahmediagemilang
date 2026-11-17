@@ -22,9 +22,12 @@ import AnimatedCounter from '@/components/AnimatedCounter.jsx'
 import ProcessStepper from '@/components/ProcessStepper.jsx'
 import { ButtonLink, Eyebrow, SectionHead, Wrap } from '@/components/ui.jsx'
 import { services as serviceCatalog } from '@/data/services.js'
-import { useLanguage } from '@/i18n/language.js'
+import { useStrings } from '@/i18n/useStrings.js'
 import * as MarqueeLib from 'react-fast-marquee'
 import { Phone } from 'lucide-react'
+import id from '@/i18n/locale/id/home.js'
+import en from '@/i18n/locale/en/home.js'
+import zh from '@/i18n/locale/zh/home.js'
 const Marquee = MarqueeLib.default?.default || MarqueeLib.default || MarqueeLib
 
 const images = {
@@ -45,39 +48,6 @@ const serviceSlugByTitle = new Map(
     [service.title.id, service.title.en, service.title.zh].map((title) => [title, service.slug]),
   ),
 )
-
-const services = [
-  { icon: 'calendar', title: 'Event Planning', text: 'Perencanaan strategis dan konsep kreatif yang dirancang untuk menciptakan event bermakna dan berkesan.' },
-  { icon: 'tools', title: 'Event Production & Logistics', text: 'Manajemen produksi end-to-end, pengadaan vendor, venue, peralatan, hingga eksekusi di lapangan.' },
-  { icon: 'sound', title: 'Media Buying', text: 'Penempatan media yang tepat untuk memaksimalkan jangkauan dan efektivitas promosi event.' },
-  { icon: 'phone', title: 'Digital & Social Media Amplification', text: 'Meningkatkan awareness event melalui kampanye digital, konten kreatif, dan engagement audiens.' },
-  { icon: 'sparkles', title: 'Brand Activation', text: 'Menghidupkan brand melalui pengalaman interaktif yang menarik perhatian dan menciptakan koneksi kuat dengan audiens.' },
-  { icon: 'mic', title: 'Talent & Entertainment Management', text: 'Menyediakan talent, MC, performer, hingga hiburan berkualitas yang sesuai dengan kebutuhan event Anda.' },
-]
-
-const projects = [
-  { image: images.festival, title: { id: 'Bandung Festival 2026', en: 'Bandung Festival 2026', zh: '万隆节 2026' }, subtitle: { id: 'Festival', en: 'Festival', zh: '节庆活动' } },
-  { image: images.speaker, title: { id: 'Pengisi Acara', en: 'Guest Speaker', zh: '活动嘉宾' }, subtitle: { id: 'Talkshow & Meet Up', en: 'Talkshow & Meet Up', zh: '脱口秀与见面会' } },
-  { image: images.brand, title: { id: 'Brand Activation', en: 'Brand Activation', zh: '品牌推广活动' }, subtitle: { id: 'Summarecon Mall Bandung', en: 'Summarecon Mall Bandung', zh: 'Summarecon Mall Bandung' } },
-  { image: images.tenant, title: { id: 'Tenant Event', en: 'Tenant Event', zh: '商户活动' }, subtitle: { id: 'Local Brand Day', en: 'Local Brand Day', zh: '本地品牌日' } },
-]
-
-const reasons = [
-  { icon: 'bulb', title: 'Creative Thinking', text: 'Kami menghadirkan ide kreatif yang relevan dan berkesan.' },
-  { icon: 'play', title: 'Strategic Execution', text: 'Perencanaan matang dan eksekusi tepat sasaran untuk hasil maksimal.' },
-  { icon: 'briefcase', title: 'Integrated Solutions', text: 'Semua kebutuhan event dari planning, production, hingga digital dalam satu ekosistem.' },
-  { icon: 'people', title: 'On-Ground Experience', text: 'Tim berpengalaman yang siap menghadapi setiap tantangan di lapangan.' },
-  { icon: 'trend', title: 'Result-Driven', text: 'Setiap event kami rancang untuk menciptakan dampak dan nilai yang terukur.' },
-]
-
-const process = [
-  [Search, '01', 'Discover', 'Memahami tujuan, audiens, dan ekspektasi Anda.'],
-  [Target, '02', 'Strategize', 'Menyusun strategi event dan pendekatan komunikasi yang tepat.'],
-  [Lightbulb, '03', 'Create', 'Mengembangkan konsep, visual, dan pengalaman event yang unik.'],
-  [Settings, '04', 'Produce', 'Menyiapkan produksi, logistik, vendor, dan kebutuhan teknis.'],
-  [PlayCircle, '05', 'Execute', 'Mengeksekusi event dengan detail dan profesional.'],
-  [TrendingUp, '06', 'Amplify', 'Memperluas dampak event melalui media dan kanal digital.'],
-]
 
 const clients = [
   <span key="jansport" className="font-black tracking-[0.09em] text-[30px]">JanSport</span>,
@@ -119,15 +89,15 @@ const iconMap = {
   trend: TrendingUp,
 }
 
+const processIcons = [Search, Target, Lightbulb, Settings, PlayCircle, TrendingUp]
+
 function Icon({ name, size = 24 }) {
   const Component = iconMap[name] || Calendar
   return <Component size={size} />
 }
 
 export default function HomePage() {
-  const { language } = useLanguage()
-  const isIndonesian = language === 'id'
-  const isChinese = language === 'zh'
+  const t = useStrings({ id, en, zh })
   const workCarouselRef = useRef(null)
   const fieldCarouselRef = useRef(null)
   const scrollWork = (direction) => {
@@ -141,121 +111,34 @@ export default function HomePage() {
     el.scrollBy({ left: direction * Math.max(280, el.clientWidth * 0.72), behavior: 'smooth' })
   }
 
-  const localizedServices = isIndonesian
-    ? services
-    : isChinese
-      ? [
-          { icon: 'calendar', title: '活动策划', text: '结合创意与战略思维，为每场活动打造有意义且难忘的体验。' },
-          { icon: 'tools', title: '活动制作与物流', text: '覆盖活动全流程管理、供应商协调、场地与设备安排及现场执行。' },
-          { icon: 'sound', title: '媒体投放', text: '精准投放媒体资源，提升活动曝光率与宣传效果。' },
-          { icon: 'phone', title: '数字与社交媒体推广', text: '通过数字营销、创意内容与受众互动提升活动影响力。' },
-          { icon: 'sparkles', title: '品牌活动', text: '通过互动体验让品牌与受众建立强连接，增强品牌认知。' },
-          { icon: 'mic', title: '艺人与娱乐管理', text: '为活动提供主持人、表演者与娱乐资源，满足不同场景需求。' },
-        ]
-      : [
-          { icon: 'calendar', title: 'Event Planning', text: 'Strategic planning and creative concepts designed to make every event meaningful and memorable.' },
-          { icon: 'tools', title: 'Event Production & Logistics', text: 'End-to-end production management, vendor sourcing, venue, equipment, and on-site execution.' },
-          { icon: 'sound', title: 'Media Buying', text: 'The right media placements to maximize your event promotion reach and effectiveness.' },
-          { icon: 'phone', title: 'Digital & Social Media Amplification', text: 'Boosting event awareness through digital campaigns, creative content, and audience engagement.' },
-          { icon: 'sparkles', title: 'Brand Activation', text: 'Bringing brands to life through engaging interactive experiences that build strong audience connections.' },
-          { icon: 'mic', title: 'Talent & Entertainment Management', text: 'Providing talent, MCs, performers, and quality entertainment tailored to your event needs.' },
-        ]
-
-  const localizedReasons = isIndonesian
-    ? reasons
-    : isChinese
-      ? [
-          { icon: 'bulb', title: '创意思维', text: '我们将富有针对性的创意灵感转化为让人难忘的活动体验。' },
-          { icon: 'play', title: '战略执行', text: '科学规划与精准执行，确保每一步都朝着最佳成果推进。' },
-          { icon: 'briefcase', title: '一体化方案', text: '从策划、制作到数字推广，我们为您提供全链路支持。' },
-          { icon: 'people', title: '现场经验', text: '经验丰富的团队时刻准备好迎接各类现场挑战。' },
-          { icon: 'trend', title: '成果导向', text: '每一场活动都以可衡量的传播价值与品牌影响为目标。' },
-        ]
-      : [
-          { icon: 'bulb', title: 'Creative Thinking', text: 'We bring forward creative ideas that are relevant and memorable.' },
-          { icon: 'play', title: 'Strategic Execution', text: 'Thoughtful planning and precise execution for the best results.' },
-          { icon: 'briefcase', title: 'Integrated Solutions', text: 'Everything your event needs, from planning and production to digital, in one ecosystem.' },
-          { icon: 'people', title: 'On-Ground Experience', text: 'An experienced team ready to handle every challenge on the ground.' },
-          { icon: 'trend', title: 'Result-Driven', text: 'Every event is designed to create measurable impact and value.' },
-        ]
-
-  const localizedProcess = isIndonesian
-    ? process
-    : isChinese
-      ? [
-          [Search, '01', '发现', '了解您的目标、受众与核心需求。'],
-          [Target, '02', '规划', '设计符合品牌定位的活动策略与传播方向。'],
-          [Lightbulb, '03', '创意', '打造独特概念、视觉与整体活动体验。'],
-          [Settings, '04', '制作', '统筹制作、物流、供应商与技术支持。'],
-          [PlayCircle, '05', '执行', '以专业标准与细致协调确保活动顺利落地。'],
-          [TrendingUp, '06', '推广', '通过媒体与数字渠道扩展活动影响力。'],
-        ]
-      : [
-          [Search, '01', 'Discover', 'Understanding your goals, audience, and expectations.'],
-          [Target, '02', 'Strategize', 'Building the right event strategy and communication approach.'],
-          [Lightbulb, '03', 'Create', 'Developing a unique concept, visuals, and event experience.'],
-          [Settings, '04', 'Produce', 'Preparing production, logistics, vendors, and technical needs.'],
-          [PlayCircle, '05', 'Execute', 'Delivering your event with care and professionalism.'],
-          [TrendingUp, '06', 'Amplify', 'Extending event impact through media and digital channels.'],
-        ]
-
-  const stats = [
-    { end: 10, suffix: '+', label: isIndonesian ? 'Event terlaksana' : isChinese ? '已举办活动' : 'Events delivered' },
-    { end: 20, suffix: '+', label: isIndonesian ? 'Brand & mitra' : isChinese ? '品牌与合作伙伴' : 'Brands & partners' },
-    { end: 5, suffix: '+', label: isIndonesian ? 'Tahun pengalaman' : isChinese ? '多年行业经验' : 'Years experience' },
-    { end: 100, suffix: 'K+', label: isIndonesian ? 'Audiens terjangkau' : isChinese ? '覆盖受众超 10 万' : 'Audience reached' },
-  ]
-
-  const fieldPhotos = [
-    { src: images.field1, alt: isIndonesian ? 'Peserta konferensi bisnis' : isChinese ? '商务会议参与者' : 'Business conference attendees' },
-    { src: images.field2, alt: isIndonesian ? 'Sesi presentasi di meja konferensi' : isChinese ? '会议桌前的演示环节' : 'Presentation at a conference table' },
-    { src: images.field3, alt: isIndonesian ? 'Panggung acara dengan pencahayaan' : isChinese ? '灯光璀璨的活动舞台' : 'Event stage with lighting' },
-  ]
-
   return (
     <>
       {/* Hero --------------------------------------------------------- */}
       <section className="hero">
-        <img className="hero__media" src={images.hero} alt={isIndonesian ? 'Kerumunan penonton konser di malam hari' : isChinese ? '夜晚演唱会观众人群' : 'Concert crowd at night'} />
+        <img className="hero__media" src={images.hero} alt={t.hero.imageAlt} />
         <div className="hero__scrim" aria-hidden="true" />
         <Wrap className="hero__inner">
           <div className="hero__content" data-enter>
             <Eyebrow dark accent>
-              {isIndonesian ? 'Event planner & creative partner' : isChinese ? '活动策划与创意伙伴' : 'Event planner & creative partner'}
+              {t.hero.eyebrow}
             </Eyebrow>
             <h1 className="display-1 mt-5">
-              {isIndonesian ? (
-                <>
-                  Kami menciptakan <span className="text-accent-400">pengalaman event</span> yang bermakna.
-                </>
-              ) : isChinese ? (
-                <>
-                  我们创造<span className="text-accent-400">有意义的活动体验</span>。
-                </>
-              ) : (
-                <>
-                  We create <span className="text-accent-400">event experiences</span> that matter.
-                </>
-              )}
+              {t.hero.title.replace(t.hero.titleAccent, '')}<span className="text-accent-400">{t.hero.titleAccent}</span>
             </h1>
             <p className="lead lead--onDark mt-5 max-w-[560px]">
-              {isIndonesian
-                ? 'Berkah Media Gemilang menghadirkan solusi terintegrasi dalam perencanaan, produksi, promosi, hingga eksekusi event.'
-                : isChinese
-                  ? 'Berkah Media Gemilang 提供从活动策划、制作、宣传到现场执行的一体化解决方案。'
-                  : 'Berkah Media Gemilang delivers integrated solutions in planning, production, promotion, and event execution.'}
+              {t.hero.lead}
             </p>
             <div className="hero__actions">
               <ButtonLink to="/event" variant="accent">
-                {isIndonesian ? 'Jelajahi Event Kami' : isChinese ? '查看我们的活动' : 'Explore Our Events'}
+                {t.hero.exploreEvents}
                 <span className="btn__icon" aria-hidden="true">→</span>
               </ButtonLink>
               <ButtonLink to="/contact" variant="outlineLight">
-                {isIndonesian ? 'Hubungi Kami' : isChinese ? '联系我们' : 'Contact Us'}
+                {t.hero.contactUs}
               </ButtonLink>
             </div>
             <ul className="hero__facts">
-              {stats.slice(0, 3).map((stat) => (
+              {t.stats.slice(0, 3).map((stat) => (
                 <li className="hero__fact" key={stat.label}>
                   <strong>
                     {stat.end}
@@ -274,32 +157,12 @@ export default function HomePage() {
         <Wrap className="grid items-start gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
           <div>
             <SectionHead
-              eyebrow={isIndonesian ? 'Tentang BMG' : isChinese ? '关于 BMG' : 'About BMG'}
-              title={
-                isIndonesian ? (
-                  <>
-                    Kami tak hanya mengatur event. <span className="text-accent-600">Kami menciptakan pengalaman.</span>
-                  </>
-                ) : isChinese ? (
-                  <>
-                    我们不只是策划活动。<span className="text-accent-600">我们创造难忘体验。</span>
-                  </>
-                ) : (
-                  <>
-                    We don't just organize events. <span className="text-accent-600">We create experiences.</span>
-                  </>
-                )
-              }
-              lead={
-                isIndonesian
-                  ? 'BMG hadir sebagai partner strategis untuk membantu brand, perusahaan, dan instansi menciptakan event yang berkesan, berdampak, dan relevan dengan tujuan komunikasi mereka.'
-                  : isChinese
-                    ? 'BMG 为品牌、企业与机构提供全方位策略支持，帮助他们打造富有感染力、兼具影响力且符合传播目标的活动体验。'
-                    : 'BMG is a strategic partner helping brands, companies, and institutions create memorable, impactful events aligned with their communication goals.'
-              }
+              eyebrow={t.about.eyebrow}
+              title={<>{t.about.title.replace(t.about.titleAccent, '')}<span className="text-accent-600">{t.about.titleAccent}</span></>}
+              lead={t.about.lead}
             />
             <div className="grid max-w-[520px] grid-cols-2 gap-x-6 gap-y-8">
-              {stats.map((stat) => (
+              {t.stats.map((stat) => (
                 <div key={stat.label}>
                   <strong className="stat__value">
                     <AnimatedCounter end={stat.end} suffix={stat.suffix} />
@@ -313,7 +176,7 @@ export default function HomePage() {
             <img
               className="aspect-[16/9] w-full rounded-[20px] object-cover shadow-lg"
               src={images.about}
-              alt={isIndonesian ? 'Tim BMG berkolaborasi dalam rapat perencanaan event' : isChinese ? 'BMG 团队在活动策划会议中协作' : 'BMG team collaborating in an event planning meeting'}
+              alt={t.about.imageAlt}
               loading="lazy"
             />
           </div>
@@ -326,39 +189,19 @@ export default function HomePage() {
           <div className="flex flex-wrap items-center justify-between gap-4 md:gap-8">
             <SectionHead
               dark
-              eyebrow={isIndonesian ? 'Layanan Kami' : isChinese ? '我们的服务' : 'Our Services'}
-              title={
-                isIndonesian ? (
-                  <>
-                    Solusi untuk <span className="text-accent-400">setiap kebutuhan event</span>
-                  </>
-                ) : isChinese ? (
-                  <>
-                    为每一场活动<span className="text-accent-400">提供专业解决方案</span>
-                  </>
-                ) : (
-                  <>
-                    Solutions for <span className="text-accent-400">every event need</span>
-                  </>
-                )
-              }
-              lead={
-                isIndonesian
-                  ? 'Layanan terintegrasi dari hulu ke hilir untuk memastikan setiap event berjalan sukses.'
-                  : isChinese
-                    ? '从前期策划到落地执行的全流程服务，确保每场活动都顺利、有影响力。'
-                    : 'End-to-end integrated services to make sure every event is successful and impactful.'
-              }
+              eyebrow={t.services.eyebrow}
+              title={<>{t.services.title.replace(t.services.titleAccent, '')}<span className="text-accent-400">{t.services.titleAccent}</span></>}
+              lead={t.services.lead}
               className="mb-0 max-w-2xl"
             />
             <ButtonLink to="/services" variant="outlineLight">
-              {isIndonesian ? 'Lihat semua layanan' : isChinese ? '查看全部服务' : 'View all services'}
+              {t.services.viewAll}
               <span className="btn__icon" aria-hidden="true">→</span>
             </ButtonLink>
           </div>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 md:mt-10">
-            {localizedServices.map((service, index) => {
+            {t.services.items.map((service, index) => {
               const slug = serviceSlugByTitle.get(service.title)
               if (!slug) return null
               return (
@@ -387,26 +230,12 @@ export default function HomePage() {
         <Wrap>
           <div className="flex flex-wrap items-center justify-between gap-4 md:gap-8">
             <SectionHead
-              eyebrow={isIndonesian ? 'Karya Kami' : isChinese ? '我们的作品' : 'Our Work'}
-              title={
-                isIndonesian ? (
-                  <>
-                    Event yang <span className="text-accent-600">kami banggakan</span>
-                  </>
-                ) : isChinese ? (
-                  <>
-                    我们引以为豪的<span className="text-accent-600">精彩活动</span>
-                  </>
-                ) : (
-                  <>
-                    Events we're <span className="text-accent-600">proud of</span>
-                  </>
-                )
-              }
+              eyebrow={t.work.eyebrow}
+              title={<>{t.work.title.replace(t.work.titleAccent, '')}<span className="text-accent-600">{t.work.titleAccent}</span></>}
               className="mb-0"
             />
             <ButtonLink to="/event" variant="outline">
-              {isIndonesian ? 'Lihat semua event' : isChinese ? '查看全部活动' : 'View all events'}
+              {t.work.viewAll}
               <span className="btn__icon" aria-hidden="true">→</span>
             </ButtonLink>
           </div>
@@ -416,22 +245,22 @@ export default function HomePage() {
               className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
               ref={workCarouselRef}
             >
-              {projects.map((project) => (
+              {t.work.projects.map((project, index) => (
                 <Link
                   to="/event"
                   className="group relative block aspect-[4/3] shrink-0 basis-[90%] snap-start overflow-hidden rounded-[14px] bg-ink-800 sm:basis-[46%] lg:basis-[34%]"
-                  key={project.title.id}
+                  key={project.title}
                 >
                   <img
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    src={project.image}
-                    alt={project.title[language]}
+                    src={[images.festival, images.speaker, images.brand, images.tenant][index]}
+                    alt={project.title}
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink-950/95 via-ink-950/45 to-transparent" aria-hidden="true" />
                   <div className="absolute inset-x-0 bottom-0 p-5">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-accent-300">{project.subtitle[language]}</p>
-                    <h3 className="mt-2 text-[17px] leading-snug font-bold text-white">{project.title[language]}</h3>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-accent-300">{project.subtitle}</p>
+                    <h3 className="mt-2 text-[17px] leading-snug font-bold text-white">{project.title}</h3>
                   </div>
                 </Link>
               ))}
@@ -440,7 +269,7 @@ export default function HomePage() {
               <button
                 type="button"
                 className="grid h-11 w-11 cursor-pointer place-items-center rounded-full border border-line bg-white text-ink-900 transition-colors hover:border-ink-900 hover:text-accent-600"
-                aria-label={isIndonesian ? 'Proyek sebelumnya' : isChinese ? '上一个项目' : 'Previous project'}
+                aria-label={t.work.prevProject}
                 onClick={() => scrollWork(-1)}
               >
                 <ChevronLeft size={18} />
@@ -448,7 +277,7 @@ export default function HomePage() {
               <button
                 type="button"
                 className="grid h-11 w-11 cursor-pointer place-items-center rounded-full border border-line bg-white text-ink-900 transition-colors hover:border-ink-900 hover:text-accent-600"
-                aria-label={isIndonesian ? 'Proyek berikutnya' : isChinese ? '下一个项目' : 'Next project'}
+                aria-label={t.work.nextProject}
                 onClick={() => scrollWork(1)}
               >
                 <ChevronRight size={18} />
@@ -462,25 +291,13 @@ export default function HomePage() {
       <section className="section--tight section--dark">
         <Wrap className="-mt-4 flex flex-col items-center text-center">
           <h2 className="h2 max-w-2xl text-white">
-            {isIndonesian ? (
-              <>
-                Dipercaya oleh <span className="text-accent-400">brand terkemuka</span>
-              </>
-            ) : isChinese ? (
-              <>
-                值得信赖的<span className="text-accent-400">知名品牌</span>
-              </>
-            ) : (
-              <>
-                Trusted by <span className="text-accent-400">great brands</span>
-              </>
-            )}
+            {t.clients.title.replace(t.clients.titleAccent, '')}<span className="text-accent-400">{t.clients.titleAccent}</span>
           </h2>
         </Wrap>
         <div
           className="relative mx-auto mt-6 md:mt-8 w-[90%] overflow-hidden py-8 md:py-10 md:w-[80%]"
           role="region"
-          aria-label={isIndonesian ? 'Daftar klien' : isChinese ? '客户列表' : 'Client list'}
+          aria-label={t.clients.label}
         >
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[var(--color-ink-900)] to-transparent md:w-24" aria-hidden="true" />
           <div className="flex flex-col gap-8 md:gap-10">
@@ -515,25 +332,11 @@ export default function HomePage() {
       <section className="section">
         <Wrap>
           <SectionHead
-            eyebrow={isIndonesian ? 'Mengapa BMG?' : isChinese ? '为什么选择 BMG？' : 'Why BMG?'}
-            title={
-              isIndonesian ? (
-                <>
-                  Alasan memilih <span className="text-accent-600">kami</span>
-                </>
-              ) : isChinese ? (
-                <>
-                  选择<span className="text-accent-600">我们的理由</span>
-                </>
-              ) : (
-                <>
-                  Reasons to choose <span className="text-accent-600">us</span>
-                </>
-              )
-            }
+            eyebrow={t.whyBmg.eyebrow}
+            title={<>{t.whyBmg.title.replace(t.whyBmg.titleAccent, '')}<span className="text-accent-600">{t.whyBmg.titleAccent}</span></>}
           />
           <div className="flex flex-wrap justify-center gap-6">
-            {localizedReasons.map((reason) => (
+            {t.whyBmg.reasons.map((reason) => (
               <div
                 className="card flex w-full flex-col items-start gap-4 p-8 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
                 key={reason.title}
@@ -556,32 +359,12 @@ export default function HomePage() {
         <Wrap>
           <SectionHead
             dark
-            eyebrow={isIndonesian ? 'Proses Kami' : isChinese ? '我们的流程' : 'Our Process'}
-            title={
-              isIndonesian ? (
-                <>
-                  Dari konsep <span className="text-accent-400">hingga dampak</span>
-                </>
-              ) : isChinese ? (
-                <>
-                  从创意<span className="text-accent-400">到落地</span>
-                </>
-              ) : (
-                <>
-                  From concept <span className="text-accent-400">to impact</span>
-                </>
-              )
-            }
-            lead={
-              isIndonesian
-                ? 'Enam tahap yang kami jalankan di setiap proyek, dari Brief pertama hingga laporan akhir.'
-                : isChinese
-                  ? '每个项目都遵循的六个阶段，从首次brief到最终报告。'
-                  : 'Six stages we run on every project, from the first brief to the final report.'
-            }
+            eyebrow={t.process.eyebrow}
+            title={<>{t.process.title.replace(t.process.titleAccent, '')}<span className="text-accent-400">{t.process.titleAccent}</span></>}
+            lead={t.process.lead}
           />
 
-          <ProcessStepper items={localizedProcess} />
+          <ProcessStepper items={t.process.steps.map((step, index) => [processIcons[index], step.number, step.title, step.description])} />
         </Wrap>
       </section>
 
@@ -590,33 +373,13 @@ export default function HomePage() {
         <Wrap className="grid items-center gap-6 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <SectionHead
-              eyebrow={isIndonesian ? 'Cerita di Lapangan' : isChinese ? '现场故事' : 'Field Stories'}
-              title={
-                isIndonesian ? (
-                  <>
-                    Detail yang rapi, <span className="text-accent-600">momen yang terasa.</span>
-                  </>
-                ) : isChinese ? (
-                  <>
-                    细节井然，<span className="text-accent-600">瞬间动人。</span>
-                  </>
-                ) : (
-                  <>
-                    Neat detail, <span className="text-accent-600">felt moments.</span>
-                  </>
-                )
-              }
-              lead={
-                isIndonesian
-                  ? 'Dari brief pertama hingga hari-H, kami selalu hadir di lapangan.'
-                  : isChinese
-                    ? '从首次 brief 到落地执行，我们都在现场。'
-                    : 'From the first brief to event day, we stay on the ground.'
-              }
+              eyebrow={t.fieldStories.eyebrow}
+              title={<>{t.fieldStories.title.replace(t.fieldStories.titleAccent, '')}<span className="text-accent-600">{t.fieldStories.titleAccent}</span></>}
+              lead={t.fieldStories.lead}
               className="mb-4"
             />
             <ButtonLink to="/event" variant="outline" className="mt-4">
-              {isIndonesian ? 'Lihat semua Event' : isChinese ? '查看全部活动' : 'View all events'}
+              {t.fieldStories.viewAll}
               <span className="btn__icon" aria-hidden="true">→</span>
             </ButtonLink>
           </div>
@@ -625,19 +388,19 @@ export default function HomePage() {
               className="flex snap-x snap-mandatory gap-3 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
               ref={fieldCarouselRef}
             >
-              {fieldPhotos.map((photo) => (
+              {t.fieldStories.photos.map((photo, index) => (
                 <div
                   className="media-frame aspect-[4/3.2] w-full shrink-0 snap-start sm:aspect-[16/10] lg:aspect-[4/3]"
-                  key={photo.src}
+                  key={photo.alt}
                 >
-                  <img src={photo.src} alt={photo.alt} loading="lazy" />
+                  <img src={[images.field1, images.field2, images.field3][index]} alt={photo.alt} loading="lazy" />
                 </div>
               ))}
             </div>
             <button
               type="button"
               className="absolute left-2 top-1/2 z-[5] grid h-10 w-10 -translate-y-1/2 cursor-pointer place-items-center rounded-full bg-[rgba(11,20,44,0.6)] text-white transition-colors hover:bg-[rgba(11,20,44,0.85)]"
-              aria-label={isIndonesian ? 'Foto sebelumnya' : isChinese ? '上一张照片' : 'Previous photo'}
+              aria-label={t.fieldStories.prevPhoto}
               onClick={() => scrollField(-1)}
             >
               <ChevronLeft size={18} />
@@ -645,7 +408,7 @@ export default function HomePage() {
             <button
               type="button"
               className="absolute right-2 top-1/2 z-[5] grid h-10 w-10 -translate-y-1/2 cursor-pointer place-items-center rounded-full bg-[rgba(11,20,44,0.6)] text-white transition-colors hover:bg-[rgba(11,20,44,0.85)]"
-              aria-label={isIndonesian ? 'Foto berikutnya' : isChinese ? '下一张照片' : 'Next photo'}
+              aria-label={t.fieldStories.nextPhoto}
               onClick={() => scrollField(1)}
             >
               <ChevronRight size={18} />
@@ -660,33 +423,17 @@ export default function HomePage() {
         <Wrap className="relative z-[1]">
           <div className="max-w-3xl" data-enter>
             <Eyebrow dark accent>
-              {isIndonesian ? 'Tentang BMG' : isChinese ? '关于 BMG' : 'About BMG'}
+              {t.cta.eyebrow}
             </Eyebrow>
             <h2 className="h2 mt-5">
-              {isIndonesian ? (
-                <>
-                  Orang-orang di balik <span className="text-accent-400">event yang hebat</span>
-                </>
-              ) : isChinese ? (
-                <>
-                  精彩活动<span className="text-accent-400">背后的团队</span>
-                </>
-              ) : (
-                <>
-                  The people behind <span className="text-accent-400">great events</span>
-                </>
-              )}
+              {t.cta.title.replace(t.cta.titleAccent, '')}<span className="text-accent-400">{t.cta.titleAccent}</span>
             </h2>
             <p className="lead lead--onDark mt-5 max-w-[560px]">
-              {isIndonesian
-                ? 'Kenali tim profesional BMG — dari perencanaan, produksi, promosi, hingga eksekusi di lapangan.'
-                : isChinese
-                  ? '认识 BMG 的专业团队——从活动策划、制作、宣传到现场执行。'
-                  : 'Meet the professional team behind BMG — from planning and production to promotion and on-site execution.'}
+              {t.cta.lead}
             </p>
             <div className="hero__actions">
               <ButtonLink to="/about-us" variant="accent">
-                {isIndonesian ? 'Kenali tim kami' : isChinese ? '认识我们的团队' : 'Meet the team'}
+                {t.cta.button}
                 <span className="btn__icon" aria-hidden="true">→</span>
               </ButtonLink>
             </div>
