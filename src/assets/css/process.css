@@ -1,0 +1,260 @@
+@layer components {
+
+  /* Timeline ----------------------------------------------------------- */
+  .timeline {
+    position: relative;
+    max-width: 1080px;
+    margin-inline: auto;
+    display: grid;
+    gap: 20px;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    bottom: 18px;
+    left: 23px;
+    width: 2px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, var(--color-brand-400), rgba(138, 171, 248, 0.22));
+  }
+
+  .timeline__row {
+    position: relative;
+    display: grid;
+    padding-left: 64px;
+  }
+
+  .timeline__icon {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border: 2px solid var(--color-brand-400);
+    border-radius: 999px;
+    background: var(--color-ink-900);
+    color: #fff;
+    box-shadow: 0 0 0 6px rgba(11, 18, 32, 0.55);
+  }
+
+  .timeline__card {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .timeline {
+      gap: 28px;
+    }
+
+    .timeline::before {
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      transform: translateX(-50%);
+    }
+
+    .timeline__row {
+      grid-template-columns: 1fr 96px 1fr;
+      gap: 0;
+      padding-left: 0;
+      align-items: center;
+    }
+
+    .timeline__icon {
+      position: static;
+      grid-column: 2;
+      grid-row: 1;
+      justify-self: center;
+    }
+
+    .timeline__card--left {
+      grid-column: 1;
+      grid-row: 1;
+      justify-self: end;
+      text-align: right;
+    }
+
+    .timeline__card--right {
+      grid-column: 3;
+      grid-row: 1;
+      justify-self: start;
+      text-align: left;
+    }
+  }
+
+  /* Process stepper ------------------------------------------------------ */
+  /* One rail, six nodes, read strictly left to right — the reader never has to
+     decode the layout. Below 900px the same markup becomes a vertical stepper. */
+  .stepper {
+    --stepper-node: 48px;
+    --stepper-line: 2px;
+    --stepper-gap-y: 26px;
+    position: relative;
+    max-width: 1080px;
+    margin-inline: auto;
+  }
+
+  .stepper__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: var(--stepper-gap-y);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .stepper__item {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--stepper-node) minmax(0, 1fr);
+    column-gap: 14px;
+    align-items: start;
+  }
+
+  .stepper__node {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: var(--stepper-node);
+    height: var(--stepper-node);
+    border: 2px solid var(--color-brand-400);
+    border-radius: 999px;
+    background: var(--color-ink-900);
+    color: #fff;
+    box-shadow: 0 0 0 6px rgba(6, 11, 23, 0.85);
+    transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .stepper__item:hover .stepper__node {
+    border-color: var(--color-brand-300);
+    box-shadow: 0 0 0 6px rgba(86, 135, 243, 0.16);
+  }
+
+  .stepper__body {
+    min-width: 0;
+  }
+
+  .stepper__num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--color-brand-300);
+  }
+
+  .stepper__title {
+    margin: 4px 0 0;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #fff;
+  }
+
+  .stepper__text {
+    margin: 6px 0 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.62);
+  }
+
+  /* Rail --------------------------------------------------------------- */
+  .stepper__item::before {
+    content: "";
+    position: absolute;
+    display: block;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(86, 135, 243, 0.95), rgba(138, 171, 248, 0.28));
+    transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.25, 1);
+  }
+
+  .stepper__item:last-child::before {
+    content: none;
+  }
+
+  /* Narrow: the rail drops straight down to the next node */
+  .stepper__item:not(:last-child)::before {
+    top: var(--stepper-node);
+    left: calc(var(--stepper-node) / 2 - var(--stepper-line) / 2);
+    width: var(--stepper-line);
+    height: calc(100% + var(--stepper-gap-y) - var(--stepper-node) / 2);
+    background: linear-gradient(180deg, rgba(86, 135, 243, 0.95), rgba(138, 171, 248, 0.28));
+    transform-origin: top center;
+    --stepper-reveal: scaleY(0);
+  }
+
+  @media (min-width: 900px) {
+    .stepper {
+      --stepper-gap-y: 0px;
+    }
+
+    .stepper__list {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .stepper__item {
+      display: block;
+    }
+
+    .stepper__node {
+      margin-inline: auto;
+    }
+
+    .stepper__body {
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .stepper__item:not(:last-child)::before {
+      top: calc(var(--stepper-node) / 2 - var(--stepper-line) / 2);
+      left: 50%;
+      right: auto;
+      width: 100%;
+      height: var(--stepper-line);
+      background: linear-gradient(90deg, rgba(86, 135, 243, 0.95), rgba(138, 171, 248, 0.28));
+      transform-origin: left center;
+      --stepper-reveal: scaleX(0);
+    }
+  }
+
+  /* Entrance ----------------------------------------------------------- */
+  .stepper--reveal .stepper__body {
+    transition:
+      opacity 0.5s ease,
+      transform 0.5s cubic-bezier(0.2, 0.7, 0.25, 1);
+  }
+
+  .stepper--reveal:not(.is-visible) .stepper__body {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  .stepper--reveal:not(.is-visible) .stepper__item::before {
+    transform: var(--stepper-reveal, scaleX(0));
+  }
+
+  .stepper--reveal.is-visible .stepper__item::before,
+  .stepper--reveal.is-visible .stepper__body {
+    transform: none;
+  }
+
+  .stepper--reveal.is-visible .stepper__body {
+    opacity: 1;
+  }
+
+  .stepper--reveal.is-visible .stepper__item:nth-child(1) .stepper__body { transition-delay: 0.05s; }
+  .stepper--reveal.is-visible .stepper__item:nth-child(2) .stepper__body { transition-delay: 0.12s; }
+  .stepper--reveal.is-visible .stepper__item:nth-child(3) .stepper__body { transition-delay: 0.19s; }
+  .stepper--reveal.is-visible .stepper__item:nth-child(4) .stepper__body { transition-delay: 0.26s; }
+  .stepper--reveal.is-visible .stepper__item:nth-child(5) .stepper__body { transition-delay: 0.33s; }
+  .stepper--reveal.is-visible .stepper__item:nth-child(6) .stepper__body { transition-delay: 0.4s; }
+
+}

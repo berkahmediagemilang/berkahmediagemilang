@@ -1,0 +1,71 @@
+@layer components {
+
+  /* Route fallback (Suspense) -------------------------------------------- */
+  /* One generic loader for every route: a ring, the brand mark inside it, and
+     two short lines. It only has to hold the viewport still while the page
+     chunk arrives, so it stays centred and deliberately small. */
+  .loader {
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 18px;
+    min-height: 55vh;
+    padding-block: var(--section-y);
+    text-align: center;
+  }
+
+  .loader__mark {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 68px;
+    height: 68px;
+    border-radius: var(--radius-pill);
+    background: radial-gradient(circle at 50% 45%, var(--color-brand-50), rgba(238, 243, 254, 0) 70%);
+  }
+
+  .loader__ring {
+    position: absolute;
+    inset: 0;
+    border: 3px solid var(--color-brand-100);
+    border-top-color: var(--color-brand-500);
+    border-radius: inherit;
+    animation: loader-spin 0.9s linear infinite;
+  }
+
+  .loader__icon {
+    display: grid;
+    place-items: center;
+    color: var(--color-brand-600);
+  }
+
+  .loader__copy {
+    display: grid;
+    justify-items: center;
+    gap: 6px;
+  }
+
+  .loader__title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--color-ink-900);
+  }
+
+  .loader__hint {
+    margin: 0;
+    max-width: 34ch;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--color-muted-2);
+  }
+
+  /* Reduced motion: keep a quiet, complete ring instead of a frozen arc. */
+  @media (prefers-reduced-motion: reduce) {
+    .loader__ring {
+      border-color: var(--color-brand-200);
+    }
+  }
+
+}
