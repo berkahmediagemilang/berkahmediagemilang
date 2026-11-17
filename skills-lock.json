@@ -1,29 +1,57 @@
 {
-  "version": 1,
+  "version": 2,
   "skills": {
+    "design-taste-frontend": {
+      "source": "Leonxlnx/taste-skill",
+      "commit": "f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+      "sourceType": "github",
+      "skillPath": "skills/taste-skill/SKILL.md",
+      "computedHash": "b10eab0a9684cd09cf34c31ef04a3bf530a5f4404422f9c520d42372d670c7fc",
+      "installMode": "copy"
+    },
     "frontend-design": {
       "source": "anthropics/skills",
+      "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
       "sourceType": "github",
       "skillPath": "skills/frontend-design/SKILL.md",
-      "computedHash": "106acf230014cbb43ca34e6410371321b56ca742f9ee0442e8ec05bf02eb0384"
+      "computedHash": "83485963700bcf11d5bf78118facb301676b69d918fee2e45a95e7f1a2840f6c"
+    },
+    "impeccable": {
+      "source": "pbakaus/impeccable",
+      "commit": "d41d9860b0094dcb68030657da63461212835aaa",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/impeccable/SKILL.md",
+      "computedHash": "077889e9782761360c17acbc2522af320d0dd0f928b09cd90884fa304f443a34",
+      "installMode": "copy"
     },
     "refactoring-ui": {
       "source": "wondelai/skills",
+      "commit": "c5265583b1a9740f06831e1d3e89b35bba3eb430",
       "sourceType": "github",
       "skillPath": "refactoring-ui/SKILL.md",
-      "computedHash": "acd801e4a042f742dfc1e5054c14ea8e1baffee79d5ae8e830d6fb3c340e3834"
+      "computedHash": "d995183dd20c1685f8eda5bc6a9f537846354589026d64bc3aac80c2e7e8ce6b"
+    },
+    "ui-ux-pro-max": {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "commit": "e59ff376a41f7ca47b7541ad5c116495cbade3ee",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/ui-ux-pro-max/SKILL.md",
+      "computedHash": "9700c4f6c9460810a4158f3a6d3238d8ee58bc682e0aa7190c2c333cf6c666b1",
+      "installMode": "copy"
     },
     "ux-heuristics": {
       "source": "wondelai/skills",
+      "commit": "c5265583b1a9740f06831e1d3e89b35bba3eb430",
       "sourceType": "github",
       "skillPath": "ux-heuristics/SKILL.md",
-      "computedHash": "25e39fa1e5d800ed9ac6a85bb65181eecb3248e5b8d2f77ba351d2621285fa89"
+      "computedHash": "42bf5673212445b63ec0db611cfef58429946b9038b8ba9a6d4397d6161ff93c"
     },
     "web-design-guidelines": {
       "source": "vercel-labs/agent-skills",
+      "commit": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
       "sourceType": "github",
       "skillPath": "skills/web-design-guidelines/SKILL.md",
-      "computedHash": "a6a44d5498f7e8f68289902f3dedfc6f38ae0cee1e96527c80724cf27f727c2a"
+      "computedHash": "4f68ae07187fb0d1fb78c88b503d089da4cf5a9d9625d1f2e425b1590bf96d92"
     }
   }
 }
