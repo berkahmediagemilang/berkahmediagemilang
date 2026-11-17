@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import {
   Briefcase,
@@ -19,6 +19,7 @@ import {
   Wrench,
 } from 'lucide-react'
 import AnimatedCounter from '@/components/AnimatedCounter.jsx'
+import ProcessStepper from '@/components/ProcessStepper.jsx'
 import { ButtonLink, Eyebrow, SectionHead, Wrap } from '@/components/ui.jsx'
 import { services as serviceCatalog } from '@/data/services.js'
 import { useLanguage } from '@/i18n/language.js'
@@ -129,7 +130,6 @@ export default function HomePage() {
   const isChinese = language === 'zh'
   const workCarouselRef = useRef(null)
   const fieldCarouselRef = useRef(null)
-  const processRef = useRef(null)
   const scrollWork = (direction) => {
     const el = workCarouselRef.current
     if (!el) return
@@ -140,30 +140,6 @@ export default function HomePage() {
     if (!el) return
     el.scrollBy({ left: direction * Math.max(280, el.clientWidth * 0.72), behavior: 'smooth' })
   }
-
-  // Reveal the process path (line + steps) once it scrolls into view.
-  useEffect(() => {
-    const el = processRef.current
-    if (!el) return
-
-    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
-    if (reduceMotion || !('IntersectionObserver' in window)) return
-
-    el.classList.add('timeline--reveal')
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return
-          entry.target.classList.add('is-visible')
-          observer.disconnect()
-        })
-      },
-      { threshold: 0.25 },
-    )
-    observer.observe(el)
-
-    return () => observer.disconnect()
-  }, [])
 
   const localizedServices = isIndonesian
     ? services
@@ -605,24 +581,7 @@ export default function HomePage() {
             }
           />
 
-          <div className="timeline timeline--snake" ref={processRef}>
-            {localizedProcess.map(([ProcessIcon, number, title], index) => {
-              const side = index % 2 === 0 ? 'left' : 'right'
-              return (
-                <div className="timeline__row" key={number}>
-                  <div className="timeline__icon">
-                    <ProcessIcon size={18} />
-                  </div>
-                  <div className={`timeline__card card card--dark p-4 md:max-w-sm md:p-5 ${side === 'left' ? 'timeline__card--left' : 'timeline__card--right'}`}>
-                    <div className="flex items-center gap-2">
-                      <span className="font-display text-[11px] font-bold tracking-[0.14em] text-brand-300 md:text-xs">{number}</span>
-                      <h3 className="text-[14px] font-bold leading-snug text-white md:text-[15px]">{title}</h3>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+          <ProcessStepper items={localizedProcess} />
         </Wrap>
       </section>
 
