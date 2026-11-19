@@ -22,6 +22,7 @@ export default {
     title: 'Events we have organized',
     titleAccent: 'we have organized',
     leadTemplate: '{count} events across public, corporate, sport and digital formats — all browsable.',
+    others: 'other events',
   },
   pagination: {
     label: 'Event pages',

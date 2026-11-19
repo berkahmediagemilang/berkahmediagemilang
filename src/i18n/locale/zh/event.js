@@ -22,6 +22,7 @@ export default {
     title: '我们承办过的活动',
     titleAccent: '承办过的活动',
     leadTemplate: '{count} 场活动，涵盖公众、企业、体育与线上形式——全部开放浏览。',
+    others: '场其他活动',
   },
   pagination: {
     label: '活动页面',

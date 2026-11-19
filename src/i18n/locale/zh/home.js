@@ -102,4 +102,12 @@ export default {
     lead: '认识 BMG 的专业团队——从活动策划、制作、宣传到现场执行。',
     button: '认识我们的团队',
   },
+  eventArchive: {
+    eyebrow: '活动回顾',
+    title: '我们承办过的活动',
+    titleAccent: '承办过的活动',
+    leadTemplate: '{count} 场活动，涵盖公众、企业、体育与线上形式——全部开放浏览。',
+    others: '其他',
+    showLess: '收起',
+  },
 }

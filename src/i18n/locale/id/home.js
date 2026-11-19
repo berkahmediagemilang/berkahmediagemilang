@@ -102,4 +102,12 @@ export default {
     lead: 'Kenali tim profesional BMG — dari perencanaan, produksi, promosi, hingga eksekusi di lapangan.',
     button: 'Kenali tim kami',
   },
+  eventArchive: {
+    eyebrow: 'Arsip Event',
+    title: 'Event yang sudah kami selenggarakan',
+    titleAccent: 'kami selenggarakan',
+    leadTemplate: '{count} event lintas publik, korporat, olahraga, dan digital — semuanya bisa Anda jelajahi.',
+    others: 'lainnya',
+    showLess: 'Tampilkan lebih sedikit',
+  },
 }

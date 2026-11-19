@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'motion/react'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
@@ -44,7 +44,47 @@ export default function Event() {
   const archiveEvents = useMemo(() => sortEventsByDateDesc(events), [])
   const archiveLead = t.archive.leadTemplate.replace('{count}', events.length)
 
+  // Group archive events by year for timeline display
+  const groupedArchive = useMemo(() => {
+    const groups = {}
+    for (const item of archiveEvents) {
+      const year = item.date.year
+      if (!groups[year]) groups[year] = []
+      groups[year].push(item)
+    }
+    return Object.entries(groups)
+      .sort(([a], [b]) => Number(b) - Number(a))
+      .map(([year, items]) => ({ year: Number(year), items }))
+  }, [archiveEvents])
+
   const formatDate = (date) => formatEventDate(date, language)
+  const timelineRef = useRef(null)
+  const [visibleGroups, setVisibleGroups] = useState(0)
+  const [lineProgress, setLineProgress] = useState(0)
+  useEffect(() => {
+    const el = timelineRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setVisibleGroups((prev) => Math.min(prev + 1, groupedArchive.length))
+      }
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' })
+    const items = el.querySelectorAll('[data-timeline-group]')
+    items.forEach((item) => observer.observe(item))
+    const onScroll = () => {
+      const rect = el.getBoundingClientRect()
+      const start = window.innerHeight * 0.85
+      const total = rect.height - window.innerHeight * 0.3
+      const scrolled = start - rect.top
+      setLineProgress(Math.max(0, Math.min(1, scrolled / Math.max(total, 1))))
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [groupedArchive.length])
 
   return (
     <>
@@ -179,34 +219,53 @@ export default function Event() {
       <section className="section section--dark">
         <Wrap>
           <SectionHead dark eyebrow={t.archive.eyebrow} title={<>{t.archive.title.replace(t.archive.titleAccent, '')}<span className="text-accent-400">{t.archive.titleAccent}</span></>} lead={archiveLead} className="mb-8" />
-          <ul>
-            {archiveEvents.map((item) => (
-              <li key={item.slug}>
-                <Link
-                  to={`/event/${item.slug}`}
-                  className="group grid gap-y-1 border-t border-white/10 px-2 py-5 transition-colors hover:bg-white/[0.04] sm:grid-cols-[180px_1fr_auto] sm:items-center sm:gap-x-8 sm:px-4"
-                >
-                  <span className="text-[12px] font-semibold uppercase tracking-[0.08em] text-accent-400">
-                    {formatEventDate(item.date, language)}
-                  </span>
-                  <span className="min-w-0">
-                    <span className="block text-[16px] font-bold leading-snug text-white">
-                      {localized(item.title, language)}
-                    </span>
-                    <span className="mt-1 block text-[13px] text-white/55">
-                      {item.place} · {localized(categoryLabels[item.category], language)}
-                    </span>
-                  </span>
-                  <ArrowRight
-                    size={18}
-                    aria-hidden="true"
-                    className="hidden shrink-0 text-white/35 transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent-400 sm:block"
-                  />
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <div className="border-t border-white/10" aria-hidden="true" />
+          <div className="relative ml-4 sm:ml-0" ref={timelineRef}>
+            {/* Timeline vertical line */}
+            <div className="absolute left-[7px] top-2 bottom-0 w-px bg-white/5" aria-hidden="true">
+              <div className="w-full bg-accent-500/60 transition-[height] duration-150 ease-out" style={{ height: `${lineProgress * 100}%` }} />
+            </div>
+            {groupedArchive.slice(0, 3).map((group, groupIndex) => {
+              const visibleItems = group.items.slice(0, 3)
+              const hiddenCount = group.items.length - 3
+              const isCurrentYear = groupIndex === 0
+              return (
+                <div key={group.year} data-timeline-group className="mb-8 last:mb-0">
+                  {/* Year marker */}
+                  <div className={`relative z-10 flex items-center gap-4 mb-4 transition-all duration-500 ${visibleGroups > groupIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                    <span className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${isCurrentYear ? 'bg-accent-500 ring-4 ring-accent-500/20' : 'bg-white/10'}`} aria-hidden="true" />
+                    <span className="font-display text-2xl font-bold text-accent-400">{group.year}</span>
+                  </div>
+                  {/* Events in that year */}
+                  <ul className="ml-8 space-y-3">
+                    {visibleItems.map((item, index) => (
+                      <li key={item.slug} className={`transition-all duration-500 ${visibleGroups > groupIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: `${index * 100 + 100}ms` }}>
+                        <Link
+                          to={`/event/${item.slug}`}
+                          className="group flex items-center gap-4 rounded-[10px] border border-white/10 bg-white/[0.03] px-3 py-2.5 transition-colors hover:border-accent-500/50 hover:bg-white/[0.06]"
+                        >
+                          <span className="min-w-0 flex-1">
+                            <span className="block text-[13px] font-bold leading-snug text-white group-hover:text-accent-400 transition-colors">
+                              {localized(item.title, language)}
+                            </span>
+                            <span className="block text-[11px] text-white/45">
+                              {item.place}
+                            </span>
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                    {hiddenCount > 0 && (
+                      <li className={`flex justify-end pr-1 transition-all duration-500 ${visibleGroups > groupIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '400ms' }}>
+                        <span className="text-[11px] font-bold text-accent-400">
+                          +{hiddenCount} {t.archive.others || 'other events'}
+                        </span>
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              )
+            })}
+          </div>
         </Wrap>
       </section>
 

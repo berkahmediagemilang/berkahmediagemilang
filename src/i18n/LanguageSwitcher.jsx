@@ -6,15 +6,16 @@ export default function LanguageSwitcher() {
   return (
     <div className="language-switcher">
       <select
+        className="language-switcher__select"
         aria-label="Pilih bahasa / Select language / 选择语言"
         value={language}
         onChange={(event) => setLanguage(event.target.value)}
       >
-        <option value="id">ID</option>
-        <option value="en">EN</option>
-        <option value="zh">中文</option>
+        <option value="id">IDN</option>
+        <option value="en">ENG</option>
+        <option value="zh">CHN</option>
       </select>
-      <span aria-hidden="true">⌄</span>
+      <span className="language-switcher__arrow" aria-hidden="true">⌄</span>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useMemo, useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {
   Briefcase,
@@ -22,6 +22,9 @@ import AnimatedCounter from '@/components/AnimatedCounter.jsx'
 import ProcessStepper from '@/components/ProcessStepper.jsx'
 import { ButtonLink, Eyebrow, SectionHead, Wrap } from '@/components/ui.jsx'
 import { services as serviceCatalog } from '@/data/services.js'
+import { sortEventsByDateDesc, events } from '@/data/events.js'
+import { localized } from '@/data/localized.js'
+import { useLanguage } from '@/i18n/language.js'
 import { useStrings } from '@/i18n/useStrings.js'
 import * as MarqueeLib from 'react-fast-marquee'
 import { Phone } from 'lucide-react'
@@ -98,8 +101,48 @@ function Icon({ name, size = 24 }) {
 
 export default function HomePage() {
   const t = useStrings({ id, en, zh })
+  const { language } = useLanguage()
+  const recentEvents = useMemo(() => sortEventsByDateDesc(events), [])
+  const groupedRecentEvents = useMemo(() => {
+    const groups = {}
+    for (const item of recentEvents) {
+      const year = item.date.year
+      if (!groups[year]) groups[year] = []
+      groups[year].push(item)
+    }
+    return Object.entries(groups)
+      .sort(([a], [b]) => Number(b) - Number(a))
+      .map(([year, items]) => ({ year: Number(year), items }))
+  }, [recentEvents])
   const workCarouselRef = useRef(null)
   const fieldCarouselRef = useRef(null)
+  const timelineRef = useRef(null)
+  const [visibleGroups, setVisibleGroups] = useState(0)
+  const [lineProgress, setLineProgress] = useState(0)
+  useEffect(() => {
+    const el = timelineRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setVisibleGroups((prev) => Math.min(prev + 1, groupedRecentEvents.length))
+      }
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' })
+    const items = el.querySelectorAll('[data-timeline-group]')
+    items.forEach((item) => observer.observe(item))
+    const onScroll = () => {
+      const rect = el.getBoundingClientRect()
+      const start = window.innerHeight * 0.85
+      const total = rect.height - window.innerHeight * 0.3
+      const scrolled = start - rect.top
+      setLineProgress(Math.max(0, Math.min(1, scrolled / Math.max(total, 1))))
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [groupedRecentEvents.length])
   const scrollWork = (direction) => {
     const el = workCarouselRef.current
     if (!el) return
@@ -413,6 +456,59 @@ export default function HomePage() {
             >
               <ChevronRight size={18} />
             </button>
+          </div>
+        </Wrap>
+      </section>
+
+      {/* Event Archive ------------------------------------------------ */}
+      <section className="section section--dark">
+        <Wrap>
+          <SectionHead
+            dark
+            eyebrow={t.eventArchive.eyebrow}
+            title={<>{t.eventArchive.title.replace(t.eventArchive.titleAccent, '')}<span className="text-accent-400">{t.eventArchive.titleAccent}</span></>}
+            lead={t.eventArchive.leadTemplate.replace('{count}', events.length)}
+            className="mb-8"
+          />
+          <div className="relative" ref={timelineRef}>
+            <div className="absolute left-1/2 top-2 bottom-0 w-px -translate-x-px bg-white/5" aria-hidden="true">
+              <div className="w-full bg-accent-500/60 transition-[height] duration-150 ease-out" style={{ height: `${lineProgress * 100}%` }} />
+            </div>
+            {groupedRecentEvents.map((group, groupIndex) => {
+              const visibleItems = group.items.slice(0, 2)
+              const hiddenCount = group.items.length - 2
+              return (
+                <div key={group.year} data-timeline-group className="mb-8 last:mb-0">
+                  <div className={`relative z-10 flex items-center justify-center mb-4 transition-all duration-500 ${visibleGroups > groupIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-accent-500 ring-4 ring-accent-500/20" aria-hidden="true" />
+                    <span className="ml-3 font-display text-2xl font-bold text-accent-400">{group.year}</span>
+                  </div>
+                  <ul className="space-y-2.5">
+                    {visibleItems.map((item, index) => (
+                      <li key={item.slug} className={`flex transition-all duration-500 ${(groupIndex * 2 + index) % 2 === 0 ? 'sm:justify-start' : 'sm:justify-end'} ${visibleGroups > groupIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: `${index * 100 + 100}ms` }}>
+                        <div className={`group flex items-center rounded-[10px] border border-white/10 bg-white/[0.03] px-4 py-2.5 transition-colors hover:border-accent-500/50 hover:bg-white/[0.06] sm:w-[calc(50%-16px)]`}>
+                          <span className="min-w-0 flex-1">
+                            <span className="block text-[14px] font-bold leading-snug text-white group-hover:text-accent-400 transition-colors">
+                              {localized(item.title, language)}
+                            </span>
+                            <span className="block text-[12px] text-white/45">
+                              {item.place}
+                            </span>
+                          </span>
+                        </div>
+                      </li>
+                    ))}
+                    {hiddenCount > 0 && (
+                      <li className={`flex justify-end pr-1 transition-all duration-500 ${visibleGroups > groupIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '300ms' }}>
+                        <span className="text-[11px] font-bold text-accent-400">
+                          +{hiddenCount} {t.eventArchive.others}
+                        </span>
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              )
+            })}
           </div>
         </Wrap>
       </section>

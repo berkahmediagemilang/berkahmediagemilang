@@ -235,44 +235,41 @@
 
 .language-switcher {
   position: relative;
-  display: inline-flex;
-  flex: 0 0 auto;
+  display: flex;
   align-items: center;
 }
 
-.language-switcher select {
+.language-switcher__select {
   appearance: none;
-  min-width: 56px;
-  height: 44px;
-  padding: 0 24px 0 12px;
+  height: 32px;
+  padding: 0 24px 0 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: var(--radius-sm);
   color: #fff;
   background: transparent;
   cursor: pointer;
   font: inherit;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.language-switcher option {
-  color: var(--color-ink-900);
-  background: #fff;
-}
-
-.language-switcher > span {
-  position: absolute;
-  right: 9px;
-  top: 50%;
-  color: rgba(255, 255, 255, 0.7);
   font-size: 12px;
-  line-height: 1;
-  pointer-events: none;
-  transform: translateY(-50%);
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
-.language-switcher select:focus-visible {
+.language-switcher__arrow {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+}
+
+.language-switcher__select:focus-visible {
   outline: 2px solid var(--color-accent-400);
   outline-offset: 2px;
+}
+
+.language-switcher__select option {
+  color: var(--color-ink-900);
+  background: #fff;
 }

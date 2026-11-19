@@ -132,20 +132,6 @@
     display: none;
   }
 
-  /* Header CTA: plain blue outline button, no filled background */
-  .site-header__cta.btn {
-    border: 1px solid rgba(59, 130, 246, 0.6);
-    background: transparent;
-    color: var(--color-accent-300);
-  }
-
-  .site-header__cta.btn:hover {
-    border-color: var(--color-accent-400);
-    background: rgba(59, 130, 246, 0.14);
-    color: var(--color-accent-200);
-    transform: translateY(-2px);
-  }
-
   .nav-toggle {
     display: inline-flex;
     align-items: center;

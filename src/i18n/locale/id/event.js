@@ -22,6 +22,7 @@ export default {
     title: 'Event yang sudah kami selenggarakan',
     titleAccent: 'kami selenggarakan',
     leadTemplate: '{count} event lintas publik, korporat, olahraga, dan digital — semuanya bisa Anda jelajahi.',
+    others: 'event lainnya',
   },
   pagination: {
     label: 'Halaman event',

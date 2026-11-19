@@ -102,4 +102,12 @@ export default {
     lead: 'Meet the professional team behind BMG — from planning and production to promotion and on-site execution.',
     button: 'Meet the team',
   },
+  eventArchive: {
+    eyebrow: 'Event Archive',
+    title: 'Events we have organized',
+    titleAccent: 'we have organized',
+    leadTemplate: '{count} events across public, corporate, sport and digital formats — all browsable.',
+    others: 'others',
+    showLess: 'Show less',
+  },
 }

@@ -329,6 +329,231 @@ export const events = [
       { name: 'Studio Gema', category: { id: 'Production House', en: 'Production House', zh: '制作公司' }, photo: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=400&q=80' },
     ],
   },
+  {
+    slug: 'coway-product-launch-2025',
+    title: { id: 'Coway Product Launch', en: 'Coway Product Launch', zh: 'Coway 新品发布会' },
+    category: 'brand',
+    gathering: false,
+    date: { month: 9, year: 2025 },
+    place: 'Jakarta',
+    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=850&q=85',
+    text: {
+      id: 'Peluncuran produk Coway di Jakarta — booth interaktif, product demo, dan presentasi ke media.',
+      en: 'Coway product launch in Jakarta — interactive booth, product demos, and media presentation.',
+      zh: 'Coway 雅加达新品发布会——互动展位、产品演示与媒体发布。',
+    },
+    overview: {
+      id: 'Coway Product Launch di Jakarta memperkenalkan lini produk terbaru ke pasar Indonesia. Kami menangani konsep acara, produksi booth, sound system, pencahayaan, dan rundown presentasi — memastikan setiap fitur produk tersampaikan dengan jelas ke audiens dan media.',
+      en: 'Coway Product Launch in Jakarta introduced the latest product line to the Indonesian market. We handled the event concept, booth production, sound system, lighting, and presentation rundown — ensuring every product feature was clearly communicated to audiences and media.',
+      zh: 'Coway 雅加达新品发布会在印尼市场推出最新产品线。我们负责活动概念、展位制作、音响系统、灯光与发布流程——确保每个产品功能都能清晰传达给观众与媒体。',
+    },
+    scope: {
+      id: ['Konsep acara & desain booth', 'Produksi booth, audio & lighting', 'Rundown presentasi & product demo', 'Koordinasi media & dokumentasi'],
+      en: ['Event concept & booth design', 'Booth, audio & lighting production', 'Presentation rundown & product demos', 'Media coordination & documentation'],
+      zh: ['活动概念与展位设计', '展位、音响与灯光制作', '发布流程与产品演示', '媒体协调与影像记录'],
+    },
+    guestStars: [
+      { name: 'Bella Utami', role: { id: 'MC & Presenter', en: 'MC & Presenter', zh: '主持人 · 演讲者' }, photo: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Reza Alfarizi', role: { id: 'Product Specialist', en: 'Product Specialist', zh: '产品专家' }, photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80' },
+    ],
+    support: [
+      { name: 'Medika Nusantara', category: { id: 'Kesehatan', en: 'Healthcare', zh: '医疗健康' }, photo: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Digital Sarana', category: { id: 'IT & Digital', en: 'IT & Digital', zh: 'IT 与数字' }, photo: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80' },
+    ],
+  },
+  {
+    slug: 'lumi-sports-day-2025',
+    title: { id: 'Lumi Sports Day', en: 'Lumi Sports Day', zh: 'Lumi 运动日' },
+    category: 'sport',
+    gathering: false,
+    date: { month: 6, year: 2025 },
+    place: 'Bandung',
+    image: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=850&q=85',
+    text: {
+      id: 'Acara olahraga komunitas Lumi — lomba, games, dan hiburan untuk keluarga.',
+      en: 'Lumi community sports event — competitions, games, and family entertainment.',
+      zh: 'Lumi 社区运动日活动——比赛、游戏与家庭娱乐。',
+    },
+    overview: {
+      id: 'Lumi Sports Day menghadirkan pengalaman olahraga yang menyenangkan untuk komunitas. Kami menangani konsep acara, perlengkapan olahraga, area bermain anak, panggung hiburan, dan konsumsi — menciptakan hari yang aktif dan berkesan.',
+      en: 'Lumi Sports Day brought a fun sports experience to the community. We handled the event concept, sports equipment, kids play area, entertainment stage, and catering — creating an active and memorable day.',
+      zh: 'Lumi 运动日为社区带来趣味运动体验。我们负责活动概念、运动器材、儿童游乐区、演出舞台与餐饮——打造充满活力的一天。',
+    },
+    scope: {
+      id: ['Konsep & perlengkapan olahraga', 'Area bermain anak & keluarga', 'Panggung hiburan & MC', 'Konsumsi & dokumentasi'],
+      en: ['Concept & sports equipment', 'Kids & family play area', 'Entertainment stage & MC', 'Catering & documentation'],
+      zh: ['概念与运动器材', '儿童与家庭游乐区', '演出舞台与主持', '餐饮与影像记录'],
+    },
+    guestStars: [
+      { name: 'Doni Saputra', role: { id: 'Sports Instructor', en: 'Sports Instructor', zh: '运动教练' }, photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Tari Puspita', role: { id: 'MC', en: 'MC', zh: '主持人' }, photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80' },
+    ],
+    support: [
+      { name: 'Lumi Sportswear', category: { id: 'Sportswear · UMKM', en: 'Sportswear · SME', zh: '运动服饰 · 中小企业' }, photo: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Sehat Bersama', category: { id: 'Kesehatan', en: 'Healthcare', zh: '医疗健康' }, photo: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80' },
+    ],
+  },
+  {
+    slug: 'corporate-team-building-2025',
+    title: { id: 'Corporate Team Building', en: 'Corporate Team Building', zh: '企业团队建设' },
+    category: 'corporate',
+    gathering: true,
+    date: { month: 3, year: 2025 },
+    place: 'Lembang, Bandung',
+    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=850&q=85',
+    text: {
+      id: 'Team building perusahaan di Lembang — aktivitas outdoor, games, dan pengembangan tim.',
+      en: 'Corporate team building in Lembang — outdoor activities, games, and team development.',
+      zh: 'Lembang 企业团队建设——户外活动、游戏与团队发展。',
+    },
+    overview: {
+      id: 'Corporate Team Building di Lembang dirancang untuk memperkuat kolaborasi tim melalui aktivitas outdoor dan permainan kelompok. Kami menangani pemilihan venue, konsep acara, fasilitator, perlengkapan aktivitas, transportasi, dan konsumsi — memastikan pengalaman yang cohesion dan menyenangkan.',
+      en: 'Corporate Team Building in Lembang was designed to strengthen team collaboration through outdoor activities and group games. We handled venue selection, event concept, facilitators, activity equipment, transportation, and catering — ensuring a cohesive and enjoyable experience.',
+      zh: 'Lembang 企业团队建设旨在通过户外活动与团队游戏增强团队协作。我们负责场地选择、活动概念、引导员、活动器材、交通与餐饮——确保凝聚力强且愉快的体验。',
+    },
+    scope: {
+      id: ['Pemilihan venue & konsep acara', 'Fasilitator & perlengkapan aktivitas', 'Transportasi & konsumsi', 'Dokumentasi & after-movie'],
+      en: ['Venue selection & event concept', 'Facilitators & activity equipment', 'Transportation & catering', 'Documentation & aftermovie'],
+      zh: ['场地选择与活动概念', '引导员与活动器材', '交通与餐饮', '影像记录与 aftermovie'],
+    },
+    guestStars: [
+      { name: 'Fikri Ramadhan', role: { id: 'Facilitator', en: 'Facilitator', zh: '引导员' }, photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Nadia Sari', role: { id: 'MC', en: 'MC', zh: '主持人' }, photo: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=400&q=80' },
+    ],
+    support: [
+      { name: 'Alam Lembang', category: { id: 'Venue & Outbound', en: 'Venue & Outbound', zh: '场地与户外' }, photo: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Catering Nusantara', category: { id: 'Katering · UMKM', en: 'Catering · SME', zh: '餐饮 · 中小企业' }, photo: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80' },
+    ],
+  },
+  {
+    slug: 'new-year-festival-2024',
+    title: { id: 'New Year Festival 2024', en: 'New Year Festival 2024', zh: '2024 新年庆典' },
+    category: 'public',
+    gathering: false,
+    date: { month: 12, year: 2024 },
+    place: 'Summarecon Mall Bandung',
+    image: 'https://images.unsplash.com/photo-1467810563594-b9361367626a?auto=format&fit=crop&w=850&q=85',
+    text: {
+      id: 'Festival pergantian tahun di Summarecon Mall Bandung — panggung musik, countdown, dan hiburan keluarga.',
+      en: 'New Year countdown festival at Summarecon Mall Bandung — live music stage, countdown, and family entertainment.',
+      zh: '在 Summarecon 万隆购物中心举办的新年倒计时庆典——音乐舞台、倒计时与家庭娱乐。',
+    },
+    overview: {
+      id: 'New Year Festival 2024 menyambut tahun baru dengan meriah di Summarecon Mall Bandung. Kami menangani produksi panggung utama, sound system, lighting, countdown show, dan area hiburan keluarga — dari persiapan hingga tengah malam.',
+      en: 'New Year Festival 2024 welcomed the new year in style at Summarecon Mall Bandung. We handled the main stage production, sound system, lighting, countdown show, and family entertainment area — from setup to midnight.',
+      zh: '2024 新年庆典在 Summarecon 万隆购物中心喜迎新年。我们负责主舞台制作、音响系统、灯光、倒计时演出与家庭娱乐区——从搭建到午夜。',
+    },
+    scope: {
+      id: ['Produksi panggung utama & countdown show', 'Sound system, lighting & visual', 'Area hiburan & kuliner malam', 'Koordinasi keamanan & parkir'],
+      en: ['Main stage & countdown show production', 'Sound system, lighting & visuals', 'Night entertainment & food court', 'Security & parking coordination'],
+      zh: ['主舞台与倒计时演出制作', '音响系统、灯光与视觉', '夜间娱乐与美食区', '安保与停车协调'],
+    },
+    guestStars: [
+      { name: 'Nabila Putri', role: { id: 'Penyanyi Pop', en: 'Pop Singer', zh: '流行歌手' }, photo: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Rendi Pratama', role: { id: 'DJ', en: 'DJ', zh: 'DJ' }, photo: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Sanggar Tari Gita', role: { id: 'Tari Tradisional', en: 'Traditional Dance', zh: '传统舞蹈' }, photo: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=400&q=80' },
+    ],
+    support: [
+      { name: 'Summarecon Mall', category: { id: 'Venue', en: 'Venue', zh: '场地' }, photo: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Kuliner Nusantara', category: { id: 'F&B · UMKM', en: 'F&B · SME', zh: '餐饮 · 中小企业' }, photo: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80' },
+    ],
+  },
+  {
+    slug: 'brand-activation-summarecon-2024',
+    title: { id: 'Brand Activation Summarecon', en: 'Summarecon Brand Activation', zh: 'Summarecon 品牌推广' },
+    category: 'brand',
+    gathering: false,
+    date: { month: 8, year: 2024 },
+    place: 'Summarecon Mall Bandung',
+    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=850&q=85',
+    text: {
+      id: 'Aktivasi brand di Summarecon Mall — booth interaktif, product trial, dan engagement pengunjung.',
+      en: 'Brand activation at Summarecon Mall — interactive booths, product trials, and visitor engagement.',
+      zh: 'Summarecon 购物中心品牌推广——互动展位、产品试用与访客互动。',
+    },
+    overview: {
+      id: 'Brand Activation Summarecon 2024 menghadirkan pengalaman brand langsung ke pengunjung mall. Kami merancang booth interaktif, demonstrasi produk, games berhadiah, dan sistem lead capture — meningkatkan brand awareness sekaligus konversi.',
+      en: 'Brand Activation Summarecon 2024 brought brands directly to mall visitors. We designed interactive booths, product demonstrations, prize games, and lead capture systems — boosting both brand awareness and conversion.',
+      zh: 'Summarecon 2024 品牌推广将品牌直接带给商场访客。我们设计了互动展位、产品演示、有奖游戏与线索收集系统——提升品牌知名度与转化率。',
+    },
+    scope: {
+      id: ['Konsep & desain booth interaktif', 'Produksi booth & display', 'Demonstrasi produk & games', 'Lead capture & laporan aktivasi'],
+      en: ['Interactive booth concept & design', 'Booth & display production', 'Product demos & games', 'Lead capture & activation report'],
+      zh: ['互动展位概念与设计', '展位与陈列制作', '产品演示与游戏', '线索收集与激活报告'],
+    },
+    guestStars: [
+      { name: 'Dewi Anggraini', role: { id: 'MC & Host', en: 'MC & Host', zh: '主持人' }, photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Bayu Nugroho', role: { id: 'Product Presenter', en: 'Product Presenter', zh: '产品演讲者' }, photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80' },
+    ],
+    support: [
+      { name: 'Summarecon Mall', category: { id: 'Venue', en: 'Venue', zh: '场地' }, photo: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Creative Works', category: { id: 'Creative Agency', en: 'Creative Agency', zh: '创意公司' }, photo: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80' },
+    ],
+  },
+  {
+    slug: 'corporate-gala-dinner-2024',
+    title: { id: 'Corporate Gala Dinner 2024', en: 'Corporate Gala Dinner 2024', zh: '2024 企业晚宴' },
+    category: 'corporate',
+    gathering: true,
+    date: { month: 5, year: 2024 },
+    place: 'Hotel Aryaduta Bandung',
+    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=850&q=85',
+    text: {
+      id: 'Gala dinner korporat — awarding night, hiburan, dan networking di Hotel Aryaduta Bandung.',
+      en: 'Corporate gala dinner — awards night, entertainment, and networking at Hotel Aryaduta Bandung.',
+      zh: '在 Aryaduta 万隆酒店举办的企业晚宴——颁奖夜、娱乐与社交。',
+    },
+    overview: {
+      id: 'Corporate Gala Dinner 2024 menghadirkan malam apresiasi korporat yang elegan di Hotel Aryaduta Bandung. Kami menangani dekorasi ballroom, panggung utama, tata meja, rundown acara, hiburan live, dan dokumentasi — menciptakan pengalaman gala yang berkesan.',
+      en: 'Corporate Gala Dinner 2024 delivered an elegant corporate appreciation night at Hotel Aryaduta Bandung. We handled ballroom decoration, main stage, table settings, event rundown, live entertainment, and documentation — creating a memorable gala experience.',
+      zh: '2024 企业晚宴在 Aryaduta 万隆酒店呈现优雅的企业答谢夜。我们负责宴会厅装饰、主舞台、桌面布置、活动流程、现场娱乐与影像记录——打造难忘的晚宴体验。',
+    },
+    scope: {
+      id: ['Dekorasi ballroom & panggung utama', 'Tata meja & seating arrangement', 'Rundown acara & hiburan live', 'Dokumentasi & after-movie'],
+      en: ['Ballroom decoration & main stage', 'Table settings & seating arrangement', 'Event rundown & live entertainment', 'Documentation & aftermovie'],
+      zh: ['宴会厅装饰与主舞台', '桌面布置与座位安排', '活动流程与现场娱乐', '影像记录与 aftermovie'],
+    },
+    guestStars: [
+      { name: 'Kirana Dewi', role: { id: 'Singer', en: 'Singer', zh: '歌手' }, photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Aditya Pratama', role: { id: 'MC Gala', en: 'Gala MC', zh: '晚宴主持人' }, photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80' },
+    ],
+    support: [
+      { name: 'Hotel Aryaduta', category: { id: 'Hospitality', en: 'Hospitality', zh: '酒店接待' }, photo: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Dekorasi Nusantara', category: { id: 'Dekorasi · UMKM', en: 'Decoration · SME', zh: '装饰 · 中小企业' }, photo: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80' },
+    ],
+  },
+  {
+    slug: 'lumi-fun-run-2024',
+    title: { id: 'Lumi Fun Run 2024', en: 'Lumi Fun Run 2024', zh: '2024 Lumi 欢乐跑' },
+    category: 'sport',
+    gathering: false,
+    date: { month: 2, year: 2024 },
+    place: 'Bandung',
+    image: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=850&q=85',
+    text: {
+      id: 'Fun run 5K komunitas Lumi — lomba lari, hiburan, dan gathering keluarga.',
+      en: 'Lumi community 5K fun run — running competition, entertainment, and family gathering.',
+      zh: 'Lumi 社区 5 公里欢乐跑——跑步比赛、娱乐与家庭聚会。',
+    },
+    overview: {
+      id: 'Lumi Fun Run 2024 mengajak komunitas berlari 5K di Bandung. Kami menangani rute lomba, start/finish gate, medal, goodie bag, hidangan, dan hiburan — menghadirkan pengalaman olahraga yang menyenangkan.',
+      en: 'Lumi Fun Run 2024 brought the community together for a 5K run in Bandung. We handled the race route, start/finish gate, medals, goodie bags, food, and entertainment — delivering a fun sports experience.',
+      zh: '2024 Lumi 欢乐跑邀请社区在万隆完成 5 公里赛程。我们负责赛道、起终点门、奖牌、参赛包、餐饮与娱乐——带来趣味运动体验。',
+    },
+    scope: {
+      id: ['Rute lomba & start/finish gate', 'Medali, goodie bag & hadiah', 'Area hiburan & konsumsi', 'Dokumentasi & medis'],
+      en: ['Race route & start/finish gate', 'Medals, goodie bags & prizes', 'Entertainment area & catering', 'Documentation & medical support'],
+      zh: ['赛道与起终点门', '奖牌、参赛包与奖品', '娱乐区与餐饮', '影像记录与医疗支持'],
+    },
+    guestStars: [
+      { name: 'Rizky Ramadhan', role: { id: 'Pelari Nasional', en: 'National Runner', zh: '国家级跑者' }, photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Vina Maharani', role: { id: 'MC Sport', en: 'Sports MC', zh: '体育主持人' }, photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80' },
+    ],
+    support: [
+      { name: 'Lumi Sportswear', category: { id: 'Sportswear · UMKM', en: 'Sportswear · SME', zh: '运动服饰 · 中小企业' }, photo: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=400&q=80' },
+      { name: 'Hydra+', category: { id: 'Minuman', en: 'Beverage', zh: '饮品' }, photo: 'https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=400&q=80' },
+    ],
+  },
 ]
 
 export function getEventBySlug(slug) {
