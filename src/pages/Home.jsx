@@ -472,15 +472,16 @@ export default function HomePage() {
           />
           <div className="relative" ref={timelineRef}>
             <div className="absolute left-1/2 top-2 bottom-0 w-px -translate-x-px bg-white/5" aria-hidden="true">
-              <div className="w-full bg-accent-500/60 transition-[height] duration-150 ease-out" style={{ height: `${lineProgress * 100}%` }} />
+              <div className="w-full bg-accent-500/30 transition-[height] duration-150 ease-out" style={{ height: `${lineProgress * 100}%` }} />
             </div>
             {groupedRecentEvents.map((group, groupIndex) => {
               const visibleItems = group.items.slice(0, 2)
               const hiddenCount = group.items.length - 2
+              const isCurrentYear = groupIndex === 0
               return (
                 <div key={group.year} data-timeline-group className="mb-8 last:mb-0">
                   <div className={`relative z-10 flex items-center justify-center mb-4 transition-all duration-500 ${visibleGroups > groupIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-accent-500 ring-4 ring-accent-500/20" aria-hidden="true" />
+                    <span className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${isCurrentYear ? 'bg-accent-500 ring-4 ring-accent-500/20' : 'bg-white/10'}`} aria-hidden="true" />
                     <span className="ml-3 font-display text-2xl font-bold text-accent-400">{group.year}</span>
                   </div>
                   <ul className="space-y-2.5">

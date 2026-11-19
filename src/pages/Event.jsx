@@ -222,7 +222,7 @@ export default function Event() {
           <div className="relative ml-4 sm:ml-0" ref={timelineRef}>
             {/* Timeline vertical line */}
             <div className="absolute left-[7px] top-2 bottom-0 w-px bg-white/5" aria-hidden="true">
-              <div className="w-full bg-accent-500/60 transition-[height] duration-150 ease-out" style={{ height: `${lineProgress * 100}%` }} />
+              <div className="w-full bg-accent-500/30 transition-[height] duration-150 ease-out" style={{ height: `${lineProgress * 100}%` }} />
             </div>
             {groupedArchive.slice(0, 3).map((group, groupIndex) => {
               const visibleItems = group.items.slice(0, 3)

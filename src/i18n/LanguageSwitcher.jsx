@@ -11,9 +11,9 @@ export default function LanguageSwitcher() {
         value={language}
         onChange={(event) => setLanguage(event.target.value)}
       >
-        <option value="id">IDN</option>
-        <option value="en">ENG</option>
-        <option value="zh">CHN</option>
+        <option value="id">Indonesia IDN</option>
+        <option value="en">English ENG</option>
+        <option value="zh">中文 CHN</option>
       </select>
       <span className="language-switcher__arrow" aria-hidden="true">⌄</span>
     </div>
