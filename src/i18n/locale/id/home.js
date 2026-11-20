@@ -3,7 +3,7 @@ export default {
     imageAlt: 'Kerumunan penonton konser di malam hari',
     eyebrow: 'Event planner & creative partner',
     title: 'Kami menciptakan pengalaman event yang bermakna.',
-    titleAccent: 'pengalaman event',
+    titleAccent: 'bermakna.',
     lead: 'Berkah Media Gemilang menghadirkan solusi terintegrasi dalam perencanaan, produksi, promosi, hingga eksekusi event.',
     exploreEvents: 'Jelajahi Event Kami',
     contactUs: 'Hubungi Kami',

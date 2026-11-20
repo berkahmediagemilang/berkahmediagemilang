@@ -3,7 +3,7 @@ export default {
     imageAlt: '夜晚演唱会观众人群',
     eyebrow: '活动策划与创意伙伴',
     title: '我们创造有意义的活动体验。',
-    titleAccent: '有意义的活动体验',
+    titleAccent: '有意义的活动体验。',
     lead: 'Berkah Media Gemilang 提供从活动策划、制作、宣传到现场执行的一体化解决方案。',
     exploreEvents: '查看我们的活动',
     contactUs: '联系我们',

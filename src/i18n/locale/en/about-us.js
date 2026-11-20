@@ -57,7 +57,7 @@ export default {
   cta: {
     eyebrow: 'Our Services',
     title: 'Find the services you need',
-    titleAccent: 'services',
+    titleAccent: 'you need',
     lead: 'Explore our services and find the best solution for your event.',
     button: 'View Services',
   },

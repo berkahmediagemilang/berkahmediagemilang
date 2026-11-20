@@ -18,13 +18,13 @@ export default {
   support: {
     eyebrow: 'Support by',
     title: '企业与本地商家的支持',
-    titleAccent: '本地商家',
+    titleAccent: '的支持',
     lead: '幕后支持本场活动的企业与本地商家。',
   },
   related: {
     eyebrow: '活动回顾',
     title: '我们承办过的其他活动',
-    titleAccent: '承办过的',
+    titleAccent: '其他活动',
     lead: '浏览我们承办过的其他活动。',
   },
   cta: {

@@ -3,7 +3,7 @@ export default {
     imageAlt: 'Concert crowd at night',
     eyebrow: 'Event planner & creative partner',
     title: 'We create event experiences that matter.',
-    titleAccent: 'event experiences',
+    titleAccent: 'matter.',
     lead: 'Berkah Media Gemilang delivers integrated solutions in planning, production, promotion, and event execution.',
     exploreEvents: 'Explore Our Events',
     contactUs: 'Contact Us',
