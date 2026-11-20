@@ -93,7 +93,7 @@ export default function Compare() {
             </figcaption>
             <div className={`overflow-hidden rounded-[20px] border border-line bg-white shadow-sm ${frameClass}`}>
               <iframe
-                title={`${t.beforeLabel} — ${label(pages.find((p) => p.key === page))}`}
+                title={`${t.beforeLabel}: ${label(pages.find((p) => p.key === page))}`}
                 src={toClassicPath(page)}
                 className="block h-[78vh] min-h-[520px] w-full border-0"
               />
@@ -110,7 +110,7 @@ export default function Compare() {
             </figcaption>
             <div className={`overflow-hidden rounded-[20px] border border-line bg-white shadow-sm ${frameClass}`}>
               <iframe
-                title={`${t.afterLabel} — ${label(pages.find((p) => p.key === page))}`}
+                title={`${t.afterLabel}: ${label(pages.find((p) => p.key === page))}`}
                 src={toNewPath(page)}
                 className="block h-[78vh] min-h-[520px] w-full border-0"
               />

@@ -12,7 +12,7 @@ export default {
       id: '1',
       title: '1. Overview',
       paragraphs: [
-        'Berkah Media Gemilang ("BMG", "we") respects the privacy of every visitor to this website. This policy explains what data we process when you visit the site, submit the contact form, or reach out to us — and how we handle it.',
+        'Berkah Media Gemilang ("BMG", "we") respects the privacy of every visitor to this website. This policy explains what data we process when you visit the site, submit the contact form, or reach out to us, and how we handle it.',
         'Effective November 12, 2026.',
       ],
       list: null,
@@ -53,20 +53,20 @@ export default {
       id: '5',
       title: '5. Third-Party Services',
       paragraphs: [
-        'This website is served via GitHub Pages. Assets and links on this site involve the following third parties — each with its own privacy policy:',
+        'This website is served via GitHub Pages. Assets and links on this site involve the following third parties, each with its own privacy policy:',
       ],
       list: [
-        'Google Fonts (Inter & Sora) — font requests when the page loads',
-        'Unsplash — images displayed on the site',
-        'WhatsApp (wa.me) and Google Maps — outbound links, loaded only when you click them',
-        'Our email provider — for correspondence you send to hello@bmg.co.id',
+        'Google Fonts (Inter & Sora): font requests when the page loads',
+        'Unsplash: images displayed on the site',
+        'WhatsApp (wa.me) and Google Maps: outbound links, loaded only when you click them',
+        'Our email provider, for correspondence you send to hello@bmg.co.id',
       ],
     },
     {
       id: '6',
       title: '6. Retention & Security',
       paragraphs: [
-        'We keep correspondence for as long as needed to respond to your request and meet applicable legal obligations — and not longer. Access to personal data is limited to the team members who need it.',
+        'We keep correspondence for as long as needed to respond to your request and meet applicable legal obligations, and not longer. Access to personal data is limited to the team members who need it.',
         'No electronic transmission or storage method is completely secure. We apply reasonable, accepted practices to protect your data.',
       ],
       list: null,
@@ -106,5 +106,5 @@ export default {
   effectiveDate: 'Effective from 12 November 2026',
   sectionCount: '{count} sections',
   staticVersion: 'Static version (no scripts)',
-  staticVersionTitle: 'Statically rendered, script-free version — for visitors whose ad blocker blocks the main site',
+  staticVersionTitle: 'Statically rendered, script-free version, for visitors whose ad blocker blocks the main site',
 }

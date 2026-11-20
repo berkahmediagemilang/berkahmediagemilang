@@ -95,7 +95,7 @@ export default function OurTeam() {
                     <img
                       className="h-32 w-32 rounded-full border-4 border-white object-cover object-top shadow-md"
                       src={member.src}
-                      alt={`${member.name} — ${member.role}`}
+                      alt={`${member.name}: ${member.role}`}
                       loading="lazy"
                     />
                   ) : (
@@ -173,7 +173,7 @@ export default function OurTeam() {
               <img
                 className="mx-auto h-36 w-36 rounded-full border-4 border-brand-50 object-cover object-top shadow-md"
                 src={selected.src}
-                alt={`${selected.name} — ${selected.role}`}
+                alt={`${selected.name}: ${selected.role}`}
               />
             ) : (
               <span

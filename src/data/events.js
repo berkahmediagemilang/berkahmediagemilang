@@ -71,9 +71,9 @@ export const events = [
       zh: '在 Summarecon 万隆购物中心举办的六天公众节庆，包含现场演出、市集与社群活动。',
     },
     overview: {
-      id: 'Bandung Festival 2026 adalah festival publik enam hari yang kami produksi di Summarecon Mal Bandung — dari panggung utama hingga area tenant, dari pembukaan hingga penutupan. Tim kami mengelola keseluruhan produksi: perencanaan, perizinan, vendor, artis, dan operasional harian di lapangan.',
-      en: 'Bandung Festival 2026 is a six-day public festival we produced at Summarecon Mall Bandung — from the main stage to the tenant area, from opening to closing. Our team manages the entire production: planning, permits, vendors, artists, and day-to-day on-site operations.',
-      zh: '“万隆节 2026”是我们在 Summarecon 万隆购物中心制作的六天公众节庆——从主舞台到商户区，从开幕到闭幕。我们的团队负责全部制作：企划、审批、供应商、艺人与每日现场运营。',
+      id: 'Bandung Festival 2026 adalah festival publik enam hari yang kami produksi di Summarecon Mal Bandung, dari panggung utama hingga area tenant, dari pembukaan hingga penutupan. Tim kami mengelola keseluruhan produksi: perencanaan, perizinan, vendor, artis, dan operasional harian di lapangan.',
+      en: 'Bandung Festival 2026 is a six-day public festival we produced at Summarecon Mall Bandung, from the main stage to the tenant area, from opening to closing. Our team manages the entire production: planning, permits, vendors, artists, and day-to-day on-site operations.',
+      zh: '“万隆节 2026”是我们在 Summarecon 万隆购物中心制作的六天公众节庆，从主舞台到商户区，从开幕到闭幕。我们的团队负责全部制作：企划、审批、供应商、艺人与每日现场运营。',
     },
     scope: {
       id: ['Produksi panggung utama & side stage selama 6 hari', 'Manajemen tenant, booth, dan bazar', 'Booking artis & kurasi program harian', 'Operasional lapangan: kru, keamanan, dan perizinan'],
@@ -101,9 +101,9 @@ export const events = [
     place: 'Bandung',
     image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=850&q=85',
     text: {
-      id: 'Sesi talkshow dan meet up dengan pengisi acara pilihan — kami tangani pembicara, panggung, hingga sesi interaksi.',
-      en: 'A talkshow and meet-up session with hand-picked guests — we handle the speakers, stage, and audience interaction.',
-      zh: '精选嘉宾的脱口秀与见面会——我们负责嘉宾、舞台与互动环节。',
+      id: 'Sesi talkshow dan meet up dengan pengisi acara pilihan. Kami tangani pembicara, panggung, hingga sesi interaksi.',
+      en: 'A talkshow and meet-up session with hand-picked guests. We handle the speakers, stage, and audience interaction.',
+      zh: '精选嘉宾的脱口秀与见面会，我们负责嘉宾、舞台与互动环节。',
     },
     overview: {
       id: 'Acara talkshow dan meet up ini mempertemukan audiens dengan tokoh pilihan dalam suasana yang intim dan terstruktur. Kami menangani seluruh alurnya: booking dan koordinasi pengisi acara, rundown, produksi panggung dan audio, hingga sesi tanda tangan dan foto bersama.',
@@ -135,9 +135,9 @@ export const events = [
     place: 'Summarecon Mall Bandung',
     image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=850&q=85',
     text: {
-      id: 'Aktivasi brand Coway di mal — booth interaktif, product demo, dan lead capture untuk pengunjung.',
-      en: 'Coway brand activation at the mall — interactive booth, product demos, and lead capture for visitors.',
-      zh: 'Coway 品牌商场激活——互动展位、产品演示与访客线索收集。',
+      id: 'Aktivasi brand Coway di mal: booth interaktif, product demo, dan lead capture untuk pengunjung.',
+      en: 'Coway brand activation at the mall: interactive booth, product demos, and lead capture for visitors.',
+      zh: 'Coway 品牌商场激活：互动展位、产品演示与访客线索收集。',
     },
     overview: {
       id: 'Coway Brand Activation di Summarecon Mal Bandung dirancang untuk menarik pengunjung lewat booth interaktif dan demonstrasi produk secara langsung. Tim kami mengeksekusi konsep, produksi booth, promotor, dan sistem lead capture dari hari pertama hingga hari terakhir.',
@@ -169,9 +169,9 @@ export const events = [
     place: 'Summarecon Mall Bandung',
     image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=850&q=85',
     text: {
-      id: 'Satu hari penuh merayakan merek-merek lokal — kurasi tenant, booth, dan pengalaman belanja di mal.',
-      en: 'A full day celebrating local brands — tenant curation, booths, and shopping experiences at the mall.',
-      zh: '一整天的本地品牌日——商户甄选、展位与商场购物体验。',
+      id: 'Satu hari penuh merayakan merek-merek lokal: kurasi tenant, booth, dan pengalaman belanja di mal.',
+      en: 'A full day celebrating local brands: tenant curation, booths, and shopping experiences at the mall.',
+      zh: '一整天的本地品牌日：商户甄选、展位与商场购物体验。',
     },
     overview: {
       id: 'Tenant Event Local Brand Day adalah hari khusus untuk merek-merek lokal tampil di Summarecon Mal Bandung. Kami menangani kurasi tenant, tata letak dan dekorasi area, promosi ke pengunjung, dan operasional acara dari persiapan hingga bongkar.',
@@ -203,14 +203,14 @@ export const events = [
     place: 'Bandung',
     image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=850&q=85',
     text: {
-      id: 'Grand opening Sera Sa Bakehouse — seremoni pembukaan, hiburan, dan pengalaman pertama pelanggan.',
-      en: "Sera Sa Bakehouse grand opening — opening ceremony, entertainment, and customers' first experience.",
-      zh: 'Sera Sa Bakehouse 盛大开业——开业仪式、演出娱乐与顾客的首次体验。',
+      id: 'Grand opening Sera Sa Bakehouse: seremoni pembukaan, hiburan, dan pengalaman pertama pelanggan.',
+      en: "Sera Sa Bakehouse grand opening: opening ceremony, entertainment, and customers' first experience.",
+      zh: 'Sera Sa Bakehouse 盛大开业：开业仪式、演出娱乐与顾客的首次体验。',
     },
     overview: {
-      id: 'Grand opening Sera Sa Bakehouse dirayakan dengan seremoni pembukaan dan hiburan untuk pelanggan pertama. Kami merancang rangkaian acaranya — seremoni, hiburan, MC, dan dokumentasi — serta mengelola tamu undangan dan alur selama hari-H.',
-      en: 'Sera Sa Bakehouse grand opening was celebrated with an opening ceremony and entertainment for its first customers. We designed the program — ceremony, entertainment, MC, and documentation — and managed guest arrivals and the flow throughout the day.',
-      zh: 'Sera Sa Bakehouse 盛大开业以开业仪式与演出迎接首批顾客。我们策划了活动流程——仪式、演出、主持与影像记录——并管理来宾接待与当天动线。',
+      id: 'Grand opening Sera Sa Bakehouse dirayakan dengan seremoni pembukaan dan hiburan untuk pelanggan pertama. Kami merancang rangkaian acaranya: seremoni, hiburan, MC, dan dokumentasi, serta mengelola tamu undangan dan alur selama hari-H.',
+      en: 'Sera Sa Bakehouse grand opening was celebrated with an opening ceremony and entertainment for its first customers. We designed the program: ceremony, entertainment, MC, and documentation, and managed guest arrivals and the flow throughout the day.',
+      zh: 'Sera Sa Bakehouse 盛大开业以开业仪式与演出迎接首批顾客。我们策划了活动流程：仪式、演出、主持与影像记录，并管理来宾接待与当天动线。',
     },
     scope: {
       id: ['Konsep & dekorasi hari-H', 'Seremoni pembukaan & rangkaian acara', 'Hiburan, MC & dokumentasi', 'Manajemen tamu undangan & alur acara'],
@@ -237,9 +237,9 @@ export const events = [
     place: 'Bandung',
     image: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=850&q=85',
     text: {
-      id: 'Fun run 5K untuk komunitas Lumi — registrasi, race kit, rute lari, dan pengalaman purna-lomba.',
-      en: 'The Lumi 5K fun run — registration, race kits, the race route, and the finish-line experience.',
-      zh: 'Lumi 5公里欢乐跑——报名、参赛物资、赛道与终点体验。',
+      id: 'Fun run 5K untuk komunitas Lumi: registrasi, race kit, rute lari, dan pengalaman purna-lomba.',
+      en: 'The Lumi 5K fun run: registration, race kits, the race route, and the finish-line experience.',
+      zh: 'Lumi 5公里欢乐跑：报名、参赛物资、赛道与终点体验。',
     },
     overview: {
       id: 'Lumi Fun Run 5K mengajak komunitas berlari 5 kilometer di Bandung dengan pengalaman yang tertata: dari registrasi dan race kit, penandaan rute, marshal dan medis, hingga area finish dan pembagian merchandise.',
@@ -271,14 +271,14 @@ export const events = [
     place: 'Bandung',
     image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=850&q=85',
     text: {
-      id: 'Malam apresiasi korporat — gala, awarding ceremony, dan hiburan untuk tim internal.',
-      en: 'A corporate appreciation night — gala dinner, awarding ceremony, and entertainment for internal teams.',
-      zh: '企业答谢夜——晚宴、颁奖典礼与团队娱乐。',
+      id: 'Malam apresiasi korporat: gala, awarding ceremony, dan hiburan untuk tim internal.',
+      en: 'A corporate appreciation night: gala dinner, awarding ceremony, and entertainment for internal teams.',
+      zh: '企业答谢夜：晚宴、颁奖典礼与团队娱乐。',
     },
     overview: {
-      id: 'Corporate Gathering & Awarding Night adalah malam apresiasi untuk tim dan mitra terbaik. Kami mengeksekusi konsep gala, produksi panggung dan lighting, rundown awarding ceremony, hiburan, serta dokumentasi — memastikan setiap momen penghargaan terasa spesial.',
-      en: 'Corporate Gathering & Awarding Night is an appreciation evening for the best teams and partners. We executed the gala concept, stage and lighting production, awarding ceremony rundown, entertainment, and documentation — making every award moment feel special.',
-      zh: '企业聚会暨颁奖之夜是属于最佳团队与伙伴的答谢夜。我们执行晚宴创意、舞台与灯光制作、颁奖流程、演出与影像记录——让每个颁奖时刻都格外特别。',
+      id: 'Corporate Gathering & Awarding Night adalah malam apresiasi untuk tim dan mitra terbaik. Kami mengeksekusi konsep gala, produksi panggung dan lighting, rundown awarding ceremony, hiburan, serta dokumentasi, memastikan setiap momen penghargaan terasa spesial.',
+      en: 'Corporate Gathering & Awarding Night is an appreciation evening for the best teams and partners. We executed the gala concept, stage and lighting production, awarding ceremony rundown, entertainment, and documentation, making every award moment feel special.',
+      zh: '企业聚会暨颁奖之夜是属于最佳团队与伙伴的答谢夜。我们执行晚宴创意、舞台与灯光制作、颁奖流程、演出与影像记录，让每个颁奖时刻都格外特别。',
     },
     scope: {
       id: ['Konsep gala & tema awarding', 'Produksi panggung, lighting & LED screen', 'Rundown awarding ceremony & presenter', 'Hiburan, dokumentasi & after-movie'],
@@ -305,14 +305,14 @@ export const events = [
     place: 'Bandung',
     image: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=850&q=85',
     text: {
-      id: 'Konser yang disiarkan langsung — produksi multi-kamera, audio, dan streaming berkualitas dari Bandung.',
-      en: 'A live-streamed concert — multi-camera production, audio, and quality streaming from Bandung.',
-      zh: '线上直播音乐会——来自万隆的多机位、音响与高质量流媒体制作。',
+      id: 'Konser yang disiarkan langsung: produksi multi-kamera, audio, dan streaming berkualitas dari Bandung.',
+      en: 'A live-streamed concert: multi-camera production, audio, and quality streaming from Bandung.',
+      zh: '线上直播音乐会：来自万隆的多机位、音响与高质量流媒体制作。',
     },
     overview: {
-      id: 'Live Streaming Concert ini diproduksi sebagai konser hibrida yang bisa dinikmati di mana saja. Kami menangani produksi panggung dan live streaming: setup multi-kamera, audio, encoding dan platform streaming, serta moderasi chat — hingga konten highlight setelahnya.',
-      en: 'This Live-Streamed Concert was produced as a hybrid concert that could be enjoyed from anywhere. We handled the stage and streaming production: multi-camera setup, audio, streaming encoding and platform, and chat moderation — plus highlight content afterwards.',
-      zh: '这场线上直播音乐会以混合式形式制作，让线上观众也能同步欣赏。我们负责舞台与直播制作：多机位设置、音响、推流编码与平台、聊天室管理——以及后续精彩剪辑。',
+      id: 'Live Streaming Concert ini diproduksi sebagai konser hibrida yang bisa dinikmati di mana saja. Kami menangani produksi panggung dan live streaming: setup multi-kamera, audio, encoding dan platform streaming, serta moderasi chat, hingga konten highlight setelahnya.',
+      en: 'This Live-Streamed Concert was produced as a hybrid concert that could be enjoyed from anywhere. We handled the stage and streaming production: multi-camera setup, audio, streaming encoding and platform, and chat moderation, plus highlight content afterwards.',
+      zh: '这场线上直播音乐会以混合式形式制作，让线上观众也能同步欣赏。我们负责舞台与直播制作：多机位设置、音响、推流编码与平台、聊天室管理，以及后续精彩剪辑。',
     },
     scope: {
       id: ['Produksi panggung & show management', 'Multi-kamera, audio & live switching', 'Encoding, platform & moderasi streaming', 'Konten highlight & distribusi pasca-acara'],
@@ -338,14 +338,14 @@ export const events = [
     place: 'Jakarta',
     image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=850&q=85',
     text: {
-      id: 'Peluncuran produk Coway di Jakarta — booth interaktif, product demo, dan presentasi ke media.',
-      en: 'Coway product launch in Jakarta — interactive booth, product demos, and media presentation.',
-      zh: 'Coway 雅加达新品发布会——互动展位、产品演示与媒体发布。',
+      id: 'Peluncuran produk Coway di Jakarta: booth interaktif, product demo, dan presentasi ke media.',
+      en: 'Coway product launch in Jakarta: interactive booth, product demos, and media presentation.',
+      zh: 'Coway 雅加达新品发布会：互动展位、产品演示与媒体发布。',
     },
     overview: {
-      id: 'Coway Product Launch di Jakarta memperkenalkan lini produk terbaru ke pasar Indonesia. Kami menangani konsep acara, produksi booth, sound system, pencahayaan, dan rundown presentasi — memastikan setiap fitur produk tersampaikan dengan jelas ke audiens dan media.',
-      en: 'Coway Product Launch in Jakarta introduced the latest product line to the Indonesian market. We handled the event concept, booth production, sound system, lighting, and presentation rundown — ensuring every product feature was clearly communicated to audiences and media.',
-      zh: 'Coway 雅加达新品发布会在印尼市场推出最新产品线。我们负责活动概念、展位制作、音响系统、灯光与发布流程——确保每个产品功能都能清晰传达给观众与媒体。',
+      id: 'Coway Product Launch di Jakarta memperkenalkan lini produk terbaru ke pasar Indonesia. Kami menangani konsep acara, produksi booth, sound system, pencahayaan, dan rundown presentasi, memastikan setiap fitur produk tersampaikan dengan jelas ke audiens dan media.',
+      en: 'Coway Product Launch in Jakarta introduced the latest product line to the Indonesian market. We handled the event concept, booth production, sound system, lighting, and presentation rundown, ensuring every product feature was clearly communicated to audiences and media.',
+      zh: 'Coway 雅加达新品发布会在印尼市场推出最新产品线。我们负责活动概念、展位制作、音响系统、灯光与发布流程，确保每个产品功能都能清晰传达给观众与媒体。',
     },
     scope: {
       id: ['Konsep acara & desain booth', 'Produksi booth, audio & lighting', 'Rundown presentasi & product demo', 'Koordinasi media & dokumentasi'],
@@ -370,14 +370,14 @@ export const events = [
     place: 'Bandung',
     image: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=850&q=85',
     text: {
-      id: 'Acara olahraga komunitas Lumi — lomba, games, dan hiburan untuk keluarga.',
-      en: 'Lumi community sports event — competitions, games, and family entertainment.',
-      zh: 'Lumi 社区运动日活动——比赛、游戏与家庭娱乐。',
+      id: 'Acara olahraga komunitas Lumi: lomba, games, dan hiburan untuk keluarga.',
+      en: 'Lumi community sports event: competitions, games, and family entertainment.',
+      zh: 'Lumi 社区运动日活动：比赛、游戏与家庭娱乐。',
     },
     overview: {
-      id: 'Lumi Sports Day menghadirkan pengalaman olahraga yang menyenangkan untuk komunitas. Kami menangani konsep acara, perlengkapan olahraga, area bermain anak, panggung hiburan, dan konsumsi — menciptakan hari yang aktif dan berkesan.',
-      en: 'Lumi Sports Day brought a fun sports experience to the community. We handled the event concept, sports equipment, kids play area, entertainment stage, and catering — creating an active and memorable day.',
-      zh: 'Lumi 运动日为社区带来趣味运动体验。我们负责活动概念、运动器材、儿童游乐区、演出舞台与餐饮——打造充满活力的一天。',
+      id: 'Lumi Sports Day menghadirkan pengalaman olahraga yang menyenangkan untuk komunitas. Kami menangani konsep acara, perlengkapan olahraga, area bermain anak, panggung hiburan, dan konsumsi, menciptakan hari yang aktif dan berkesan.',
+      en: 'Lumi Sports Day brought a fun sports experience to the community. We handled the event concept, sports equipment, kids play area, entertainment stage, and catering, creating an active and memorable day.',
+      zh: 'Lumi 运动日为社区带来趣味运动体验。我们负责活动概念、运动器材、儿童游乐区、演出舞台与餐饮，打造充满活力的一天。',
     },
     scope: {
       id: ['Konsep & perlengkapan olahraga', 'Area bermain anak & keluarga', 'Panggung hiburan & MC', 'Konsumsi & dokumentasi'],
@@ -402,14 +402,14 @@ export const events = [
     place: 'Lembang, Bandung',
     image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=850&q=85',
     text: {
-      id: 'Team building perusahaan di Lembang — aktivitas outdoor, games, dan pengembangan tim.',
-      en: 'Corporate team building in Lembang — outdoor activities, games, and team development.',
-      zh: 'Lembang 企业团队建设——户外活动、游戏与团队发展。',
+      id: 'Team building perusahaan di Lembang: aktivitas outdoor, games, dan pengembangan tim.',
+      en: 'Corporate team building in Lembang: outdoor activities, games, and team development.',
+      zh: 'Lembang 企业团队建设：户外活动、游戏与团队发展。',
     },
     overview: {
-      id: 'Corporate Team Building di Lembang dirancang untuk memperkuat kolaborasi tim melalui aktivitas outdoor dan permainan kelompok. Kami menangani pemilihan venue, konsep acara, fasilitator, perlengkapan aktivitas, transportasi, dan konsumsi — memastikan pengalaman yang cohesion dan menyenangkan.',
-      en: 'Corporate Team Building in Lembang was designed to strengthen team collaboration through outdoor activities and group games. We handled venue selection, event concept, facilitators, activity equipment, transportation, and catering — ensuring a cohesive and enjoyable experience.',
-      zh: 'Lembang 企业团队建设旨在通过户外活动与团队游戏增强团队协作。我们负责场地选择、活动概念、引导员、活动器材、交通与餐饮——确保凝聚力强且愉快的体验。',
+      id: 'Corporate Team Building di Lembang dirancang untuk memperkuat kolaborasi tim melalui aktivitas outdoor dan permainan kelompok. Kami menangani pemilihan venue, konsep acara, fasilitator, perlengkapan aktivitas, transportasi, dan konsumsi, memastikan pengalaman yang cohesion dan menyenangkan.',
+      en: 'Corporate Team Building in Lembang was designed to strengthen team collaboration through outdoor activities and group games. We handled venue selection, event concept, facilitators, activity equipment, transportation, and catering, ensuring a cohesive and enjoyable experience.',
+      zh: 'Lembang 企业团队建设旨在通过户外活动与团队游戏增强团队协作。我们负责场地选择、活动概念、引导员、活动器材、交通与餐饮，确保凝聚力强且愉快的体验。',
     },
     scope: {
       id: ['Pemilihan venue & konsep acara', 'Fasilitator & perlengkapan aktivitas', 'Transportasi & konsumsi', 'Dokumentasi & after-movie'],
@@ -434,14 +434,14 @@ export const events = [
     place: 'Summarecon Mall Bandung',
     image: 'https://images.unsplash.com/photo-1467810563594-b9361367626a?auto=format&fit=crop&w=850&q=85',
     text: {
-      id: 'Festival pergantian tahun di Summarecon Mall Bandung — panggung musik, countdown, dan hiburan keluarga.',
-      en: 'New Year countdown festival at Summarecon Mall Bandung — live music stage, countdown, and family entertainment.',
-      zh: '在 Summarecon 万隆购物中心举办的新年倒计时庆典——音乐舞台、倒计时与家庭娱乐。',
+      id: 'Festival pergantian tahun di Summarecon Mall Bandung: panggung musik, countdown, dan hiburan keluarga.',
+      en: 'New Year countdown festival at Summarecon Mall Bandung: live music stage, countdown, and family entertainment.',
+      zh: '在 Summarecon 万隆购物中心举办的新年倒计时庆典：音乐舞台、倒计时与家庭娱乐。',
     },
     overview: {
-      id: 'New Year Festival 2024 menyambut tahun baru dengan meriah di Summarecon Mall Bandung. Kami menangani produksi panggung utama, sound system, lighting, countdown show, dan area hiburan keluarga — dari persiapan hingga tengah malam.',
-      en: 'New Year Festival 2024 welcomed the new year in style at Summarecon Mall Bandung. We handled the main stage production, sound system, lighting, countdown show, and family entertainment area — from setup to midnight.',
-      zh: '2024 新年庆典在 Summarecon 万隆购物中心喜迎新年。我们负责主舞台制作、音响系统、灯光、倒计时演出与家庭娱乐区——从搭建到午夜。',
+      id: 'New Year Festival 2024 menyambut tahun baru dengan meriah di Summarecon Mall Bandung. Kami menangani produksi panggung utama, sound system, lighting, countdown show, dan area hiburan keluarga, dari persiapan hingga tengah malam.',
+      en: 'New Year Festival 2024 welcomed the new year in style at Summarecon Mall Bandung. We handled the main stage production, sound system, lighting, countdown show, and family entertainment area, from setup to midnight.',
+      zh: '2024 新年庆典在 Summarecon 万隆购物中心喜迎新年。我们负责主舞台制作、音响系统、灯光、倒计时演出与家庭娱乐区，从搭建到午夜。',
     },
     scope: {
       id: ['Produksi panggung utama & countdown show', 'Sound system, lighting & visual', 'Area hiburan & kuliner malam', 'Koordinasi keamanan & parkir'],
@@ -467,14 +467,14 @@ export const events = [
     place: 'Summarecon Mall Bandung',
     image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=850&q=85',
     text: {
-      id: 'Aktivasi brand di Summarecon Mall — booth interaktif, product trial, dan engagement pengunjung.',
-      en: 'Brand activation at Summarecon Mall — interactive booths, product trials, and visitor engagement.',
-      zh: 'Summarecon 购物中心品牌推广——互动展位、产品试用与访客互动。',
+      id: 'Aktivasi brand di Summarecon Mall: booth interaktif, product trial, dan engagement pengunjung.',
+      en: 'Brand activation at Summarecon Mall: interactive booths, product trials, and visitor engagement.',
+      zh: 'Summarecon 购物中心品牌推广：互动展位、产品试用与访客互动。',
     },
     overview: {
-      id: 'Brand Activation Summarecon 2024 menghadirkan pengalaman brand langsung ke pengunjung mall. Kami merancang booth interaktif, demonstrasi produk, games berhadiah, dan sistem lead capture — meningkatkan brand awareness sekaligus konversi.',
-      en: 'Brand Activation Summarecon 2024 brought brands directly to mall visitors. We designed interactive booths, product demonstrations, prize games, and lead capture systems — boosting both brand awareness and conversion.',
-      zh: 'Summarecon 2024 品牌推广将品牌直接带给商场访客。我们设计了互动展位、产品演示、有奖游戏与线索收集系统——提升品牌知名度与转化率。',
+      id: 'Brand Activation Summarecon 2024 menghadirkan pengalaman brand langsung ke pengunjung mall. Kami merancang booth interaktif, demonstrasi produk, games berhadiah, dan sistem lead capture, meningkatkan brand awareness sekaligus konversi.',
+      en: 'Brand Activation Summarecon 2024 brought brands directly to mall visitors. We designed interactive booths, product demonstrations, prize games, and lead capture systems, boosting both brand awareness and conversion.',
+      zh: 'Summarecon 2024 品牌推广将品牌直接带给商场访客。我们设计了互动展位、产品演示、有奖游戏与线索收集系统，提升品牌知名度与转化率。',
     },
     scope: {
       id: ['Konsep & desain booth interaktif', 'Produksi booth & display', 'Demonstrasi produk & games', 'Lead capture & laporan aktivasi'],
@@ -499,14 +499,14 @@ export const events = [
     place: 'Hotel Aryaduta Bandung',
     image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=850&q=85',
     text: {
-      id: 'Gala dinner korporat — awarding night, hiburan, dan networking di Hotel Aryaduta Bandung.',
-      en: 'Corporate gala dinner — awards night, entertainment, and networking at Hotel Aryaduta Bandung.',
-      zh: '在 Aryaduta 万隆酒店举办的企业晚宴——颁奖夜、娱乐与社交。',
+      id: 'Gala dinner korporat: awarding night, hiburan, dan networking di Hotel Aryaduta Bandung.',
+      en: 'Corporate gala dinner: awards night, entertainment, and networking at Hotel Aryaduta Bandung.',
+      zh: '在 Aryaduta 万隆酒店举办的企业晚宴：颁奖夜、娱乐与社交。',
     },
     overview: {
-      id: 'Corporate Gala Dinner 2024 menghadirkan malam apresiasi korporat yang elegan di Hotel Aryaduta Bandung. Kami menangani dekorasi ballroom, panggung utama, tata meja, rundown acara, hiburan live, dan dokumentasi — menciptakan pengalaman gala yang berkesan.',
-      en: 'Corporate Gala Dinner 2024 delivered an elegant corporate appreciation night at Hotel Aryaduta Bandung. We handled ballroom decoration, main stage, table settings, event rundown, live entertainment, and documentation — creating a memorable gala experience.',
-      zh: '2024 企业晚宴在 Aryaduta 万隆酒店呈现优雅的企业答谢夜。我们负责宴会厅装饰、主舞台、桌面布置、活动流程、现场娱乐与影像记录——打造难忘的晚宴体验。',
+      id: 'Corporate Gala Dinner 2024 menghadirkan malam apresiasi korporat yang elegan di Hotel Aryaduta Bandung. Kami menangani dekorasi ballroom, panggung utama, tata meja, rundown acara, hiburan live, dan dokumentasi, menciptakan pengalaman gala yang berkesan.',
+      en: 'Corporate Gala Dinner 2024 delivered an elegant corporate appreciation night at Hotel Aryaduta Bandung. We handled ballroom decoration, main stage, table settings, event rundown, live entertainment, and documentation, creating a memorable gala experience.',
+      zh: '2024 企业晚宴在 Aryaduta 万隆酒店呈现优雅的企业答谢夜。我们负责宴会厅装饰、主舞台、桌面布置、活动流程、现场娱乐与影像记录，打造难忘的晚宴体验。',
     },
     scope: {
       id: ['Dekorasi ballroom & panggung utama', 'Tata meja & seating arrangement', 'Rundown acara & hiburan live', 'Dokumentasi & after-movie'],
@@ -531,14 +531,14 @@ export const events = [
     place: 'Bandung',
     image: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=850&q=85',
     text: {
-      id: 'Fun run 5K komunitas Lumi — lomba lari, hiburan, dan gathering keluarga.',
-      en: 'Lumi community 5K fun run — running competition, entertainment, and family gathering.',
-      zh: 'Lumi 社区 5 公里欢乐跑——跑步比赛、娱乐与家庭聚会。',
+      id: 'Fun run 5K komunitas Lumi: lomba lari, hiburan, dan gathering keluarga.',
+      en: 'Lumi community 5K fun run: running competition, entertainment, and family gathering.',
+      zh: 'Lumi 社区 5 公里欢乐跑：跑步比赛、娱乐与家庭聚会。',
     },
     overview: {
-      id: 'Lumi Fun Run 2024 mengajak komunitas berlari 5K di Bandung. Kami menangani rute lomba, start/finish gate, medal, goodie bag, hidangan, dan hiburan — menghadirkan pengalaman olahraga yang menyenangkan.',
-      en: 'Lumi Fun Run 2024 brought the community together for a 5K run in Bandung. We handled the race route, start/finish gate, medals, goodie bags, food, and entertainment — delivering a fun sports experience.',
-      zh: '2024 Lumi 欢乐跑邀请社区在万隆完成 5 公里赛程。我们负责赛道、起终点门、奖牌、参赛包、餐饮与娱乐——带来趣味运动体验。',
+      id: 'Lumi Fun Run 2024 mengajak komunitas berlari 5K di Bandung. Kami menangani rute lomba, start/finish gate, medal, goodie bag, hidangan, dan hiburan, menghadirkan pengalaman olahraga yang menyenangkan.',
+      en: 'Lumi Fun Run 2024 brought the community together for a 5K run in Bandung. We handled the race route, start/finish gate, medals, goodie bags, food, and entertainment, delivering a fun sports experience.',
+      zh: '2024 Lumi 欢乐跑邀请社区在万隆完成 5 公里赛程。我们负责赛道、起终点门、奖牌、参赛包、餐饮与娱乐，带来趣味运动体验。',
     },
     scope: {
       id: ['Rute lomba & start/finish gate', 'Medali, goodie bag & hadiah', 'Area hiburan & konsumsi', 'Dokumentasi & medis'],

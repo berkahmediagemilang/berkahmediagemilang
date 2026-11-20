@@ -19,7 +19,7 @@ export default {
     message: '留言',
     messagePlaceholder: '请输入您的留言或活动需求...',
     submit: '发送消息',
-    sent: '我们已打开您的邮件应用——发送该邮件即可联系我们的团队。',
+    sent: '我们已打开您的邮件应用，发送该邮件即可联系我们的团队。',
     privacy: '您的信息将被严格保密。',
   },
   details: {

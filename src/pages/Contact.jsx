@@ -21,7 +21,7 @@ export default function Contact() {
   function handleSubmit(event) {
     event.preventDefault()
     const form = new FormData(event.currentTarget)
-    const subject = encodeURIComponent(`Inquiry — ${form.get('inquiry') || 'Event'}`)
+    const subject = encodeURIComponent(`Inquiry: ${form.get('inquiry') || 'Event'}`)
     const body = encodeURIComponent(
       `Nama: ${form.get('name')}\nEmail: ${form.get('email')}\nTelepon: ${phone || ''}\n\n${form.get('message')}`
     )

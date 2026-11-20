@@ -97,7 +97,7 @@ export function Logo({ light = false, className = '' }) {
     <Link
       to="/"
       className={`logo ${light ? 'logo--light' : ''} ${className}`.trim()}
-      aria-label="BMG — Beranda"
+      aria-label="BMG: Beranda"
     >
       <svg className="logo__mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
         <path d="M32 7l6.2 18.8L57 32l-18.8 6.2L32 57l-6.2-18.8L7 32l18.8-6.2L32 7z" fill="currentColor" />

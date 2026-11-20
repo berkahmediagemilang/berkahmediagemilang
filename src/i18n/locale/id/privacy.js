@@ -12,7 +12,7 @@ export default {
       id: '1',
       title: '1. Pendahuluan',
       paragraphs: [
-        'Berkah Media Gemilang ("BMG", "kami") menghormati privasi setiap pengunjung situs ini. Kebijakan ini menjelaskan data apa yang kami proses saat Anda mengakses situs, mengisi formulir kontak, atau menghubungi kami — dan bagaimana kami menanganinya.',
+        'Berkah Media Gemilang ("BMG", "kami") menghormati privasi setiap pengunjung situs ini. Kebijakan ini menjelaskan data apa yang kami proses saat Anda mengakses situs, mengisi formulir kontak, atau menghubungi kami, dan bagaimana kami menanganinya.',
         'Berlaku sejak 12 November 2026.',
       ],
       list: null,
@@ -53,20 +53,20 @@ export default {
       id: '5',
       title: '5. Layanan Pihak Ketiga',
       paragraphs: [
-        'Situs ini disajikan melalui GitHub Pages. Aset dan tautan di situs ini memuat layanan pihak ketiga berikut — masing-masing memiliki kebijakan privasi sendiri:',
+        'Situs ini disajikan melalui GitHub Pages. Aset dan tautan di situs ini memuat layanan pihak ketiga berikut, masing-masing memiliki kebijakan privasi sendiri:',
       ],
       list: [
-        'Google Fonts (Inter & Sora) — permintaan font saat halaman dibuka',
-        'Unsplash — gambar yang ditampilkan di situs',
-        'WhatsApp (wa.me) dan Google Maps — tautan keluar, baru dimuat bila Anda mengkliknya',
-        'Penyedia layanan email kami — untuk korespondensi yang Anda kirim ke hello@bmg.co.id',
+        'Google Fonts (Inter & Sora): permintaan font saat halaman dibuka',
+        'Unsplash: gambar yang ditampilkan di situs',
+        'WhatsApp (wa.me) dan Google Maps: tautan keluar, baru dimuat bila Anda mengkliknya',
+        'Penyedia layanan email kami: untuk korespondensi yang Anda kirim ke hello@bmg.co.id',
       ],
     },
     {
       id: '6',
       title: '6. Retensi & Keamanan',
       paragraphs: [
-        'Kami menyimpan korespondensi selama diperlukan untuk merespons permintaan Anda dan memenuhi kewajiban hukum yang berlaku — bukan lebih lama dari itu. Akses ke data dibatasi pada anggota tim yang berkepentingan.',
+        'Kami menyimpan korespondensi selama diperlukan untuk merespons permintaan Anda dan memenuhi kewajiban hukum yang berlaku, bukan lebih lama dari itu. Akses ke data dibatasi pada anggota tim yang berkepentingan.',
         'Tidak ada metode transmisi atau penyimpanan elektronik yang sepenuhnya aman. Kami menerapkan langkah-langkah wajar sesuai praktik yang berterima untuk melindungi data Anda.',
       ],
       list: null,
@@ -106,5 +106,5 @@ export default {
   effectiveDate: 'Berlaku sejak 12 November 2026',
   sectionCount: '{count} bagian',
   staticVersion: 'Versi statis (tanpa skrip)',
-  staticVersionTitle: 'Versi statis tanpa skrip — untuk pengunjung dengan ad blocker yang memblokir situs utama',
+  staticVersionTitle: 'Versi statis tanpa skrip, untuk pengunjung dengan ad blocker yang memblokir situs utama',
 }

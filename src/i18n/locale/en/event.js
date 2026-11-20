@@ -21,7 +21,7 @@ export default {
     eyebrow: 'Event Archive',
     title: 'Events we have organized',
     titleAccent: 'we have organized',
-    leadTemplate: '{count} events across public, corporate, sport and digital formats — all browsable.',
+    leadTemplate: '{count} events across public, corporate, sport and digital formats, all browsable.',
     others: 'other events',
   },
   pagination: {

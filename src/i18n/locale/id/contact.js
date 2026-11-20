@@ -19,7 +19,7 @@ export default {
     message: 'Pesan',
     messagePlaceholder: 'Tulis pesan atau detail kebutuhan event Anda...',
     submit: 'Kirim pesan',
-    sent: 'Kami membuka aplikasi email Anda — kirim pesan tersebut untuk menghubungi tim kami.',
+    sent: 'Kami membuka aplikasi email Anda. Kirim pesan tersebut untuk menghubungi tim kami.',
     privacy: 'Informasi Anda akan kami jaga kerahasiaannya.',
   },
   details: {

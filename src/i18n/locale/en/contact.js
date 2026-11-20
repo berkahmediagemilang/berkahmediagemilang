@@ -19,7 +19,7 @@ export default {
     message: 'Message',
     messagePlaceholder: 'Write your message or event requirements...',
     submit: 'Send message',
-    sent: 'We opened your email app — send that message to reach our team.',
+    sent: 'We opened your email app. Send that message to reach our team.',
     privacy: 'Your information will be kept confidential.',
   },
   details: {

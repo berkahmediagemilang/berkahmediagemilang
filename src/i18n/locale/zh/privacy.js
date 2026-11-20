@@ -53,13 +53,13 @@ export default {
       id: '5',
       title: '5. 第三方服务',
       paragraphs: [
-        '本网站由 GitHub Pages 托管。网站上的资源与链接涉及以下第三方服务——各方均有其独立的隐私政策：',
+        '本网站由 GitHub Pages 托管。网站上的资源与链接涉及以下第三方服务，各方均有其独立的隐私政策：',
       ],
       list: [
-        'Google Fonts（Inter 与 Sora）—— 页面加载时的字体请求',
-        'Unsplash —— 网站展示的图片',
-        'WhatsApp（wa.me）与 Google 地图 —— 外部链接，仅在您点击时加载',
-        '我们的邮件服务提供商 —— 用于您发送至 hello@bmg.co.id 的往来邮件',
+        'Google Fonts（Inter 与 Sora）：页面加载时的字体请求',
+        'Unsplash：网站展示的图片',
+        'WhatsApp（wa.me）与 Google 地图：外部链接，仅在您点击时加载',
+        '我们的邮件服务提供商：用于您发送至 hello@bmg.co.id 的往来邮件',
       ],
     },
     {
@@ -106,5 +106,5 @@ export default {
   effectiveDate: '生效日期：2026 年 11 月 12 日',
   sectionCount: '共 {count} 节',
   staticVersion: '静态版本（无脚本）',
-  staticVersionTitle: '静态无脚本版本——供广告拦截器拦截主站点时使用',
+  staticVersionTitle: '静态无脚本版本，供广告拦截器拦截主站点时使用',
 }

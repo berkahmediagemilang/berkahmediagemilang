@@ -21,8 +21,8 @@ export const services = [
       zh: '结合创意与战略思维，为每场活动打造有意义且难忘的体验。',
     },
     overview: {
-      id: 'Kami mulai dari memahami tujuan bisnis Anda, audiens, dan konteks acara — lalu menerjemahkannya menjadi strategi, konsep kreatif, rundown, dan anggaran yang realistis. Setiap detail direncanakan sejak awal agar eksekusi berjalan lancar.',
-      en: 'We start by understanding your business goals, audience, and event context — then translate them into a strategy, creative concept, rundown, and realistic budget. Every detail is planned up front so execution runs smoothly.',
+      id: 'Kami mulai dari memahami tujuan bisnis Anda, audiens, dan konteks acara, lalu menerjemahkannya menjadi strategi, konsep kreatif, rundown, dan anggaran yang realistis. Setiap detail direncanakan sejak awal agar eksekusi berjalan lancar.',
+      en: 'We start by understanding your business goals, audience, and event context, then translate them into a strategy, creative concept, rundown, and realistic budget. Every detail is planned up front so execution runs smoothly.',
       zh: '我们从理解您的商业目标、受众与活动背景出发，将其转化为活动策略、创意概念、流程安排与务实预算。每一个细节都提前规划，确保执行顺畅。',
     },
     deliverables: {
@@ -43,8 +43,8 @@ export const services = [
       zh: '覆盖活动全流程管理、供应商协调、场地与设备安排及现场执行。',
     },
     overview: {
-      id: 'Dari pemilihan venue hingga pembongkaran, tim produksi kami mengelola vendor, peralatan, jadwal, dan kru di lapangan — memastikan semuanya hadir tepat waktu dan bekerja sesuai standar.',
-      en: 'From venue selection to load-out, our production team manages vendors, equipment, schedules, and on-site crew — ensuring everything arrives on time and works to standard.',
+      id: 'Dari pemilihan venue hingga pembongkaran, tim produksi kami mengelola vendor, peralatan, jadwal, dan kru di lapangan, memastikan semuanya hadir tepat waktu dan bekerja sesuai standar.',
+      en: 'From venue selection to load-out, our production team manages vendors, equipment, schedules, and on-site crew, ensuring everything arrives on time and works to standard.',
       zh: '从场地甄选到撤展，我们的制作团队统筹供应商、设备、进度与现场工作人员，确保一切按时交付并符合标准。',
     },
     deliverables: {
@@ -65,9 +65,9 @@ export const services = [
       zh: '精准投放媒体资源，提升活动曝光率与宣传效果。',
     },
     overview: {
-      id: 'Kami menempatkan pesan Anda di kanal yang tepat — dari media cetak dan luring hingga digital — dengan negosiasi tarif, targeting audiens, dan pelaporan performa yang transparan.',
-      en: 'We place your message on the right channels — from print and offline to digital — with rate negotiation, audience targeting, and transparent performance reporting.',
-      zh: '我们将您的信息投放到最合适的渠道——从平面、线下到数字媒体——并提供议价、精准定向与透明的效果报告。',
+      id: 'Kami menempatkan pesan Anda di kanal yang tepat, dari media cetak dan luring hingga digital, dengan negosiasi tarif, targeting audiens, dan pelaporan performa yang transparan.',
+      en: 'We place your message on the right channels, from print and offline to digital, with rate negotiation, audience targeting, and transparent performance reporting.',
+      zh: '我们将您的信息投放到最合适的渠道，从平面、线下到数字媒体，并提供议价、精准定向与透明的效果报告。',
     },
     deliverables: {
       id: ['Riset kanal dan perencanaan media', 'Negosiasi dan pengadaan ruang media (cetak, radio, luar ruang, digital)', 'Targeting audiens dan penjadwalan tayang', 'Monitoring dan laporan performa kampanye'],
@@ -87,9 +87,9 @@ export const services = [
       zh: '通过数字营销、创意内容与受众互动提升活动影响力。',
     },
     overview: {
-      id: 'Sebelum, selama, dan sesudah event — kami membangun momentum digital melalui konten kreatif, kampanye berbayar, dan pengelolaan komunitas agar acara Anda menjangkau audiens yang lebih luas.',
-      en: 'Before, during, and after the event — we build digital momentum through creative content, paid campaigns, and community management so your event reaches a wider audience.',
-      zh: '活动前、中、后——我们通过创意内容、付费推广与社群运营打造持续的线上热度，扩大活动影响力。',
+      id: 'Sebelum, selama, dan sesudah event, kami membangun momentum digital melalui konten kreatif, kampanye berbayar, dan pengelolaan komunitas agar acara Anda menjangkau audiens yang lebih luas.',
+      en: 'Before, during, and after the event, we build digital momentum through creative content, paid campaigns, and community management so your event reaches a wider audience.',
+      zh: '活动前、中、后，我们通过创意内容、付费推广与社群运营打造持续的线上热度，扩大活动影响力。',
     },
     deliverables: {
       id: ['Strategi konten dan kalender editorial', 'Produksi konten kreatif (foto, video, copywriting)', 'Kampanye iklan digital (Meta, Google, TikTok)', 'Live coverage dan manajemen komunitas'],
@@ -109,9 +109,9 @@ export const services = [
       zh: '通过互动体验让品牌与受众建立强连接，增强品牌认知。',
     },
     overview: {
-      id: 'Kami merancang pengalaman interaktif — dari roadshow dan booth hingga pop-up dan sampling — yang menghidupkan brand Anda dan menciptakan koneksi nyata dengan audiens.',
-      en: 'We design interactive experiences — from roadshows and booths to pop-ups and sampling — that bring your brand to life and build real audience connections.',
-      zh: '我们策划互动体验——从路演、展位到快闪店与试用活动——让您的品牌真正“活”起来，与受众建立真实连接。',
+      id: 'Kami merancang pengalaman interaktif, dari roadshow dan booth hingga pop-up dan sampling, yang menghidupkan brand Anda dan menciptakan koneksi nyata dengan audiens.',
+      en: 'We design interactive experiences, from roadshows and booths to pop-ups and sampling, that bring your brand to life and build real audience connections.',
+      zh: '我们策划互动体验，从路演、展位到快闪店与试用活动，让您的品牌真正“活”起来，与受众建立真实连接。',
     },
     deliverables: {
       id: ['Konsep aktivasi dan pengalaman brand', 'Desain dan produksi booth, instalasi & properti', 'Aktivasi di mal, kampus, dan ruang publik', 'Sampling, demo produk, dan lead capture'],
@@ -131,9 +131,9 @@ export const services = [
       zh: '为活动提供主持人、表演者与娱乐资源，满足不同场景需求。',
     },
     overview: {
-      id: 'Dari MC dan pembicara hingga penyanyi dan performer — kami menyediakan talenta yang tepat, mengelola kontrak, rider, dan kebutuhan teknisnya agar tampil sempurna di acara Anda.',
-      en: 'From MCs and speakers to singers and performers — we source the right talent and manage contracts, riders, and technical needs so every appearance shines at your event.',
-      zh: '从主持人、演讲嘉宾到歌手与表演者——我们匹配最合适的艺人，并负责合同、rider 与技术需求，确保每一次登场都精彩呈现。',
+      id: 'Dari MC dan pembicara hingga penyanyi dan performer, kami menyediakan talenta yang tepat, mengelola kontrak, rider, dan kebutuhan teknisnya agar tampil sempurna di acara Anda.',
+      en: 'From MCs and speakers to singers and performers, we source the right talent and manage contracts, riders, and technical needs so every appearance shines at your event.',
+      zh: '从主持人、演讲嘉宾到歌手与表演者，我们匹配最合适的艺人，并负责合同、rider 与技术需求，确保每一次登场都精彩呈现。',
     },
     deliverables: {
       id: ['Kurasi dan booking talent, MC & performer', 'Negosiasi fee, kontrak, dan rider', 'Manajemen rundown penampilan', 'Koordinasi teknis dan hospitality talent'],
