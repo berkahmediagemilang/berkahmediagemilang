@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { MessageCircleQuestion, Plus, Search } from 'lucide-react'
 import { PageHero, Wrap } from '../components/ui.jsx'
 import { useLanguage } from '../i18n/language.js'
 
@@ -6,6 +8,7 @@ export default function FAQ() {
   const { language } = useLanguage()
   const isIndonesian = language === 'id'
   const isChinese = language === 'zh'
+  const [query, setQuery] = useState('')
 
   const items = isIndonesian
     ? [
@@ -28,6 +31,19 @@ export default function FAQ() {
           { q: 'Does BMG provide vendors?', a: 'We can coordinate the vendors needed for your event.' },
         ]
 
+  const numbered = items.map((item, index) => ({ ...item, num: String(index + 1).padStart(2, '0') }))
+  const normalized = query.trim().toLowerCase()
+  const filtered = normalized
+    ? numbered.filter((item) => `${item.q} ${item.a}`.toLowerCase().includes(normalized))
+    : numbered
+
+  const searchLabel = isIndonesian ? 'Cari pertanyaan' : isChinese ? '搜索问题' : 'Search questions'
+  const countLabel = isIndonesian
+    ? `${filtered.length} dari ${numbered.length} pertanyaan`
+    : isChinese
+      ? `${numbered.length} 个问题，显示 ${filtered.length} 个`
+      : `${filtered.length} of ${numbered.length} questions`
+
   return (
     <>
       <PageHero
@@ -44,14 +60,49 @@ export default function FAQ() {
       />
       <section className="section section--white">
         <Wrap className="max-w-3xl">
-          <div className="grid gap-4">
-            {items.map((item) => (
-              <details key={item.q} className="card p-6">
-                <summary className="cursor-pointer list-none text-[16px] font-bold text-ink-900">{item.q}</summary>
-                <p className="mt-3 text-[15px] leading-relaxed text-muted">{item.a}</p>
-              </details>
-            ))}
+          <div className="faq-tools">
+            <label className="faq-search">
+              <Search size={18} aria-hidden="true" />
+              <input
+                type="text"
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder={isIndonesian ? 'Cari pertanyaan…' : isChinese ? '搜索问题…' : 'Search questions…'}
+                aria-label={searchLabel}
+              />
+            </label>
+            <p className="faq-count" aria-live="polite">{countLabel}</p>
           </div>
+
+          {filtered.length > 0 ? (
+            <div className="faq-list">
+              {filtered.map((item, index) => (
+                <details key={item.q} className="faq-item" open={index === 0 && !normalized}>
+                  <summary className="faq-summary">
+                    <span className="faq-summary__num" aria-hidden="true">{item.num}</span>
+                    {item.q}
+                    <Plus size={18} className="faq-summary__plus" aria-hidden="true" />
+                  </summary>
+                  <p className="faq-answer">{item.a}</p>
+                </details>
+              ))}
+            </div>
+          ) : (
+            <div className="faq-empty">
+              <MessageCircleQuestion size={32} aria-hidden="true" className="mx-auto text-brand-400" />
+              <p>
+                {isIndonesian
+                  ? 'Tidak ada pertanyaan yang cocok dengan kata kunci itu. Coba kata lain, atau tanya langsung ke tim kami.'
+                  : isChinese
+                    ? '没有找到匹配的问题。试试其他关键词，或直接联系我们的团队。'
+                    : 'No questions match that keyword. Try another word, or ask our team directly.'}
+              </p>
+              <Link to="/contact" className="btn btn--primary">
+                {isIndonesian ? 'Tanya Langsung' : isChinese ? '直接提问' : 'Ask Directly'}
+              </Link>
+            </div>
+          )}
+
           <div className="mt-6 md:mt-10">
             <Link to="/contact" className="btn btn--primary">
               {isIndonesian ? 'Masih ada pertanyaan?' : isChinese ? '还有问题？' : 'Still have questions?'}

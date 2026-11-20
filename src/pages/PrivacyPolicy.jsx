@@ -1,4 +1,18 @@
 import { Link } from 'react-router-dom'
+import {
+  BookOpen,
+  CalendarClock,
+  CheckCircle2,
+  Cookie,
+  Database,
+  KeyRound,
+  Lock,
+  Mail,
+  RefreshCw,
+  ScrollText,
+  Share2,
+  Users,
+} from 'lucide-react'
 import { ButtonLink, PageHero, Wrap } from '../components/ui.jsx'
 import { useLanguage } from '../i18n/language.js'
 
@@ -12,6 +26,7 @@ export default function PrivacyPolicy() {
   const sections = [
     {
       title: { id: '1. Pendahuluan', en: '1. Overview', zh: '1. 概述' },
+      icon: ScrollText,
       paragraphs: {
         id: [
           'Berkah Media Gemilang ("BMG", "kami") menghormati privasi setiap pengunjung situs ini. Kebijakan ini menjelaskan data apa yang kami proses saat Anda mengakses situs, mengisi formulir kontak, atau menghubungi kami — dan bagaimana kami menanganinya.',
@@ -29,6 +44,7 @@ export default function PrivacyPolicy() {
     },
     {
       title: { id: '2. Data yang Kami Kumpulkan', en: '2. Data We Collect', zh: '2. 我们收集的数据' },
+      icon: Database,
       paragraphs: {
         id: [
           'Situs ini bersifat statis dan tidak menampung data formulir di server kami. Formulir kontak membuka aplikasi email Anda (mailto:), sehingga data hanya sampai ke kami bila Anda sendiri mengirim email tersebut.',
@@ -51,6 +67,7 @@ export default function PrivacyPolicy() {
     },
     {
       title: { id: '3. Bagaimana Kami Menggunakan Data', en: '3. How We Use Your Data', zh: '3. 我们如何使用您的数据' },
+      icon: Users,
       paragraphs: {
         id: [
           'Kami hanya menggunakan data tersebut untuk: merespons pertanyaan Anda, menyiapkan dan mengirimkan penawaran atau proposal event, serta berkomunikasi terkait layanan yang Anda minta.',
@@ -68,6 +85,7 @@ export default function PrivacyPolicy() {
     },
     {
       title: { id: '4. Cookie & Penyimpanan Lokal', en: '4. Cookies & Local Storage', zh: '4. Cookie 与本地存储' },
+      icon: Cookie,
       paragraphs: {
         id: [
           'Situs ini tidak menggunakan cookie pelacakan. Kami hanya menyimpan satu preferensi Anda di localStorage browser: pilihan bahasa (kunci bmg-language). Data tersebut tidak meninggalkan perangkat Anda dan dapat dihapus kapan saja melalui pengaturan browser.',
@@ -82,6 +100,7 @@ export default function PrivacyPolicy() {
     },
     {
       title: { id: '5. Layanan Pihak Ketiga', en: '5. Third-Party Services', zh: '5. 第三方服务' },
+      icon: Share2,
       paragraphs: {
         id: [
           'Situs ini disajikan melalui GitHub Pages. Aset dan tautan di situs ini memuat layanan pihak ketiga berikut — masing-masing memiliki kebijakan privasi sendiri:',
@@ -116,6 +135,7 @@ export default function PrivacyPolicy() {
     },
     {
       title: { id: '6. Retensi & Keamanan', en: '6. Retention & Security', zh: '6. 数据保留与安全' },
+      icon: Lock,
       paragraphs: {
         id: [
           'Kami menyimpan korespondensi selama diperlukan untuk merespons permintaan Anda dan memenuhi kewajiban hukum yang berlaku — bukan lebih lama dari itu. Akses ke data dibatasi pada anggota tim yang berkepentingan.',
@@ -133,6 +153,7 @@ export default function PrivacyPolicy() {
     },
     {
       title: { id: '7. Hak Anda', en: '7. Your Rights', zh: '7. 您的权利' },
+      icon: KeyRound,
       paragraphs: {
         id: [
           'Sesuai dengan Undang-Undang Pelindungan Data Pribadi (UU PDP) Republik Indonesia, Anda berhak untuk: mengakses data pribadi Anda yang kami proses, meminta perbaikan data yang tidak akurat, meminta penghapusan data Anda, serta menarik persetujuan yang telah Anda berikan.',
@@ -150,6 +171,7 @@ export default function PrivacyPolicy() {
     },
     {
       title: { id: '8. Perubahan Kebijakan', en: '8. Changes to This Policy', zh: '8. 政策变更' },
+      icon: RefreshCw,
       paragraphs: {
         id: [
           'Kami dapat memperbarui kebijakan ini sewaktu-waktu. Versi terbaru selalu tersedia di halaman ini, dengan tanggal berlaku yang tercantum di bagian Pendahuluan.',
@@ -164,6 +186,7 @@ export default function PrivacyPolicy() {
     },
     {
       title: { id: '9. Kontak', en: '9. Contact', zh: '9. 联系我们' },
+      icon: Mail,
       paragraphs: {
         id: [
           'Pertanyaan tentang kebijakan ini atau data pribadi Anda? Hubungi kami:',
@@ -195,6 +218,19 @@ export default function PrivacyPolicy() {
     },
   ]
 
+  const tocTitle = isIndonesian ? 'Isi Halaman' : isChinese ? '本页目录' : 'On This Page'
+  const effectiveDate = isIndonesian
+    ? 'Berlaku sejak 12 November 2026'
+    : isChinese
+      ? '生效日期：2026 年 11 月 12 日'
+      : 'Effective from 12 November 2026'
+  const sectionCount = isIndonesian
+    ? `${sections.length} bagian`
+    : isChinese
+      ? `共 ${sections.length} 节`
+      : `${sections.length} sections`
+  const shortTitle = (title) => title.replace(/^\d+\.\s*/, '')
+
   return (
     <>
       <PageHero
@@ -225,40 +261,84 @@ export default function PrivacyPolicy() {
       />
 
       <section className="section section--white">
-        <Wrap className="max-w-3xl">
-          {sections.map((section) => (
-            <section className="mt-6 md:mt-10 first:mt-0" key={section.title.id} aria-labelledby={`privacy-${section.title.id.split('.')[0]}`}>
-              <h2 className="h3" id={`privacy-${section.title.id.split('.')[0]}`}>{section.title[language]}</h2>
-              {section.paragraphs[language].map((paragraph, index) => (
-                <p className="mt-3 text-[15px] leading-relaxed text-muted" key={index}>
-                  {paragraph}
-                </p>
-              ))}
-              {section.list ? (
-                <ul className="mt-3 list-disc space-y-1.5 pl-6 text-[15px] leading-relaxed text-muted">
-                  {section.list[language].map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              ) : null}
-            </section>
-          ))}
+        <Wrap className="max-w-6xl">
+          <div className="doc-meta">
+            <span className="chip">
+              <CalendarClock size={14} aria-hidden="true" />
+              {effectiveDate}
+            </span>
+            <span className="chip">
+              <BookOpen size={14} aria-hidden="true" />
+              {sectionCount}
+            </span>
+          </div>
 
-          <div className="mt-12 flex flex-wrap gap-4 border-t border-line pt-8">
-            <ButtonLink to="/contact" variant="primary">
-              {isIndonesian ? 'Hubungi Kami' : isChinese ? '联系我们' : 'Contact Us'}
-              <span className="btn__icon" aria-hidden="true">→</span>
-            </ButtonLink>
-            <a className="btn btn--outline" href={`mailto:${contactEmail}`}>
-              {contactEmail}
-            </a>
-            <a
-              className="btn btn--outline"
-              href={`${import.meta.env.BASE_URL}privacy-policy.html`}
-              title={isIndonesian ? 'Versi statis tanpa skrip — untuk pengunjung dengan ad blocker yang memblokir situs utama' : isChinese ? '静态无脚本版本——供广告拦截器拦截主站点时使用' : 'Statically rendered, script-free version — for visitors whose ad blocker blocks the main site'}
-            >
-              {isIndonesian ? 'Versi statis (tanpa skrip)' : isChinese ? '静态版本（无脚本）' : 'Static version (no scripts)'}
-            </a>
+          <div className="doc-layout">
+            <nav className="doc-toc doc-sidebar" aria-label={tocTitle}>
+              <p className="doc-toc__title">
+                <BookOpen size={14} aria-hidden="true" />
+                {tocTitle}
+              </p>
+              <ul className="doc-toc__grid">
+                {sections.map((section, index) => (
+                  <li key={section.title.id}>
+                    <a className="doc-toc__link" href={`#privacy-${index + 1}`}>
+                      <span className="doc-toc__num" aria-hidden="true">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      {shortTitle(section.title[language])}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <div>
+              {sections.map((section, index) => {
+                const Icon = section.icon
+                const anchor = `privacy-${index + 1}`
+                return (
+                  <section className="doc-section" id={anchor} key={section.title.id} aria-labelledby={`${anchor}-title`}>
+                    <div className="doc-section__head">
+                      <span className="icon-badge icon-badge--accent" aria-hidden="true">
+                        <Icon size={22} strokeWidth={1.8} />
+                      </span>
+                      <h2 className="h3" id={`${anchor}-title`}>{section.title[language]}</h2>
+                    </div>
+                    {section.paragraphs[language].map((paragraph, pIndex) => (
+                      <p key={pIndex}>{paragraph}</p>
+                    ))}
+                    {section.list ? (
+                      <ul className="doc-list">
+                        {section.list[language].map((item) => (
+                          <li key={item}>
+                            <CheckCircle2 size={18} aria-hidden="true" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </section>
+                )
+              })}
+
+              <div className="mt-12 flex flex-wrap gap-4 border-t border-line pt-8">
+                <ButtonLink to="/contact" variant="primary">
+                  {isIndonesian ? 'Hubungi Kami' : isChinese ? '联系我们' : 'Contact Us'}
+                  <span className="btn__icon" aria-hidden="true">→</span>
+                </ButtonLink>
+                <a className="btn btn--outline" href={`mailto:${contactEmail}`}>
+                  {contactEmail}
+                </a>
+                <a
+                  className="btn btn--outline"
+                  href={`${import.meta.env.BASE_URL}privacy-policy.html`}
+                  title={isIndonesian ? 'Versi statis tanpa skrip — untuk pengunjung dengan ad blocker yang memblokir situs utama' : isChinese ? '静态无脚本版本——供广告拦截器拦截主站点时使用' : 'Statically rendered, script-free version — for visitors whose ad blocker blocks the main site'}
+                >
+                  {isIndonesian ? 'Versi statis (tanpa skrip)' : isChinese ? '静态版本（无脚本）' : 'Static version (no scripts)'}
+                </a>
+              </div>
+            </div>
           </div>
         </Wrap>
       </section>
