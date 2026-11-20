@@ -14,6 +14,9 @@ export default {
     { title: '4. Batasan Tanggung Jawab', body: 'Informasi di situs ini bersifat umum. BMG tidak bertanggung jawab atas kerugian yang timbul dari penggunaan informasi tersebut.' },
     { title: '5. Perubahan Ketentuan', body: 'Ketentuan ini dapat diperbarui sewaktu-waktu. Versi terbaru selalu tersedia di halaman ini.' },
   ],
+  tocTitle: 'Isi Halaman',
+  scopeLabel: 'Situs & layanan BMG',
+  sectionCount: '{count} bagian',
   contact: 'Hubungi Kami',
   privacy: 'Kebijakan Privasi',
 }

@@ -13,5 +13,10 @@ export default {
     { q: 'Berapa lama proses perencanaan event?', a: 'Tergantung skala event, biasanya 2 hingga 8 minggu.' },
     { q: 'Apakah BMG menyediakan vendor?', a: 'Kami dapat mengoordinasikan vendor yang dibutuhkan untuk event Anda.' },
   ],
+  searchLabel: 'Cari pertanyaan',
+  searchPlaceholder: 'Cari pertanyaan…',
+  countLabel: '{shown} dari {total} pertanyaan',
+  emptyText: 'Tidak ada pertanyaan yang cocok dengan kata kunci itu. Coba kata lain, atau tanya langsung ke tim kami.',
+  emptyCta: 'Tanya Langsung',
   stillQuestions: 'Masih ada pertanyaan?',
 }

@@ -15,6 +15,11 @@
 @import "./assets/css/process.css";
 @import "./assets/css/motion.css";
 
+/* Help & legal pages — docs layout, help tiles, FAQ accordion. */
+@import "./assets/css/docs.css";
+@import "./assets/css/help.css";
+@import "./assets/css/faq.css";
+
 /* Chrome and animations are deliberately unlayered — they were unlayered in the
    old single file too, and they must stay above the components layer. */
 @import "./assets/css/chrome.css";

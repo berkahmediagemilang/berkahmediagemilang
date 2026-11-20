@@ -51,7 +51,7 @@ export default function Footer() {
                 <path d={siWhatsapp.path} />
               </svg>
             </a>
-            <a href="mailto:pt.berkahmediagemilang@gmail.com" aria-label="Email">
+            <a href="mailto:hello@bmg.co.id" aria-label="Email">
               <Mail size={18} />
             </a>
           </div>
@@ -106,7 +106,7 @@ export default function Footer() {
           </li>
           <li>
             <Mail size={16} />
-            <a href="mailto:pt.berkahmediagemilang@gmail.com">pt.berkahmediagemilang@gmail.com</a>
+            <a href="mailto:hello@bmg.co.id">hello@bmg.co.id</a>
           </li>
         </ul>
       </Wrap>

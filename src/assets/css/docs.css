@@ -1,0 +1,215 @@
+@layer components {
+
+  /* Help & legal pages — shared building blocks (privacy, terms)
+     Ported from the pre-split monolith so the split CSS keeps parity. */
+
+  .doc-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: clamp(16px, 3vw, 28px);
+  }
+
+  .doc-meta .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-brand-50);
+    border: 1px solid var(--color-brand-100);
+    color: var(--color-brand-700);
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* Table of contents card */
+  .doc-toc {
+    margin-bottom: clamp(20px, 3vw, 32px);
+    padding: clamp(16px, 2.4vw, 24px);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(180deg, var(--color-brand-50) 0%, #ffffff 90%);
+  }
+
+  .doc-toc__title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 12px;
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-brand-700);
+  }
+
+  .doc-toc__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .doc-toc__link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--color-ink-900);
+    text-decoration: none;
+    transition:
+      background-color 0.18s ease,
+      border-color 0.18s ease,
+      color 0.18s ease,
+      transform 0.18s ease;
+  }
+
+  .doc-toc__link:hover,
+  .doc-toc__link:focus-visible {
+    background: #ffffff;
+    border-color: var(--color-brand-200);
+    color: var(--color-brand-700);
+    transform: translateX(3px);
+  }
+
+  .doc-toc__num {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    background: #ffffff;
+    border: 1px solid var(--color-brand-100);
+    color: var(--color-brand-600);
+  }
+
+  /* Side-by-side layout — sticky TOC on desktop, stacked on mobile */
+  .doc-layout {
+    display: grid;
+    gap: clamp(20px, 3vw, 32px);
+  }
+
+  .doc-sidebar {
+    margin: 0;
+    align-self: start;
+  }
+
+  @media (min-width: 760px) {
+    .doc-layout {
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    .doc-sidebar {
+      position: sticky;
+      top: calc(var(--header-h) + 24px);
+      max-height: calc(100vh - var(--header-h) - 48px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+    }
+
+    .doc-sidebar .doc-toc__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .doc-layout {
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 28px;
+    }
+  }
+
+  /* Section card with icon */
+  .doc-section {
+    scroll-margin-top: calc(var(--header-h) + 24px);
+    margin-top: 14px;
+    padding: clamp(18px, 2.6vw, 26px);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    background: #ffffff;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .doc-section:first-of-type {
+    margin-top: 0;
+  }
+
+  .doc-section:hover {
+    border-color: var(--color-brand-200);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .doc-section__head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+  }
+
+  .doc-section__head .h3 {
+    margin: 0;
+  }
+
+  .doc-section p {
+    color: var(--color-muted);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .doc-section p + p {
+    margin-top: 10px;
+  }
+
+  .doc-list {
+    list-style: none;
+    margin: 12px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+  }
+
+  .doc-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-muted);
+  }
+
+  .doc-list svg {
+    flex: none;
+    margin-top: 2px;
+    color: var(--color-accent-500);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .doc-toc__link,
+    .doc-section {
+      transition: none;
+    }
+
+    .doc-toc__link:hover {
+      transform: none;
+    }
+  }
+}

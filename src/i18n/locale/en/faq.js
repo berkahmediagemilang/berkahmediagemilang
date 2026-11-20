@@ -13,5 +13,10 @@ export default {
     { q: 'How long does event planning take?', a: 'Depending on scale, typically 2 to 8 weeks.' },
     { q: 'Does BMG provide vendors?', a: 'We can coordinate the vendors needed for your event.' },
   ],
+  searchLabel: 'Search questions',
+  searchPlaceholder: 'Search questions…',
+  countLabel: '{shown} of {total} questions',
+  emptyText: 'No questions match that keyword. Try another word, or ask our team directly.',
+  emptyCta: 'Ask Directly',
   stillQuestions: 'Still have questions?',
 }

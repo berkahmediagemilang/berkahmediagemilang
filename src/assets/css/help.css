@@ -1,0 +1,112 @@
+@layer components {
+
+  /* Help centre — interactive tiles (help page) */
+
+  .help-tiles {
+    display: grid;
+    gap: 16px;
+  }
+
+  @media (min-width: 720px) {
+    .help-tiles {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .help-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: clamp(18px, 2.4vw, 24px);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    background: #ffffff;
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .help-tile:hover,
+  .help-tile:focus-visible {
+    transform: translateY(-4px);
+    border-color: var(--color-brand-300);
+    box-shadow: var(--shadow-md);
+  }
+
+  .help-tile:hover .help-tile__icon,
+  .help-tile:focus-visible .help-tile__icon {
+    background: var(--color-accent-500);
+    color: #ffffff;
+    transform: scale(1.05);
+  }
+
+  .help-tile__icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: var(--color-brand-50);
+    color: var(--color-brand-600);
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .help-tile__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-ink-900);
+  }
+
+  .help-tile__desc {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-muted);
+  }
+
+  .help-tile__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-brand-600);
+  }
+
+  .help-tile__cta svg {
+    transition: transform 0.18s ease;
+  }
+
+  .help-tile:hover .help-tile__cta,
+  .help-tile:focus-visible .help-tile__cta {
+    color: var(--color-brand-700);
+  }
+
+  .help-tile:hover .help-tile__cta svg,
+  .help-tile:focus-visible .help-tile__cta svg {
+    transform: translateX(4px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .help-tile,
+    .help-tile__icon,
+    .help-tile__cta svg {
+      transition: none;
+    }
+
+    .help-tile:hover,
+    .help-tile:hover .help-tile__icon {
+      transform: none;
+    }
+  }
+}

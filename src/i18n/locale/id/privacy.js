@@ -102,6 +102,9 @@ export default {
     },
   ],
   contact: 'Hubungi Kami',
+  tocTitle: 'Isi Halaman',
+  effectiveDate: 'Berlaku sejak 12 November 2026',
+  sectionCount: '{count} bagian',
   staticVersion: 'Versi statis (tanpa skrip)',
   staticVersionTitle: 'Versi statis tanpa skrip — untuk pengunjung dengan ad blocker yang memblokir situs utama',
 }

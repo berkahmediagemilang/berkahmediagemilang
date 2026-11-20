@@ -7,6 +7,7 @@ export default {
   title: 'Help Center',
   titleAccent: 'Center',
   lead: 'Need help? Contact the BMG team or see the links below.',
+  hint: 'Pick one — we get back to you fast.',
   contact: {
     title: 'Contact Us',
     desc: 'Send us a message through our contact form.',

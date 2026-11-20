@@ -102,6 +102,9 @@ export default {
     },
   ],
   contact: 'Contact Us',
+  tocTitle: 'On This Page',
+  effectiveDate: 'Effective from 12 November 2026',
+  sectionCount: '{count} sections',
   staticVersion: 'Static version (no scripts)',
   staticVersionTitle: 'Statically rendered, script-free version — for visitors whose ad blocker blocks the main site',
 }

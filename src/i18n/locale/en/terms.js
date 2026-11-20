@@ -14,6 +14,9 @@ export default {
     { title: '4. Limitation of Liability', body: 'Information on this site is general in nature. BMG is not liable for any loss arising from the use of this information.' },
     { title: '5. Changes to Terms', body: 'These terms may be updated at any time. The latest version is always available on this page.' },
   ],
+  tocTitle: 'On This Page',
+  scopeLabel: 'BMG website & services',
+  sectionCount: '{count} sections',
   contact: 'Contact Us',
   privacy: 'Privacy Policy',
 }

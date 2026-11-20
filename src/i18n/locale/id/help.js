@@ -7,6 +7,7 @@ export default {
   title: 'Pusat Bantuan',
   titleAccent: 'Bantuan',
   lead: 'Butuh bantuan? Hubungi tim BMG atau lihat tautan di bawah ini.',
+  hint: 'Pilih salah satu — kami jawab secepatnya.',
   contact: {
     title: 'Hubungi Kami',
     desc: 'Kirim pesan lewat formulir kontak kami.',

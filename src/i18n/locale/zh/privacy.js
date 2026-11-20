@@ -102,6 +102,9 @@ export default {
     },
   ],
   contact: '联系我们',
+  tocTitle: '本页目录',
+  effectiveDate: '生效日期：2026 年 11 月 12 日',
+  sectionCount: '共 {count} 节',
   staticVersion: '静态版本（无脚本）',
   staticVersionTitle: '静态无脚本版本——供广告拦截器拦截主站点时使用',
 }

@@ -13,5 +13,10 @@ export default {
     { q: '活动策划需要多长时间？', a: '取决于活动规模，通常为 2 至 8 周。' },
     { q: 'BMG 是否提供供应商？', a: '我们可以为您的活动协调所需的供应商。' },
   ],
+  searchLabel: '搜索问题',
+  searchPlaceholder: '搜索问题…',
+  countLabel: '共 {total} 个问题，显示 {shown} 个',
+  emptyText: '没有找到匹配的问题。试试其他关键词，或直接联系我们的团队。',
+  emptyCta: '直接提问',
   stillQuestions: '还有问题？',
 }
